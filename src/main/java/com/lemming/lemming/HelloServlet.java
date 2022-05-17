@@ -1,4 +1,4 @@
-package org.lemming.lemming;
+package com.lemming.lemming;
 
 import java.io.*;
 import javax.servlet.http.*;
