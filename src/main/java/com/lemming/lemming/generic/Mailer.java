@@ -25,8 +25,8 @@ public class Mailer
         // 发件人电子邮箱
         String from = "lemming_robot@126.com";
 
-        // 指定发送邮件的主机为 smtp.qq.com
-        String host = "smtp.126.com";  //QQ 邮件服务器
+        // 指定发送邮件的主机为 smtp.126.com
+        String host = "smtp.126.com";
 
         // 获取系统属性
         Properties properties = System.getProperties();
