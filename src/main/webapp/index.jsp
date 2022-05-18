@@ -5,6 +5,8 @@
     <title>旅鼠论坛</title>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/index.css">
+    <script src="bootstrap/js/jquery.js"></script>
+    <script src="bootstrap/js/bootstrap.bundle.js"></script>
 </head>
 <body>
 <div class="header">
@@ -25,6 +27,7 @@
                 <div class="userBox">
                     <span id="userName" class="hidden-sm hidden-xs">未登录</span>
                     <span id="groupName" class="hidden-sm hidden-xs">游客</span>
+                    <span ><a href="login.jsp">注册</a></span>
                 </div>
             </div>
         </div>
