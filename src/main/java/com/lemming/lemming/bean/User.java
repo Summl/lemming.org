@@ -6,7 +6,7 @@ import java.util.Date;
 
 public class User {
     private int id;
-    private String nickName;
+    private String userName;
     private String phone;
     private String email;
     private int group;
@@ -16,7 +16,7 @@ public class User {
 
     public void parseFromResultSet(ResultSet res) throws SQLException {
         setId(res.getInt("id"));
-        setNickName(res.getString("nick_name"));
+        setUserName(res.getString("nick_name"));
         setEmail(res.getString("email"));
         setGroup(res.getInt("group_id"));
         setSex(res.getString("sex"));
@@ -33,12 +33,12 @@ public class User {
         this.id = id;
     }
 
-    public String getNickName() {
-        return nickName;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setNickName(String nickName) {
-        this.nickName = nickName;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getPhone() {

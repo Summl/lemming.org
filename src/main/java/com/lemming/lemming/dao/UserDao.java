@@ -16,7 +16,7 @@ public class UserDao {
      * @param passwd 用户密码
      * @return 返回是否注册成功
      */
-    public static boolean register(String email, String passwd){
+    public static boolean register(String userName, String email, String passwd){
         Connection connection = DataBaseConnect.getConnection();
 
         PreparedStatement preparedStatement = null;
@@ -24,10 +24,10 @@ public class UserDao {
             return false;
         }
 
-        String sql = "insert into user(nick_name,email,password,registration_time) VALUES (?,?,?,NOW())";
+        String sql = "insert into user(user_name,email,password,registration_time) VALUES (?,?,?,NOW())";
         try {
             preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1,email);
+            preparedStatement.setString(1,userName);
             preparedStatement.setString(2,email);
             preparedStatement.setString(3,passwd);
             int res = preparedStatement.executeUpdate();

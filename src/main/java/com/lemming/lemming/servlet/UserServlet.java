@@ -25,15 +25,16 @@ public class UserServlet extends HttpServlet {
         }
     }
     protected void registerServlet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String userName = req.getParameter("userName");
         String email = req.getParameter("email");
         String passwd = req.getParameter("passwd");
         String verifyCode = req.getParameter("verifyCode");
 
-        if (!verifyCode.toLowerCase().equals(req.getSession().getAttribute("EmailVerifyCode").toString().toLowerCase())){
+        if (!verifyCode.equalsIgnoreCase(req.getSession().getAttribute("EmailVerifyCode").toString())){
             // 验证码验证失败
             return;
         }
-        boolean res = UserDao.register(email,passwd);
+        boolean res = UserDao.register(userName,email,passwd);
         if (res){
             // 注册成功
         }else  {
