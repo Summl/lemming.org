@@ -1,0 +1,70 @@
+.header {
+    background-color: #333333;
+    height: 70px;
+}
+header {
+    height: 70px;
+}
+
+header .row {
+    height: 70px;
+}
+header .logo {
+    height: 70px;
+    color: white;
+    font-size: 40px;
+    line-height: 70px;
+}
+header nav {
+    height: 70px;
+}
+header .user {
+    height: 70px;
+}
+
+#head-image {
+    float: right;
+    margin-top: 10px;
+    height: 50px;
+    width: 50px;
+    border-radius: 25px;
+    border: 2px solid white;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+.userBox {
+    float: right;
+    margin-top: 13px;
+    margin-right: 10px;
+}
+#userName {
+    display: block;
+    color: white;
+    font-size: 17px;
+    text-align: right;
+    cursor: pointer;
+}
+#groupName {
+    font-size: 16px;
+    display: block;
+    color: white;
+    text-align: right;
+    cursor: pointer;
+}
+.nav_item {
+    color: white;
+    box-sizing: border-box;
+    height: 70px;
+    line-height: 70px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 17px;
+    border-bottom: 4px;
+    cursor: default;
+}
+.nav_item:hover {
+    background-color: #fff1;
+    color: white;
+    text-decoration: none;
+    border-bottom: 4px solid orange;
+}
