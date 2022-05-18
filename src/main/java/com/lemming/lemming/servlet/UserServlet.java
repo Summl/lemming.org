@@ -13,9 +13,15 @@ public class UserServlet extends HttpServlet {
         userid = (String) req.getSession().getAttribute("userid");
 
         switch (req.getParameter("type")){
-            case "":
-        }
+            case "register":
+                registerServlet(req,resp);
+                break;
+            case "login":
 
-        super.doGet(req, resp);
+                break;
+        }
+    }
+    protected void registerServlet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.getParameter("");
     }
 }
