@@ -70,6 +70,12 @@ public class UserDao {
             throw new RuntimeException(e);
         }
     }
+
+    /**
+     * 通过用户邮箱获取用户
+     * @param email 用户邮箱
+     * @return 返回查找到的用户对象，若没有找到或查找失败则返回null
+     */
     public static User getUserByEmail(String email) {
         User user = new User();
         Connection connection = DataBaseConnect.getConnection();
@@ -83,6 +89,38 @@ public class UserDao {
         try {
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1,email);
+            ResultSet res = preparedStatement.executeQuery();
+            if (res.next()){
+                user.parseFromResultSet(res);
+            }else {
+                user = null;
+            }
+            connection.close();
+            preparedStatement.close();
+            return user;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * 通过用户名获取用户
+     * @param name 用户名
+     * @return 返回查找到的用户对象，若没有找到或查找失败则返回null
+     */
+    public static User getUserByName(String name) {
+        User user = new User();
+        Connection connection = DataBaseConnect.getConnection();
+
+        PreparedStatement preparedStatement = null;
+        if (connection==null){
+            return null;
+        }
+
+        String sql = "select * from user where user_name=?";
+        try {
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1,name);
             ResultSet res = preparedStatement.executeQuery();
             if (res.next()){
                 user.parseFromResultSet(res);
