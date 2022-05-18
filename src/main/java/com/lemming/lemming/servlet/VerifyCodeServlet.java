@@ -13,11 +13,11 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 /**
- * 获取验证码的Servlet，使用GET向此Servlet发送请求，将得到一个验证码图片，并在Session中存入验证码文本信息。
+ * 获取验证码的 Servlet，使用 GET 向此 Servlet 发送请求，将得到一个验证码图片，并在 Session 中存入验证码文本信息。
  * 例如：
  *  发送邮箱验证码：http://localhost:8080/lemming_war_exploded/verifyCode?type=email&to=maicss@126.com
  *  获取图片验证码：http://localhost:8080/lemming_war_exploded/verifyCode?type=image
- *  验证码将分别存储在Session中的ImageVerifyCode和EmailVerifyCode中。
+ *  验证码将分别存储在 Session 中的 ImageVerifyCode 和 EmailVerifyCode 中。
  */
 @WebServlet("/verifyCode")
 public class VerifyCodeServlet extends HttpServlet {

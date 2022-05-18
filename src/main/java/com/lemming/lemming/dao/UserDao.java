@@ -1,53 +1,99 @@
 package com.lemming.lemming.dao;
 
+import com.lemming.lemming.DataBaseConnect;
+import com.lemming.lemming.bean.User;
+
 import java.sql.Connection;
-import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class UserDao {
-    static class DBConfig {
-        public static String ClassName = "com.mysql.cj.jdbc.Driver";
-        public static String Host = "120.48.35.85";
-        public static int Port = 3306;
-        public static String DBName = "lemming";
-        public static String User = "root";
-        public static String Password = "root";
-        public static String CharacterEncoding = "UTF-8";
-        public static String Url(){
-            return String.format("jdbc:mysql://%s:%d/%s?characterEncoding=%s",Host,Port,DBName,CharacterEncoding);
-        }
-    }
-
-    static Connection conn;
-    static {
-        reconnect();
-    }
 
     /**
-     * 重新连接数据库
+     * 注册一个账户，将昵称设置为Email，并为其设置密码。
+     * @param email 用户的电子邮箱
+     * @param passwd 用户密码
+     * @return 返回是否注册成功
      */
-    private static void reconnect(){
-        try {
-            Class.forName(DBConfig.ClassName);
-            conn = DriverManager.getConnection(DBConfig.Url(), DBConfig.User, DBConfig.Password);
-        } catch (SQLException | ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-    }
-    /**
-     * 获取向数据库的连接
-     * @return 若成功返回Connection，若失败返回null
-     */
-    public static Connection getConnection() {
+    public static boolean register(String email, String passwd){
+        Connection connection = DataBaseConnect.getConnection();
 
+        PreparedStatement preparedStatement = null;
+        if (connection==null){
+            return false;
+        }
+
+        String sql = "insert into user(nick_name,email,password,registration_time) VALUES (?,?,?,NOW())";
         try {
-            // 如果链接已被断开，则重新链接
-            if (conn.isClosed()){
-                reconnect();
-            }
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1,email);
+            preparedStatement.setString(2,email);
+            preparedStatement.setString(3,passwd);
+            int res = preparedStatement.executeUpdate();
+            connection.close();
+            preparedStatement.close();
+            return res > 0;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return conn;
+    }
+
+    /**
+     * 通过用户 ID 获取用户对象。
+     * @param id 要获取的用户ID
+     * @return 返回查找到的用户对象，若没有找到或查找失败则返回null
+     */
+    public static User getUserById(int id) {
+        User user = new User();
+        Connection connection = DataBaseConnect.getConnection();
+
+        PreparedStatement preparedStatement = null;
+        if (connection==null){
+            return null;
+        }
+
+        String sql = "select * from user where id=?";
+        try {
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1,id);
+            ResultSet res = preparedStatement.executeQuery();
+            if (res.next()){
+                user.parseFromResultSet(res);
+            }else {
+                user = null;
+            }
+            connection.close();
+            preparedStatement.close();
+            return user;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public static User getUserByEmail(String email) {
+        User user = new User();
+        Connection connection = DataBaseConnect.getConnection();
+
+        PreparedStatement preparedStatement = null;
+        if (connection==null){
+            return null;
+        }
+
+        String sql = "select * from user where email=?";
+        try {
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1,email);
+            ResultSet res = preparedStatement.executeQuery();
+            if (res.next()){
+                user.parseFromResultSet(res);
+            }else {
+                user = null;
+            }
+            connection.close();
+            preparedStatement.close();
+            return user;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
