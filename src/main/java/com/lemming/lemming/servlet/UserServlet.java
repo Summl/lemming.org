@@ -55,8 +55,8 @@ public class UserServlet extends HttpServlet {
 
     }
     protected void loginServlet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String usr = req.getParameter("user");
-        String passwd = req.getParameter("passwd");
+        String usr = req.getParameter("userName");
+        String passwd = req.getParameter("password");
         String verifyCode = req.getParameter("verifyCode");
 
         if (!verifyCode.equalsIgnoreCase(req.getSession().getAttribute("ImageVerifyCode").toString())){
