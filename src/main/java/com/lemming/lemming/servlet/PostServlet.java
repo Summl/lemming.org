@@ -1,5 +1,6 @@
 package com.lemming.lemming.servlet;
 
+import com.lemming.lemming.bean.Post;
 import com.lemming.lemming.dao.PostDao;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileItemFactory;
@@ -28,8 +29,17 @@ public class PostServlet extends HttpServlet {
                 uploadPost(req,resp);
                 break;
         }
-
     }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8");
+        switch (req.getParameter("type")){
+            case "page":
+                pageServlet(req,resp);
+        }
+    }
+
     protected void uploadImage(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         FileItemFactory factory = new DiskFileItemFactory();
         ServletFileUpload upload = new ServletFileUpload(factory);
@@ -74,6 +84,7 @@ public class PostServlet extends HttpServlet {
         if (userid==null){
             req.setAttribute("tip","您的登录已过期，请重新登录");
             req.getRequestDispatcher("login.jsp").forward(req,resp);
+            return;
         }
 
         String postDir = req.getSession().getServletContext().getRealPath("data/posts");
@@ -114,5 +125,18 @@ public class PostServlet extends HttpServlet {
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
+
+    }
+    protected void pageServlet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String postid = req.getParameter("post");
+        Post post = PostDao.getPostById(Integer.parseInt(postid));
+
+        if (post == null){
+            resp.setStatus(404);
+            return;
+        }
+
+        req.setAttribute("post",post);
+        req.getRequestDispatcher("postpage.jsp").forward(req,resp);
     }
 }
