@@ -24,7 +24,7 @@ public class UserDao {
             return false;
         }
 
-        String sql = "insert into user(user_name,email,password,registration_time) VALUES (?,?,?,NOW())";
+        String sql = "insert into user(user_name,email,user_password,registration_time) VALUES (?,?,?,NOW())";
         try {
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1,userName);

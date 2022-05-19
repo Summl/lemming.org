@@ -11,7 +11,7 @@
     <title>注册 - 旅鼠论坛</title>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <script src="bootstrap/js/jquery.js"></script>
-    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="bootstrap/js/bootstrap.bundle.js"></script>
 </head>
 <body>
 <div class="page">
@@ -22,7 +22,7 @@
             <input id="login_name" type="text" name="userName" placeholder="用户名" ><br>
             <input id="login_pwd" type="password" name="password" placeholder="密码"><br>
             <input id="login_verifyCode" type="text" name="verifyCode" placeholder="验证码" >
-            <img src="verifyCode" alt="验证码"  onclick="changCode(this)"><br><br>
+            <img src="verifyCode?type=image" alt="验证码"  onclick="changCode(this)"><br><br>
             <input type="submit" value="立即登录">
         </form>
         <div class="tip">
@@ -30,13 +30,13 @@
         </div>
     </div>
     <div class="pageRegister" id="page_register">
-
         <form action="user?type=register" method="post" onsubmit="return checkRegisterForm()">
             <p class="message"></p>
             <input id="register_name" type="text" name="userName" placeholder="用户名"><br>
             <input id="register_pwd" type="password" name="password" placeholder="密码"><br>
             <input id="register_email" name="email" placeholder="邮箱"><br>
             <input id="register_verifyCode" type="text" name="verifyCode" placeholder="邮箱验证码"><br>
+            <button id="getMailVerifyCode">发送邮箱验证码</button>
             <input type="submit" value="立即注册">
         </form>
         <div class="tip">
@@ -46,7 +46,6 @@
 </div>
 </body>
 <script>
-    $(function(){
 
         function checkRegisterForm() {
             if($("#register_name").val() == ""){
@@ -96,9 +95,22 @@
             }
         }
         function changCode(obj) {
-            obj.src = "verifyCode?x="+Math.random();
+            obj.src = "verifyCode?type=image&r="+Math.random();
         }
+        let email = document.getElementById("register_email");
 
-    });
+        let getMailCodeBtn = document.getElementById("getMailVerifyCode")
+        getMailCodeBtn.addEventListener("click",function (){
+            let httpRequest = new XMLHttpRequest();//第一步：建立所需的对象
+            httpRequest.open('GET', 'verifyCode?type=email&to='+email.value, true);//第二步：打开连接  将请求参数写在url中  ps:"./Ptest.php?name=test&nameone=testone"
+            httpRequest.send();//第三步：发送请求  将请求参数写在URL中
+            /**
+             * 获取数据后的处理程序
+             */
+            httpRequest.onreadystatechange = function () {
+                getMailCodeBtn.innerText = "已发送，请注意查收"
+            };
+        })
+
 </script>
 </html>

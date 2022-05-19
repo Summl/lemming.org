@@ -13,7 +13,7 @@ import java.io.IOException;
 @WebServlet("/user")
 public class UserServlet extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         switch (req.getParameter("type")){
             case "register":
@@ -27,7 +27,7 @@ public class UserServlet extends HttpServlet {
     protected void registerServlet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String userName = req.getParameter("userName");
         String email = req.getParameter("email");
-        String passwd = req.getParameter("passwd");
+        String passwd = req.getParameter("password");
         String verifyCode = req.getParameter("verifyCode");
 
         if (!verifyCode.equalsIgnoreCase(req.getSession().getAttribute("EmailVerifyCode").toString())){
@@ -57,7 +57,15 @@ public class UserServlet extends HttpServlet {
     protected void loginServlet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String usr = req.getParameter("user");
         String passwd = req.getParameter("passwd");
+        String verifyCode = req.getParameter("verifyCode");
 
+        if (!verifyCode.equalsIgnoreCase(req.getSession().getAttribute("ImageVerifyCode").toString())){
+            // 验证码验证失败
+            req.setAttribute("title","注册失败");
+            req.setAttribute("context","验证码校验失败，请重新登录。");
+            req.getRequestDispatcher("message.jsp").forward(req,resp);
+            return;
+        }
         // 这里首先根据邮箱列查找，若找不到则根据用户名列查找。
         User user = UserDao.getUserByEmail(usr);
         if (user==null){

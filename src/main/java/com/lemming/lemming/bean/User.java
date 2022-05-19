@@ -16,12 +16,12 @@ public class User {
 
     public void parseFromResultSet(ResultSet res) throws SQLException {
         setId(res.getInt("id"));
-        setUserName(res.getString("nick_name"));
+        setUserName(res.getString("user_name"));
         setEmail(res.getString("email"));
         setGroup(res.getInt("group_id"));
         setSex(res.getString("sex"));
         setPhone(res.getString("phone"));
-        setPassword(res.getString("password"));
+        setPassword(res.getString("user_password"));
         setRegistrationDate(res.getDate("registration_time"));
     }
 
