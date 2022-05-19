@@ -89,7 +89,7 @@ public class VerifyCodeUtil {
     //随机字符
     private static char randomChar() {
         //A-Z,a-z,0-9,可剔除一些难辨认的字母与数字
-        String str = "0123456789ABCdefghiDEFGHIJopPQRVWXYZabcjklSTUmnqrstKLMNOvuwxyz";
+        String str = "23456789ABCdefghiDEFGHJopPQRVWXYZabcjkSTUmnqrstKLMNvuwxyz";
 
         return str.charAt(random.nextInt(str.length()));
     }

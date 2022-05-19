@@ -1,0 +1,115 @@
+body {
+    height: 100%;
+    width: 100%;
+    background-image: url("../images/shouyelunbo1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.mainbox {
+    position: fixed;
+    height: 400px;
+    width: 700px;
+    left: 50%;
+    top: 50%;
+    margin-top: -200px;
+    margin-left: -350px;
+    box-shadow: 2px 2px 5px 0 #00000023;
+    border-radius: 12px;
+    background-color: rgba(255,149,0,1);
+    background-image: url("../images/logo.png");
+    background-position: right;
+    background-repeat: no-repeat;
+    background-position-x: 420px;
+    overflow: hidden;
+}
+.mainbox > div {
+    width: 400px;
+    height: 100%;
+    padding: 10px 60px;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+.mainbox > div div{
+    height: 260px;
+    width: 100%;
+}
+
+.mainbox > div div form{
+    position: relative;
+    height: 100%;
+    margin: 0;
+}
+
+#switchPage {
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid #eee;
+}
+
+#switchPage {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+#switchPage li {
+    width: 50%;
+    float: left;
+    height: 50px;
+    text-align: center;
+    font-size: 18px;
+    line-height: 50px;
+    border-bottom: 4px solid #0000;
+    cursor: pointer;
+    color: #666;
+}
+
+.CurrentPageLi {
+    border-bottom-color: rgba(255,149,0,1) !important;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"]{
+    background-color: #f0f0f0;
+    height: 38px;
+    width: 100%;
+    margin-bottom: 10px;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    padding: 10px;
+}
+input[type="submit"] {
+    position: absolute;
+    bottom: 0;
+    background-color: rgba(255,149,0,1);
+    color: white;
+    border-radius: 8px;
+    width: 100%;
+    height: 38px;
+    border: 0;
+    left: 0;
+}
+.tip {
+    margin: 8px 0;
+    color: crimson;
+    border-radius: 8px;
+    height: 28px;
+    line-height: 28px;
+}
+#login_verifyCode {
+    width: 220px;
+}
+#register_verifyCode {
+    width: 50%;
+}
+#btn_mailVerifyCode {
+    width: 48%;
+    box-sizing: border-box;
+    height: 38px;
+    border: 1px solid #888;
+    border-radius: 4px;
+    margin: 0;
+    background-color: #fff;
+}

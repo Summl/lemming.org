@@ -25,9 +25,8 @@
             <div class="user col-md-2 col-xs-2">
                 <img src="https://lh3.googleusercontent.com/ogw/ADea4I4V8diuWgcg7KKvmN1i6AMFxFZ9UcTFJoiSgPaJ=s32-c-mo" id="head-image">
                 <div class="userBox">
-                    <span id="userName" class="hidden-sm hidden-xs">未登录</span>
+                    <a id="userName" class="hidden-sm hidden-xs" href="login.jsp">注册</a>
                     <span id="groupName" class="hidden-sm hidden-xs">游客</span>
-                    <span ><a href="login.jsp">注册</a></span>
                 </div>
             </div>
         </div>

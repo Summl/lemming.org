@@ -25,16 +25,23 @@ public class UserServlet extends HttpServlet {
         }
     }
     protected void registerServlet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String userName = req.getParameter("userName");
-        String email = req.getParameter("email");
-        String passwd = req.getParameter("password");
-        String verifyCode = req.getParameter("verifyCode");
+        String userName = req.getParameter("register_userName");
+        String email = req.getParameter("register_email");
+        String passwd = req.getParameter("register_password");
+        String verifyCode = req.getParameter("register_verifyCode");
 
+
+        String realCode = (String) req.getSession().getAttribute("EmailVerifyCode");
+        if (realCode == null){
+            // 验证码验证失败
+            req.setAttribute("tip","您需要先获取邮箱验证码！");
+            req.getRequestDispatcher("login.jsp#register").forward(req,resp);
+            return;
+        }
         if (!verifyCode.equalsIgnoreCase(req.getSession().getAttribute("EmailVerifyCode").toString())){
             // 验证码验证失败
-            req.setAttribute("title","注册失败");
-            req.setAttribute("context","验证码校验失败，请重新注册。");
-            req.getRequestDispatcher("message.jsp").forward(req,resp);
+            req.setAttribute("tip","验证码校验失败，请重新注册！");
+            req.getRequestDispatcher("login.jsp#register").forward(req,resp);
             return;
         }
         boolean res = UserDao.register(userName,email,passwd);
@@ -47,23 +54,21 @@ public class UserServlet extends HttpServlet {
             req.getRequestDispatcher("message.jsp").forward(req,resp);
         }else  {
             // 注册失败
-            req.setAttribute("title","注册失败");
-            req.setAttribute("context","很抱歉注册失败，请联系管理员。"); //TODO：这里应当显示更详细的失败原因。
-            req.getRequestDispatcher("message.jsp").forward(req,resp);
+            req.setAttribute("tip","很抱歉注册失败，请联系管理员！");
+            req.getRequestDispatcher("login.jsp#register").forward(req,resp);
         }
 
 
     }
     protected void loginServlet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String usr = req.getParameter("userName");
-        String passwd = req.getParameter("password");
-        String verifyCode = req.getParameter("verifyCode");
+        String usr = req.getParameter("login_userName");
+        String passwd = req.getParameter("login_password");
+        String verifyCode = req.getParameter("login_verifyCode");
 
         if (!verifyCode.equalsIgnoreCase(req.getSession().getAttribute("ImageVerifyCode").toString())){
             // 验证码验证失败
-            req.setAttribute("title","注册失败");
-            req.setAttribute("context","验证码校验失败，请重新登录。");
-            req.getRequestDispatcher("message.jsp").forward(req,resp);
+            req.setAttribute("tip","验证码校验失败，请重新登录。");
+            req.getRequestDispatcher("login.jsp").forward(req,resp);
             return;
         }
         // 这里首先根据邮箱列查找，若找不到则根据用户名列查找。
@@ -72,17 +77,15 @@ public class UserServlet extends HttpServlet {
             user = UserDao.getUserByName(usr);
             if (user==null){
                 // 登录失败，没找到该用户
-                req.setAttribute("title","登录失败");
-                req.setAttribute("context","登录失败，没有找到对应用户。");
-                req.getRequestDispatcher("message.jsp").forward(req,resp);
+                req.setAttribute("tip","登录失败，没有找到对应用户。");
+                req.getRequestDispatcher("login.jsp").forward(req,resp);
                 return;
             }
         }
         if (!user.getPassword().equals(passwd)){
             // 登录失败，密码错误
-            req.setAttribute("title","登录失败");
-            req.setAttribute("context","登录失败，密码错误。");
-            req.getRequestDispatcher("message.jsp").forward(req,resp);
+            req.setAttribute("tip","登录失败，密码错误。");
+            req.getRequestDispatcher("login.jsp").forward(req,resp);
             return;
         }
 
