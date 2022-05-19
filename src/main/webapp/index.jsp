@@ -4,9 +4,9 @@
 <head>
     <title>旅鼠论坛</title>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/index.css">
     <script src="bootstrap/js/jquery.js"></script>
     <script src="bootstrap/js/bootstrap.bundle.js"></script>
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
 <div class="header">
@@ -29,6 +29,9 @@
                     <span id="groupName" class="hidden-sm hidden-xs">游客</span>
                 </div>
             </div>
+        </div>
+        <div class="row">
+            <a href="newpost.jsp">发布新文章</a>
         </div>
     </header>
 </div>

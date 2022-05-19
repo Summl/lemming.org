@@ -1,0 +1,21 @@
+#title {
+    font-size: 28px;
+    outline: none;
+    border: none;
+    padding: 12px 0;
+}
+#editor {
+    min-height: 800px;
+}
+.btn-post {
+    background-color: rgba(255,149,0);
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    height: 45px;
+    font-size: 16px;
+}
+.submitBox {
+    margin: 38px 0;
+}

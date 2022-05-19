@@ -1,0 +1,45 @@
+let editor
+function uuid() {
+    let s = [];
+    let hexDigits = "0123456789abcdef";
+    for (let i = 0; i < 36; i++) {
+        s[i] = hexDigits.substr(Math.floor(Math.random() * 0x10), 1);
+    }
+    s[14] = "4";  // bits 12-15 of the time_hi_and_version field to 0010
+    s[19] = hexDigits.substr((s[19] & 0x3) | 0x8, 1);  // bits 6-7 of the clock_seq_hi_and_reserved to 01
+    s[8] = s[13] = s[18] = s[23] = "-";
+    return s.join("");
+}
+
+function updateContent(){
+    let hide_input = document.getElementById("content")
+    hide_input.value = editor.getValue();
+    return hide_input.value.replace("\n","").replace(" ","") !== "";
+}
+
+window.onload = function () {
+    // 初始化编辑器
+    editor = new Vditor("editor", {
+        input (md) {
+            updateContent()
+        },
+        upload: {
+            accept: 'image/*',
+            token: 'test',
+            url: 'post?type=image',
+            linkToImgUrl: 'post?type=image',
+            filename (name) {
+                name = uuid();
+                return name
+            },
+            success(e, msg){
+                editor.insertValue("![](data/images/"+msg+")")
+                editor.tip("上传图片成功",1)
+            }
+        },
+        "outline": {
+            "enable": true
+        }
+
+    })
+}

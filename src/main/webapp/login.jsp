@@ -6,8 +6,6 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%--取消登录状态--%>
-<% session.removeAttribute("user");%>
 <html>
 <head>
     <title>登录 - 旅鼠论坛</title>

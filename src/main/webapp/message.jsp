@@ -13,11 +13,11 @@
 <body>
 <%
     String title = (String) request.getAttribute("title");
-    String context = (String) request.getAttribute("context");
+    String content = (String) request.getAttribute("content");
 %>
 <div class="page" id="messagePage">
     <h1><%=title%></h1>
-    <h1><%=context%></h1>
+    <h1><%=content%></h1>
     <a href="loginPage.jsp" id="return">返回</a>
 </div>
 </body>
