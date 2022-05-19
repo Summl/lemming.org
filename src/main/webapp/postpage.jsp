@@ -1,4 +1,5 @@
-<%@ page import="com.lemming.lemming.bean.Post" %><%--
+<%@ page import="com.lemming.lemming.bean.Post" %>
+<%--
   Created by IntelliJ IDEA.
   User: maicss
   Date: 2022/5/19
