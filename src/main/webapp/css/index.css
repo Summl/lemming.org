@@ -24,11 +24,12 @@ header .user {
 
 #head-image {
     float: right;
-    margin-top: 10px;
-    height: 50px;
-    width: 50px;
-    border-radius: 25px;
-    border: 2px solid white;
+    margin-top: 5px;
+    height: 60px;
+    width: 60px;
+    background-color: #fff;
+    border-radius: 30px;
+    border: 2px solid #ffa200;
     box-sizing: border-box;
     cursor: pointer;
 }
@@ -38,18 +39,28 @@ header .user {
     margin-right: 10px;
 }
 #userName {
+    width: 75px;
     display: block;
     color: white;
-    font-size: 17px;
+    font-size: 15px;
+    text-align: right;
+    cursor: pointer;
+    margin-bottom: 3px;
+}
+#userName:hover{
+    color: #ffa200;
+    text-decoration: none;
+}
+#groupName {
+    font-size: 15px;
+    display: block;
+    color: white;
     text-align: right;
     cursor: pointer;
 }
-#groupName {
-    font-size: 16px;
-    display: block;
-    color: white;
-    text-align: right;
-    cursor: pointer;
+#groupName:hover
+{
+    color: #ffa200;
 }
 .nav_item {
     color: white;
@@ -64,7 +75,20 @@ header .user {
 }
 .nav_item:hover {
     background-color: #fff1;
-    color: white;
+    color: #ffa200;
     text-decoration: none;
-    border-bottom: 4px solid orange;
+    border-bottom: 4px solid #ffa200;
+}
+.nav_item:visited{
+    color: #fff;
+    text-decoration: none;
+}
+.nav_item:active{
+    text-decoration: none;
+}
+.nav_item:link{
+    text-decoration: none;
+}
+.dropdown-menu{
+    width: 30px;
 }

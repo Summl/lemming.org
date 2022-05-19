@@ -86,5 +86,27 @@ window.onload = function () {
             switchPage(0)
         }
     }
+    //选择登录密码是否显示
+    $('.show_btn_login').click(function (){
+        let $login_pwd = $("#login_pwd");
+        let $type1 = $login_pwd.attr('type');
+        let $show_btn = $(".show_btn");
+        if($type1 == "password"){
+            $login_pwd.attr('type','text');
+        }else if($type1 == "text"){
+            $login_pwd.attr('type','password');
+        }
+    });
+    //选择注册密码是否显示
+    $('.show_btn_register').click(function (){
+        let $show_btn_register=$('.show_btn_register')
+        let $register_pwd = $("#register_pwd");
+        let $type2 = $register_pwd.attr('type');
+        if($type2 == "password"){
+            $register_pwd.attr('type','text');
+        }else if($type2 == "text"){
+            $register_pwd.attr('type','password');
+        }
+    });
 
 }
