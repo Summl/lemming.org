@@ -125,10 +125,24 @@ header .user {
     text-align: left;
     padding: 18px;
     overflow: hidden;
+    cursor: pointer;
+    top: 0;
+    transition: top .4s, box-shadow .4s;
+
+}
+
+.contentList .itemBox:hover {
+    top: -5px;
+    box-shadow: 8px 12px 10px -5px #2222;
+    transition: top .4s, box-shadow .4s;
 }
 
 .contentList .itemBoxBig {
     width: 520px;
+}
+.contentList .itemBoxBig h3,
+.contentList .itemBoxBig p{
+    width: 230px;
 }
 .contentList .itemBoxSmail {
     width: 230px;
@@ -136,6 +150,11 @@ header .user {
 .itemBox .itemTitle {
     margin: 0;
     font-size: 22px;
+}
+
+.itemBox .itemBrief {
+    color: #898989;
+    margin: 18px 0 0 0;
 }
 .itemBox .postImage {
     position: absolute;
@@ -148,14 +167,24 @@ header .user {
     background-size: cover;
 
 }
+
 .leftBox {
     position: fixed;
     top: 0;
     height: 800px;
     width: 200px;
-    padding: 200px 0 0 0;
+    padding: 90px 0 0 0;
     background-color: #ffa200;
     box-sizing: border-box;
+    transition: height 1s;
+}
+.leftBox:hover {
+    height: 850px;
+    transition: height 1s;
+}
+.leftBox:hover .bigIcon{
+    transition: transform 1s;
+    transform: rotate(360deg);
 }
 .leftBox .end {
     position: absolute;
@@ -165,4 +194,28 @@ header .user {
     border: 100px solid #ffffff00;
     border-bottom-color: white;
 
+}
+.leftBox .bigIcon {
+    color: white;
+    font-size: 100px;
+    display: block;
+    text-align: center;
+    transition: transform 1s;
+    transform: rotate(0deg);
+}
+.leftBox ul {
+    list-style: none;
+    padding: 0;
+}
+
+.leftBox ul li{
+    text-align: center;
+    color: white;
+    font-size: 16px;
+    margin: 20px 0;
+}
+.leftBox h2 {
+    color: white;
+    text-align: center;
+    margin: 30px 0;
 }

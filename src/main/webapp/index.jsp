@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="css/index.css">
     <link rel="icon" href="images/logo.png">
     <script src="js/index.js"></script>
+    <link rel="stylesheet" href="bootstrap-icons/bootstrap-icons.css">
 </head>
 <body>
 <div id="bg_image"></div>
@@ -24,13 +25,6 @@
                 <div class="row">
                     <a class="nav_item col-xs-2 " href="#">首页</a>
                     <a class="nav_item col-xs-2 " href="newpost.jsp">发贴</a>
-<%--                    <a class="nav_item col-xs-2 dropdown dropdown-toggle" href="#"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">去旅行</a>--%>
-<%--                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">--%>
-<%--                        <a class="dropdown-item" href="#">当地游</a>--%>
-<%--                        <a class="dropdown-item" href="#">自由行</a>--%>
-<%--                        <div class="dropdown-divider"></div>--%>
-<%--                        <a class="dropdown-item" href="#">跟团游</a>--%>
-<%--                    </div>--%>
                     <a class="nav_item col-xs-2" href="#">准则</a>
                     <a class="nav_item col-xs-2" href="#">关于</a>
                 </div>
@@ -48,22 +42,18 @@
 <div class="container">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-2 contentList">
-<%--            <%--%>
-<%--                List<Post> posts = PostDao.queryPost(1,10, PostDao.POST_ORDER.ORDER_BY_TIME);--%>
-<%--                if (posts!=null){--%>
-<%--                    for(Post postFilename : posts){--%>
-<%--            %>--%>
-<%--            <div class="itemBox">--%>
-<%--                <h3 class="itemTitle"><%=postFilename.getTitle()%></h3>--%>
-<%--                <p class="itemBrief"><%=postFilename.getBrief()%></p>--%>
-<%--            </div>--%>
-<%--            <%--%>
-<%--                    }--%>
-<%--                }--%>
-<%--            %>--%>
+        <%-- 这里由JS添加内容 --%>
         </div>
     </div>
     <div class="col-xs-2 leftBox hidden-xs hidden-sm">
+        <i class="bigIcon bi bi-star-fill"></i>
+        <h2>旅游达人榜</h2>
+        <ul>
+            <li>Maicss</li>
+            <li>啦啦啦</li>
+            <li>哦哦哦</li>
+        </ul>
+
         <div class="end"></div>
     </div>
 </div>

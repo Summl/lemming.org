@@ -19,7 +19,7 @@
 
 let CurrentPage = 1
 
-function buildItemBox(title, brief, image) {
+function buildItemBox(postId, title, brief, image) {
     let res = document.createElement("div")
     res.classList.add("itemBox")
     let title_h3 = document.createElement("h3")
@@ -27,7 +27,7 @@ function buildItemBox(title, brief, image) {
     title_h3.classList.add("itemTitle")
     let brief_p = document.createElement("p")
     brief_p.innerText=brief
-    title_h3.classList.add("itemBrief")
+    brief_p.classList.add("itemBrief")
     if (image === undefined){
         res.classList.add("itemBoxSmail")
     }else {
@@ -39,6 +39,9 @@ function buildItemBox(title, brief, image) {
     }
     res.append(title_h3)
     res.append(brief_p)
+    res.addEventListener("click",function () {
+        window.open("post?type=page&post="+postId.toString())
+    })
     return res
 }
 
@@ -57,13 +60,13 @@ function loadPost() {
                 let title = list[i].title
                 let brief = list[i].brief
                 let image = list[i].imageFilename
-                let boxType
+                let postID = list[i].id
                 if (brief === undefined){
                     brief = ""
                 }
 
                 let contentList = document.getElementsByClassName("contentList")[0]
-                contentList.append(buildItemBox(title,brief,image))
+                contentList.append(buildItemBox(postID,title,brief,image))
             }
         }
     };
