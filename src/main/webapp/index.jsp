@@ -2,7 +2,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-
     <title>旅鼠论坛</title>
     <link rel="icon" href="images/logo.png">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
