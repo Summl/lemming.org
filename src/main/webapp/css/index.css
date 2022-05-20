@@ -1,4 +1,7 @@
-
+a {
+    color: black;
+    text-decoration: none;
+}
 #bg_image {
     position: fixed;
     top: 0;
@@ -80,7 +83,7 @@ header .user {
     color: #ffa200;
 }
 .nav_item {
-    color: #24292e;
+    color: #171717;
     box-sizing: border-box;
     height: 70px;
     line-height: 70px;

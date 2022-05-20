@@ -13,8 +13,8 @@
     <script src="bootstrap/js/jquery.js"></script>
     <script src="bootstrap/js/bootstrap.bundle.js"></script>
 <%-- 编辑器需要导入以下文件 --%>
-    <link rel="stylesheet" href="vditor/index.css" />
-    <script src="vditor/index.min.js"></script>
+    <link rel="stylesheet" href="vditor/dist/index.css" />
+    <script src="vditor/dist/index.min.js"></script>
 <%--  --%>
     <script src="js/newpost.js"></script>
     <link rel="stylesheet" href="css/newpost.css">
