@@ -20,7 +20,7 @@
 </div>
 <script>
     let httpRequest = new XMLHttpRequest();//第一步：建立所需的对象
-    httpRequest.open('GET', 'data/posts/<%=post.getPost()%>', true);//第二步：打开连接  将请求参数写在url中  ps:"./Ptest.php?name=test&nameone=testone"
+    httpRequest.open('GET', 'data/posts/<%=post.getPostFilename()%>', true);//第二步：打开连接  将请求参数写在url中  ps:"./Ptest.php?name=test&nameone=testone"
     httpRequest.send();//第三步：发送请求  将请求参数写在URL中
     httpRequest.onreadystatechange = function () {
         document.getElementById("view").innerHTML = mdToHtml(httpRequest.responseText)

@@ -1,7 +1,9 @@
 package com.lemming.lemming.servlet;
 
+import com.alibaba.fastjson.JSONObject;
 import com.lemming.lemming.bean.Post;
 import com.lemming.lemming.dao.PostDao;
+import com.lemming.lemming.generic.PageNumber;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileItemFactory;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
@@ -15,17 +17,16 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.util.List;
 import java.util.UUID;
-
 @WebServlet("/post")
 public class PostServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
         switch (req.getParameter("type")){
-            case "image":
+            case "image": // 上传图片
                 uploadImage(req,resp);
                 break;
-            case "post":
+            case "post": // 上传帖文
                 uploadPost(req,resp);
                 break;
         }
@@ -34,10 +35,25 @@ public class PostServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
+        resp.setCharacterEncoding("UTF-8");
         switch (req.getParameter("type")){
-            case "page":
+            case "page": // 浏览帖文
                 pageServlet(req,resp);
+            case "list": // 获取列表Json
+                listServlet(req,resp);
         }
+    }
+
+
+    protected void listServlet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String page = req.getParameter("page");
+        int pageNumber = Integer.parseInt(page);
+        List<Post> list = PostDao.queryPost(pageNumber,20, PostDao.POST_ORDER.ORDER_BY_TIME);
+        JSONObject json = new JSONObject();
+        json.put("list",list);
+        json.put("page",PageNumber.getValidPage(pageNumber,PostDao.getCount()));
+        resp.setContentType("text/json;charset=UTF-8");
+        resp.getWriter().print(json.toJSONString());
     }
 
     protected void uploadImage(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -139,4 +155,6 @@ public class PostServlet extends HttpServlet {
         req.setAttribute("post",post);
         req.getRequestDispatcher("postpage.jsp").forward(req,resp);
     }
+
+
 }

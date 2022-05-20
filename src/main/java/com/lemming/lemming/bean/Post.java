@@ -8,10 +8,10 @@ public class Post {
     private int id;
     private String title;
     private String brief;
-    private String image;
-    private String post;
-    private int read;
-    private int like;
+    private String imageFilename;
+    private String postFilename;
+    private int readNum;
+    private int likeNum;
     private int userId;
     private Date postTime;
 
@@ -19,10 +19,10 @@ public class Post {
         setId(res.getInt("id"));
         setTitle(res.getString("title"));
         setBrief(res.getString("brief"));
-        setImage(res.getString("image"));
-        setPost(res.getString("post"));
-        setRead(res.getInt("read"));
-        setLike(res.getInt("like"));
+        setImageFilename(res.getString("image_filename"));
+        setPostFilename(res.getString("post_filename"));
+        setReadNum(res.getInt("read_num"));
+        setLikeNum(res.getInt("like_num"));
         setUserId(res.getInt("user_id"));
         setPostTime(res.getTime("post_time"));
     }
@@ -51,36 +51,36 @@ public class Post {
         this.brief = brief;
     }
 
-    public String getImage() {
-        return image;
+    public String getImageFilename() {
+        return imageFilename;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setImageFilename(String imageFilename) {
+        this.imageFilename = imageFilename;
     }
 
-    public String getPost() {
-        return post;
+    public String getPostFilename() {
+        return postFilename;
     }
 
-    public void setPost(String post) {
-        this.post = post;
+    public void setPostFilename(String postFilename) {
+        this.postFilename = postFilename;
     }
 
-    public int getRead() {
-        return read;
+    public int getReadNum() {
+        return readNum;
     }
 
-    public void setRead(int read) {
-        this.read = read;
+    public void setReadNum(int readNum) {
+        this.readNum = readNum;
     }
 
-    public int getLike() {
-        return like;
+    public int getLikeNum() {
+        return likeNum;
     }
 
-    public void setLike(int like) {
-        this.like = like;
+    public void setLikeNum(int likeNum) {
+        this.likeNum = likeNum;
     }
 
     public int getUserId() {

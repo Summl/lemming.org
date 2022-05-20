@@ -1,6 +1,23 @@
+
+#bg_image {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 0;
+    height: 635px;
+    background-image: url("../images/shouyelunbo1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 .header {
-    background-color: #333333;
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
     height: 70px;
+    box-shadow: 0 0 20px 0 #2222;
 }
 header {
     height: 70px;
@@ -11,7 +28,7 @@ header .row {
 }
 header .logo {
     height: 70px;
-    color: white;
+    color: black;
     font-size: 40px;
     line-height: 70px;
 }
@@ -24,9 +41,9 @@ header .user {
 
 #head-image {
     float: right;
-    margin-top: 5px;
-    height: 60px;
-    width: 60px;
+    margin-top: 10px;
+    height: 50px;
+    width: 50px;
     background-color: #fff;
     border-radius: 30px;
     border: 2px solid #ffa200;
@@ -41,7 +58,7 @@ header .user {
 #userName {
     width: 75px;
     display: block;
-    color: white;
+    color: #24292e;
     font-size: 15px;
     text-align: right;
     cursor: pointer;
@@ -54,7 +71,7 @@ header .user {
 #groupName {
     font-size: 15px;
     display: block;
-    color: white;
+    color: #24292e;
     text-align: right;
     cursor: pointer;
 }
@@ -63,7 +80,7 @@ header .user {
     color: #ffa200;
 }
 .nav_item {
-    color: white;
+    color: #24292e;
     box-sizing: border-box;
     height: 70px;
     line-height: 70px;
@@ -80,7 +97,6 @@ header .user {
     border-bottom: 4px solid #ffa200;
 }
 .nav_item:visited{
-    color: #fff;
     text-decoration: none;
 }
 .nav_item:active{
@@ -91,4 +107,62 @@ header .user {
 }
 .dropdown-menu{
     width: 30px;
+}
+.contentList{
+    z-index: 5;
+    padding-top: 450px;
+    text-align: center;
+}
+.contentList .itemBox {
+    display: inline-block;
+    position: relative;
+    background-color: #fff;
+    box-shadow: 2px 2px 6px 0 #2222;
+    border-radius: 16px;
+    height: 300px;
+    margin: 30px;
+    box-sizing: border-box;
+    text-align: left;
+    padding: 18px;
+    overflow: hidden;
+}
+
+.contentList .itemBoxBig {
+    width: 520px;
+}
+.contentList .itemBoxSmail {
+    width: 230px;
+}
+.itemBox .itemTitle {
+    margin: 0;
+    font-size: 22px;
+}
+.itemBox .postImage {
+    position: absolute;
+    top: 0;
+    height: 300px;
+    width: 260px;
+    right: 0;
+    border-radius: 0 16px 16px 16px;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+.leftBox {
+    position: fixed;
+    top: 0;
+    height: 800px;
+    width: 200px;
+    padding: 200px 0 0 0;
+    background-color: #ffa200;
+    box-sizing: border-box;
+}
+.leftBox .end {
+    position: absolute;
+    width: 0;
+    height: 0;
+    bottom: 0;
+    border: 100px solid #ffffff00;
+    border-bottom-color: white;
+
 }

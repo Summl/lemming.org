@@ -43,7 +43,7 @@
                     <button id="show_btn_login" class="bi bi-eye-fill" type="button"></button>
                 </div>
                 <input id="login_verifyCode" type="text" name="login_verifyCode" placeholder="验证码">
-                <img src="verifyCode?type=image" alt="验证码"  onclick="changCode(this)">
+                <img src="verifyCode?type=imageFilename" alt="验证码"  onclick="changCode(this)">
                 <input type="submit" value="立即登录">
             </form>
         </div>
