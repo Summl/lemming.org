@@ -87,26 +87,38 @@ window.onload = function () {
         }
     }
     //选择登录密码是否显示
-    $('.show_btn_login').click(function (){
+    $('#show_btn_login').click(function (){
         let $login_pwd = $("#login_pwd");
-        let $type1 = $login_pwd.attr('type');
-        let $show_btn = $(".show_btn");
-        if($type1 == "password"){
+        let $showBtnLogin = $('#show_btn_login')
+        if($login_pwd.attr('type') === "password"){
             $login_pwd.attr('type','text');
-        }else if($type1 == "text"){
+            $showBtnLogin.removeClass("bi-eye-fill")
+            $showBtnLogin.addClass("bi-eye-slash-fill")
+        }else {
             $login_pwd.attr('type','password');
+            $showBtnLogin.removeClass("bi-eye-slash-fill")
+            $showBtnLogin.addClass("bi-eye-fill")
         }
     });
     //选择注册密码是否显示
-    $('.show_btn_register').click(function (){
-        let $show_btn_register=$('.show_btn_register')
+    $('#show_btn_register').click(function (){
+        let $show_btn_register=$('#show_btn_register')
         let $register_pwd = $("#register_pwd");
-        let $type2 = $register_pwd.attr('type');
-        if($type2 == "password"){
+        if($register_pwd.attr('type') === "password"){
             $register_pwd.attr('type','text');
-        }else if($type2 == "text"){
+            $show_btn_register.removeClass("bi-eye-fill")
+            $show_btn_register.addClass("bi-eye-slash-fill")
+        }else {
             $register_pwd.attr('type','password');
+            $show_btn_register.removeClass("bi-eye-slash-fill")
+            $show_btn_register.addClass("bi-eye-fill")
         }
     });
-
+    let $passwordInput = $('input[type="password"]')
+    $passwordInput.focusin(function() {
+        $(this).parent().addClass('inputHighLight');
+    });
+    $passwordInput.focusout(function() {
+        $(this).parent().removeClass('inputHighLight');
+    });
 }

@@ -91,5 +91,6 @@ public class UserServlet extends HttpServlet {
 
         // 登录成功
         req.getSession().setAttribute("user",user.getId());
+        resp.sendRedirect("index.jsp");
     }
 }

@@ -11,8 +11,9 @@
     <link rel="icon" href="images/logo.png">
     <title>登录 - 旅鼠论坛</title>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap-icons/bootstrap-icons.css">
     <script src="bootstrap/js/jquery.js"></script>
-    <script src="bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
     <script src="js/login.js"></script>
     <link rel="stylesheet" href="css/login.css">
 </head>
@@ -29,16 +30,18 @@
                 tip="";
             }
         %>
+
         <p class="tip" id="tip"><%=tip%></p>
         <div id="pageLogin">
             <form action="user?type=login" method="post" onsubmit="return checkLoginForm()" >
                 <p class="message"></p>
                 <input id="login_name" type="text" name="login_userName" placeholder="用户名/邮箱"
                        value="<%=request.getParameter("login_userName")==null?"":request.getParameter("login_userName")%>">
-                <input id="login_pwd" type="password" name="login_password" placeholder="密码"
-                       value="<%=request.getParameter("login_password")==null?"":request.getParameter("login_password")%>">
-                 <button class="show_btn_login" type="button">显示密码</button>
-
+                <div class="passwordBox">
+                    <input id="login_pwd" type="password" name="login_password" placeholder="密码"
+                           value="<%=request.getParameter("login_password")==null?"":request.getParameter("login_password")%>">
+                    <button id="show_btn_login" class="bi bi-eye-fill" type="button"></button>
+                </div>
                 <input id="login_verifyCode" type="text" name="login_verifyCode" placeholder="验证码">
                 <img src="verifyCode?type=image" alt="验证码"  onclick="changCode(this)">
                 <input type="submit" value="立即登录">
@@ -49,9 +52,11 @@
                 <p class="message"></p>
                 <input id="register_name" type="text" name="register_userName" placeholder="用户名"
                        value="<%=request.getParameter("register_userName")==null?"":request.getParameter("register_userName")%>">
-                <input id="register_pwd" type="password" name="register_password" placeholder="密码"
-                       value="<%=request.getParameter("register_password")==null?"":request.getParameter("register_password")%>">
-                <button class="show_btn_register" type="button">显示密码</button>
+                <div class="passwordBox">
+                    <input id="register_pwd" type="password" name="register_password" placeholder="密码"
+                           value="<%=request.getParameter("register_password")==null?"":request.getParameter("register_password")%>">
+                    <button id="show_btn_register" class="bi bi-eye-fill"  type="button"></button>
+                </div>
                 <input id="register_email" type="email" name="register_email" placeholder="邮箱"
                        value="<%=request.getParameter("register_email")==null?"":request.getParameter("register_email")%>">
                 <input id="register_verifyCode" type="text" name="register_verifyCode" placeholder="邮箱验证码">

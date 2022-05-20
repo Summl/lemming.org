@@ -9,6 +9,7 @@
     <script src="bootstrap/js/jquery.js"></script>
     <script src="bootstrap/js/bootstrap.bundle.js"></script>
     <link rel="stylesheet" href="css/index.css">
+    <link rel="icon" href="images/logo.png">
 </head>
 <body>
 <div class="header">

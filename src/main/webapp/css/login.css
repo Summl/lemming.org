@@ -80,6 +80,7 @@ input[type="email"]{
     outline: none;
     border-radius: 8px;
     padding: 10px;
+    box-sizing: border-box;
 }
 input[type="submit"] {
     position: absolute;
@@ -92,8 +93,15 @@ input[type="submit"] {
     border: 0;
     left: 0;
 }
+.passwordBox {
+    height: 38px !important;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
 
-input:focus{
+.inputHighLight,
+input:not([type="password"]):focus {
     border: 1px solid #ffa200;
     box-shadow: 0 0 5px #ffa200;
     outline: 0;
@@ -107,21 +115,28 @@ input:focus{
     line-height: 28px;
 }
 #login_pwd,
-#register_pwd,
-#login_verifyCode {
-    width: 220px;
+#register_pwd {
+    width: 80%;
+    float: left;
+    border-radius: 8px 0 0 8px;
 }
-.show_btn_login,
-.show_btn_register
+#login_verifyCode {
+    width: 80%;
+    border-radius: 8px;
+}
+#show_btn_login,
+#show_btn_register
 {
-    background-color: #ffa200;
-    color: #fff;
-    border-radius: 6px;
-    height: 36px;
-    float: right;
+    width: 20%;
+    background-color: #f0f0f0;
+    color: #333;
+    border-radius: 0 8px 8px 0;
+    height: 38px;
+    float: left;
     box-sizing: border-box;
-    font-size: 11px;
+    font-size: 16px;
     padding: 2px;
+    border: none;
 }
 #register_verifyCode {
     width: 50%;
@@ -131,7 +146,7 @@ input:focus{
     color: #fff;
     box-sizing: border-box;
     height: 38px;
-    border: 1px solid #888;
+    border: none;
     border-radius: 6px;
     margin: 0;
     background-color: #ffa200;
