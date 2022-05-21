@@ -6,6 +6,10 @@
 <html>
 <head>
     <title>旅鼠论坛</title>
+<%--引入顶栏--%>
+    <link rel="stylesheet" href="topbar/topbar.css">
+    <script src="topbar/topbar.js"></script>
+
     <link rel="icon" href="images/logo.png">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <script src="bootstrap/js/jquery.js"></script>
@@ -17,28 +21,7 @@
 </head>
 <body>
 <div id="bg_image"></div>
-<div class="header">
-    <header class="container">
-        <div class="row">
-            <div class="logo col-md-2 hidden-sm hidden-xs">旅鼠</div>
-            <nav class="col-md-6 col-xs-10">
-                <div class="row">
-                    <a class="nav_item col-xs-2 " href="#">首页</a>
-                    <a class="nav_item col-xs-2 " href="newpost.jsp">发贴</a>
-                    <a class="nav_item col-xs-2" href="#">准则</a>
-                    <a class="nav_item col-xs-2" href="#">关于</a>
-                </div>
-            </nav>
-            <div class="user col-md-3 col-xs-2">
-                <img src="images/logo.png" id="head-image">
-                <div class="userBox">
-                    <a id="userName" class="hidden-sm hidden-xs" href="login.jsp">注册 / 登录</a>
-                    <span id="groupName" class="hidden-sm hidden-xs">游客</span>
-                </div>
-            </div>
-        </div>
-    </header>
-</div>
+<div id="topBar"></div>
 <div class="container">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-2 contentList">
@@ -53,7 +36,6 @@
             <li>啦啦啦</li>
             <li>哦哦哦</li>
         </ul>
-
         <div class="end"></div>
     </div>
 </div>
