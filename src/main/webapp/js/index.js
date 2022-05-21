@@ -23,7 +23,7 @@ function updateBigPhoto(){
 }
 let CurrentPage = 0
 let IsLoading = false
-function buildItemBox(postId, title, brief, image) {
+function buildItemBox(postId, title, brief, image, like, readNum) {
     let res = document.createElement("div")
     res.classList.add("itemBox")
     let title_h3 = document.createElement("h3")
@@ -41,8 +41,17 @@ function buildItemBox(postId, title, brief, image) {
         image_div.style.backgroundImage = "url(data/images/"+image+")"
         res.append(image_div)
     }
+    let underBox = document.createElement("div")
+    underBox.classList.add("underBox")
+    let like_span = document.createElement("span")
+    like_span.innerHTML = "<i class=\"bi bi-heart-fill\"></i> "+like
+    underBox.append(like_span)
+    let read_span = document.createElement("span")
+    read_span.innerHTML = "<i class=\"bi bi-eye-fill\"></i> "+readNum
+    underBox.append(read_span)
     res.append(title_h3)
     res.append(brief_p)
+    res.append(underBox)
     res.addEventListener("click",function () {
         window.open("post?type=page&post="+postId.toString())
     })
@@ -79,9 +88,8 @@ function loadPost() {
                 if (brief === undefined){
                     brief = ""
                 }
-
                 let contentList = document.getElementsByClassName("contentList")[0]
-                contentList.append(buildItemBox(postID,title,brief,image))
+                contentList.append(buildItemBox(postID,title,brief,image,list[i].likeNum,read))
             }
         }
         IsLoading = false

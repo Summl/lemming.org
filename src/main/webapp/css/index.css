@@ -69,7 +69,7 @@ a {
     width: 230px;
 }
 .itemBox .itemTitle {
-    margin: 0;
+    margin: 6px 0;
     font-size: 22px;
 }
 
@@ -88,6 +88,15 @@ a {
     background-repeat: no-repeat;
     background-size: cover;
 
+}
+.itemBox .underBox {
+    position: absolute;
+    bottom: 0;
+    padding-bottom: 10px;
+}
+
+.itemBox .underBox span{
+    padding-right: 10px;
 }
 
 .leftBox {
