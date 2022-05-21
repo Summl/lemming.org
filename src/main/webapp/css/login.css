@@ -124,7 +124,7 @@ input:not([type="password"]):focus {
     border-radius: 8px 0 0 8px;
 }
 #login_verifyCode {
-    width: 80%;
+    width: 70%;
     border-radius: 8px;
 }
 #show_btn_login,
@@ -154,3 +154,4 @@ input:not([type="password"]):focus {
     margin: 0;
     background-color: #ffa200;
 }
+
