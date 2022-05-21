@@ -16,9 +16,7 @@
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <script src="bootstrap/js/jquery.js"></script>
     <script src="bootstrap/js/bootstrap.js"></script>
-<%--    <link rel="stylesheet" href="css/index.css">--%>
     <link rel="icon" href="images/logo.png">
-<%--    <script src="js/index.js"></script>--%>
     <link rel="stylesheet" href="bootstrap-icons/bootstrap-icons.css">
     <link rel="stylesheet" href="css/personalcenter.css">
     <script src="personalcenter.js"></script>
@@ -37,10 +35,10 @@
         <div class="basic_information">
             <h2>个人资料</h2>
             <ul>
-                <li>用户名修改</li>
-                <li>密码修改</li>
-                <li>头像修改</li>
-                <li>邮箱修改/核验</li>
+                <li><a>用户名管理</a></li>
+                <li><a>密码管理</a></li>
+                <li><a>头像管理</a></li>
+                <li><a>邮箱修改/核验</a></li>
             </ul>
         </div>
     </div>
