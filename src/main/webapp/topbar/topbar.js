@@ -114,6 +114,7 @@ window.addEventListener("load",function () {
         if (httpRequest.readyState === 4 && httpRequest.status === 200) {
             let json = JSON.parse(httpRequest.responseText);
             topBar.userName.innerText = json.name
+            topBar.addMenuItem("个人中心","personalcenter.jsp")
             topBar.addMenuItem("退出登录","user?type=exit")
         }
     }
