@@ -19,7 +19,7 @@ public class VerifyCodeUtil {
      */
     public static String drawImage(ByteArrayOutputStream output) {
         String code;
-        int width = 50;
+        int width = 80;
         int height = 25;
 
         //创建图片缓冲区
