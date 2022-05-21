@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.UUID;
 @WebServlet("/post")
@@ -134,7 +135,11 @@ public class PostServlet extends HttpServlet {
 
         try {
             FileOutputStream outputStream = new FileOutputStream(file);
-            outputStream.write(content.getBytes());
+            OutputStreamWriter writer = new OutputStreamWriter(outputStream, StandardCharsets.UTF_8);
+            BufferedWriter bw=new BufferedWriter(writer);
+
+            bw.write(content);
+            bw.flush();
 
             req.setAttribute("title","发布成功");
             req.setAttribute("content","发布成功");
