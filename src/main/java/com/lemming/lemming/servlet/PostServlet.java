@@ -152,12 +152,11 @@ public class PostServlet extends HttpServlet {
     protected void pageServlet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String postid = req.getParameter("post");
         Post post = PostDao.getPostById(Integer.parseInt(postid));
-
         if (post == null){
             resp.setStatus(404);
             return;
         }
-
+        PostDao.addReadNum(post.getId());
         req.setAttribute("post",post);
         req.getRequestDispatcher("postpage.jsp").forward(req,resp);
     }

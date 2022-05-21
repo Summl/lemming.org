@@ -143,4 +143,24 @@ public class PostDao {
         }
         return 0;
     }
+
+    public static void addReadNum(int id){
+        Connection connection = DataBaseConnect.getConnection();
+
+        PreparedStatement preparedStatement = null;
+        if (connection==null){
+            return;
+        }
+
+        String sql = "update post_info set post_info.read_num=post_info.like_num+1 where id=?;";
+        try {
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1,id);
+            preparedStatement.executeUpdate();
+            connection.close();
+            preparedStatement.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
