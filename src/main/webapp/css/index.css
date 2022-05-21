@@ -21,11 +21,13 @@ a {
     font-size: 38px;
     text-align: right;
     margin: 20px 0 20px 0;
+    text-shadow: 0.1em 0.1em 0.5em black;
 }
 .bg_image_tip #bg_copyright{
     color: white;
     font-size: 18px;
     text-align: right;
+    text-shadow: 0.1em 0.1em 0.2em black;
 }
 .contentList{
     z-index: 5;
