@@ -31,7 +31,7 @@ class TopBar {
         logo.innerText = "旅鼠"
 
         let nav = document.createElement("nav")
-        nav.classList.add("col-md-6")
+        nav.classList.add("col-md-7")
         nav.classList.add("col-xs-10")
 
         let navRow = document.createElement("div")

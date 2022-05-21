@@ -1,7 +1,5 @@
 package com.lemming.lemming.servlet;
 
-import com.alibaba.fastjson.JSONObject;
-
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

@@ -13,14 +13,14 @@ a {
     background-size: cover;
 }
 .contentList .bg_image_tip {
-    height: 380px;
+    height: 300px;
     padding: 0 32px;
 }
 .bg_image_tip #bg_title{
     color: white;
     font-size: 38px;
     text-align: right;
-    margin: 20px 0 20px 0;
+    margin: 68px 0 20px 0;
     text-shadow: 0.1em 0.1em 0.5em black;
 }
 .bg_image_tip #bg_copyright{
@@ -76,6 +76,7 @@ a {
 .itemBox .itemBrief {
     color: #898989;
     margin: 18px 0 0 0;
+    line-height: 28px;
 }
 .itemBox .postImage {
     position: absolute;
@@ -92,7 +93,7 @@ a {
 .leftBox {
     position: fixed;
     top: 0;
-    height: 800px;
+    height: 740px;
     width: 200px;
     padding: 90px 0 0 0;
     background-color: #ffa200;
@@ -100,7 +101,7 @@ a {
     transition: height 1s;
 }
 .leftBox:hover {
-    height: 850px;
+    height: 800px;
     transition: height 1s;
 }
 .leftBox:hover .bigIcon{
