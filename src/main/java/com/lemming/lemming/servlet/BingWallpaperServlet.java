@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.net.URL;
 import java.net.URLConnection;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Map;
 
@@ -20,6 +21,7 @@ public class BingWallpaperServlet extends HttpServlet {
         req.setCharacterEncoding("UTF-8");
         resp.setCharacterEncoding("UTF-8");
         String json = sendGet("https://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=zh-CN","");
+        System.out.println(json);
         resp.setContentType("text/json;charset=UTF-8");
         resp.getWriter().print(json);
     }
@@ -42,7 +44,7 @@ public class BingWallpaperServlet extends HttpServlet {
             Map<String, List<String>> map = connection.getHeaderFields();
             // 定义 BufferedReader输入流来读取URL的响应
             in = new BufferedReader(new InputStreamReader(
-                    connection.getInputStream()));
+                    connection.getInputStream(), StandardCharsets.UTF_8));
             String line;
             while ((line = in.readLine()) != null) {
                 result += line;
