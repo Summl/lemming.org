@@ -1,5 +1,6 @@
 package com.lemming.lemming.dao;
 
+import com.alibaba.fastjson.JSONObject;
 import com.lemming.lemming.DataBaseConnect;
 import com.lemming.lemming.bean.User;
 

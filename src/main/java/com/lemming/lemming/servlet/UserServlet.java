@@ -1,5 +1,6 @@
 package com.lemming.lemming.servlet;
 
+import com.alibaba.fastjson.JSONObject;
 import com.lemming.lemming.bean.User;
 import com.lemming.lemming.dao.UserDao;
 
@@ -9,12 +10,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Objects;
 
 @WebServlet("/user")
 public class UserServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+        req.setCharacterEncoding("UTF-8");
+        resp.setCharacterEncoding("UTF-8");
         switch (req.getParameter("type")){
             case "register":
                 registerServlet(req,resp);
@@ -92,5 +95,50 @@ public class UserServlet extends HttpServlet {
         // 登录成功
         req.getSession().setAttribute("user",user.getId());
         resp.sendRedirect("index.jsp");
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8");
+        resp.setCharacterEncoding("UTF-8");
+        switch (req.getParameter("type")){
+            case "info":
+                getUserInfo(req,resp);
+                break;
+        }
+    }
+    protected void getUserInfo(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String id_str = req.getParameter("id");
+        Integer userId = (Integer) req.getSession().getAttribute("user");
+
+        // 若查找的用户是当前用户，则提供更为详细的信息
+        if (userId==null){ // 防止未登录的状态下userID为null导致报错
+            userId=-1;
+        }
+        if (id_str == null) {
+            id_str = userId.toString();
+        } else if (Objects.equals(id_str, "")){
+            id_str = userId.toString();
+        }
+
+        User user = UserDao.getUserById(Integer.parseInt(id_str));
+        if (user == null){
+            resp.setStatus(404);
+            return;
+        }
+
+        JSONObject json = new JSONObject();
+        json.put("id",user.getId());
+        json.put("name",user.getUserName());
+
+        if (user.getId() == userId){
+            json.put("sex",user.getSex());
+            json.put("email",user.getEmail());
+            json.put("group_id",user.getGroup());
+            json.put("phone",user.getPhone());
+        }
+
+        resp.getWriter().print(json);
+
     }
 }
