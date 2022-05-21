@@ -1,21 +1,77 @@
+html{
+    overflow-x: hidden;
+}
 #title {
     font-size: 28px;
     outline: none;
     border: none;
     padding: 12px 0;
+    margin-top: 80px;
+    box-sizing: border-box;
 }
 #editor {
     min-height: 800px;
 }
 .btn-post {
-    background-color: rgba(255,149,0);
+    background-color: rgb(255,149,0);
     outline: none;
     border: none;
     border-radius: 8px;
     color: white;
-    height: 45px;
+    height: 40px;
     font-size: 16px;
 }
-.submitBox {
-    margin: 38px 0;
+.submitBox,
+.draftBox{
+    margin: 10px 0;
 }
+.draftBox{
+    left:900px;
+    position: relative;
+}
+#leftshow{
+    width: 50px;
+    height: 126px;
+    position: fixed;
+    left: 0;
+    top: 50%;
+    z-index: 10;
+    background-color: #ffa200;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 0 8px 8px 0;
+}
+#leftshow:hover{
+    width: 54px;
+}
+#font{
+    width: 25px;
+    height: 120px;
+    line-height: 27px;
+    writing-mode: lr-tb;
+    margin: 3px;
+    padding: 3px;
+    float: left;
+}
+#great{
+    line-height: 120px;
+    font-size: 25px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -12,9 +12,15 @@ function uuid() {
 }
 
 function updateContent(){
-    let hide_input = document.getElementById("content")
-    hide_input.value = editor.getValue();
-    return hide_input.value.replace("\n","").replace(" ","") !== "";
+    if($("#title").val() === ""){
+        alert("请输入标题！");
+        return false;
+    }else {
+        let hide_input = document.getElementById("content")
+        hide_input.value = editor.getValue();
+        return hide_input.value.replace("\n","").replace(" ","") !== "";
+    }
+
 }
 
 window.onload = function () {
@@ -41,5 +47,9 @@ window.onload = function () {
             "enable": true
         }
 
+
     })
+
 }
+
+
