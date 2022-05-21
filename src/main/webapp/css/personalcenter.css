@@ -2,39 +2,82 @@
     margin-top:80px;
     margin-left: 20px;
     /*text-align: center;*/
-    height: 700px;
+    height: 500px;
     width: 20%;
     border-radius: 16px;
     background: #ffa200;
     box-sizing: border-box;
     float: left;
 }
+
 .leftbox h2{
+    margin-top: 40px;
     text-align: center;
     color: white;
 }
 .leftbox ul{
-
+    /*margin-top: 20px;*/
+    /*margin-left: 40px;*/
+    padding: 0;
+    margin: 0 0;
     height: 200px;
-    width: 150px;
+    /*width: 150px;*/
+    width: 100%;
     line-height: 20px;
+    border-bottom: grey 1px;
+    box-sizing: border-box;
 }
 .leftbox li{
-    /*text-align: center;*/
+    text-align: center;
+    margin: 0 0;
+    font-size:18px;
+    /*width:150px;*/
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
     display: inline-block;
 }
+.leftbox li a{
+    /*取消下划线*/
+    width:150px;
+    height: 50px;
+    color: black;
+    text-decoration: none;
+}
+.leftbox li:hover{
+    color: black;
+    background: snow;
+    /*border-bottom:#ffa200 4px;*/
+}
+.leftbox li:active{
+    /*激活时*/
+    color: black;
+}
+.leftbox li:visited{
+    /*访问过*/
+    color: black;
+}
+/*.leftbox li a:link{*/
+/*    color: black;*/
+/*}*/
 .user_information{
+    margin-top: 20px;
+    margin-left: 50px;
+    margin-bottom: 20px;
     text-align: center;
     color: black;
     width: 200px;
     height: 150px;
 }
-.user_information image{
-    width: 30px;
-    height: 30px;
-}
+/*.user_information image{*/
+/*    background: white;*/
+/*    !*border-radius: 30px;*!*/
+/*    border: 2px solid white ;*/
+/*    width: 30px;*/
+/*    height: 30px;*/
+/*}*/
 .basic_information{
-    margin: 0 0px;
+    margin: 0 ;
 }
 .rightbox{
     display: block;
