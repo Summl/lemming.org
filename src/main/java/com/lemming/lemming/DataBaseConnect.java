@@ -1,53 +1,48 @@
 package com.lemming.lemming;
 
+import com.mchange.v2.c3p0.ComboPooledDataSource;
+
 import java.sql.Connection;
-import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DataBaseConnect {
-    static class DBConfig {
-        public static String ClassName = "com.mysql.cj.jdbc.Driver";
-        public static String Host = "120.48.35.85";
-        public static int Port = 3306;
-        public static String DBName = "lemming";
-        public static String User = "root";
-        public static String Password = "root";
-        public static String CharacterEncoding = "UTF-8";
-        public static String Url(){
-            return String.format("jdbc:mysql://%s:%d/%s?characterEncoding=%s",Host,Port,DBName,CharacterEncoding);
+    //通过标识名来创建相应连接池
+    static ComboPooledDataSource dataSource=new ComboPooledDataSource("mysql");
+    //从连接池中取用一个连接
+    public static Connection getConnection(){
+        try {
+            return dataSource.getConnection();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
         }
     }
-
-    static Connection conn;
-    static {
-        reconnect();
-    }
-
-    /**
-     * 重新连接数据库
-     */
-    private static void reconnect(){
-        try {
-            Class.forName(DBConfig.ClassName);
-            conn = DriverManager.getConnection(DBConfig.Url(), DBConfig.User, DBConfig.Password);
-        } catch (SQLException | ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-    }
-    /**
-     * 获取向数据库的连接
-     * @return 若成功返回Connection，若失败返回null
-     */
-    public static Connection getConnection() {
-
-        try {
-            // 如果链接已被断开，则重新链接
-            if (conn.isClosed()){
-                reconnect();
+    //释放连接回连接池
+    public static void close(Connection conn, PreparedStatement pst, ResultSet rs){
+        if(rs!=null){
+            try {
+                rs.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
             }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
         }
-        return conn;
+        if(pst!=null){
+            try {
+                pst.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if(conn!=null){
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

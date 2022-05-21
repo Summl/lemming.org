@@ -101,7 +101,6 @@ public class PostDao {
                 StrOrderBy = "read_num DESC";
                 break;
         }
-        System.out.println( page + " | " + PageNumber.getTop(page)+" | "+PageNumber.getEnd(page));
         String sql = "select * from post_info order by "+StrOrderBy+" limit "+PageNumber.getTop(page)+","+PageNumber.getEnd(page);
         Connection c = DataBaseConnect.getConnection();
         if (c==null){
@@ -115,11 +114,12 @@ public class PostDao {
                 post.parseFromResultSet(rs);
                 list.add(post);
             }
-            return list;
+            c.close();
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
         }
+        return list;
     }
 
     /**
@@ -135,6 +135,8 @@ public class PostDao {
             ResultSet rs = st.executeQuery(sql);
             rs.next();
             count = rs.getInt(1);
+
+            c.close();
             return count;
         } catch (SQLException e) {
             e.printStackTrace();
