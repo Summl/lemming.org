@@ -40,7 +40,7 @@ class TopBar {
         let item_1 = document.createElement("a")
         item_1.classList.add("nav_item")
         item_1.classList.add("col-xs-2")
-        item_1.href="#"
+        item_1.href="index.jsp"
         item_1.innerText="首页"
 
         let item_2 = document.createElement("a")
