@@ -12,9 +12,24 @@ a {
     background-repeat: no-repeat;
     background-size: cover;
 }
+.contentList .bg_image_tip {
+    height: 380px;
+    padding: 0 32px;
+}
+.bg_image_tip #bg_title{
+    color: white;
+    font-size: 38px;
+    text-align: right;
+    margin: 20px 0 20px 0;
+}
+.bg_image_tip #bg_copyright{
+    color: white;
+    font-size: 18px;
+    text-align: right;
+}
 .contentList{
     z-index: 5;
-    padding-top: 450px;
+    padding-top: 70px;
     text-align: center;
 }
 .contentList .itemBox {

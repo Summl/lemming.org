@@ -25,6 +25,10 @@
 <div class="container">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-2 contentList">
+            <div class="bg_image_tip">
+                <h4 id="bg_title"></h4>
+                <p id="bg_copyright"></p>
+            </div>
         <%-- 这里由JS添加内容 --%>
         </div>
     </div>

@@ -1,21 +1,26 @@
-// function updateBigPhoto(){
-//     let httpRequest = new XMLHttpRequest();//第一步：建立所需的对象
-//     httpRequest.open('GET', 'https://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=zh-CN', true);//第二步：打开连接  将请求参数写在url中  ps:"./Ptest.php?name=test&nameone=testone"
-//     httpRequest.send();//第三步：发送请求  将请求参数写在URL中
-//     /**
-//      * 获取数据后的处理程序
-//      */
-//     httpRequest.onreadystatechange = function () {
-//         if (httpRequest.readyState === 4 && httpRequest.status === 200) {
-//             let json = JSON.parse(httpRequest.responseText);//获取到json字符串，还需解析
-//             console.log(json)
-//             let imgUrl = json.url;
-//             let title = json.title;
-//             let imageDiv = document.getElementsByTagName("body")[0]
-//             imageDiv.style.backgroundImage="url("+imgUrl+")"
-//         }
-//     };
-// }
+function updateBigPhoto(){
+    let httpRequest = new XMLHttpRequest();//第一步：建立所需的对象
+    httpRequest.open('GET', 'bing', true);//第二步：打开连接  将请求参数写在url中  ps:"./Ptest.php?name=test&nameone=testone"
+    httpRequest.send();//第三步：发送请求  将请求参数写在URL中
+    /**
+     * 获取数据后的处理程序
+     */
+    httpRequest.onreadystatechange = function () {
+        if (httpRequest.readyState === 4 && httpRequest.status === 200) {
+            let json = JSON.parse(httpRequest.responseText);//获取到json字符串，还需解析
+            console.log(json)
+            let imgUrl = "https://cn.bing.com"+json.images[0].url;
+            let title = json.images[0].title;
+            let copyright = json.images[0].copyright;
+            let imageDiv = document.getElementById("bg_image")
+            let imageTitle = document.getElementById("bg_title")
+            let imageCopyright = document.getElementById("bg_copyright")
+            imageDiv.style.backgroundImage="url("+imgUrl+")"
+            imageTitle.innerText=title
+            imageCopyright.innerText=copyright
+        }
+    };
+}
 let CurrentPage = 0
 let IsLoading = false
 function buildItemBox(postId, title, brief, image) {
@@ -84,9 +89,9 @@ function loadPost() {
 }
 window.onload = function () {
     loadPost()
+    updateBigPhoto()
 
     document.addEventListener("scroll",function () {
-        // console.log(document.scrollingElement.scrollTop+$(window).height(),"|",)
         if (document.scrollingElement.scrollTop+$(window).height() >= $("body").height()-20){
             loadPost()
         }
