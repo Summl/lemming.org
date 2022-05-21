@@ -16,9 +16,8 @@
 //         }
 //     };
 // }
-
-let CurrentPage = 1
-
+let CurrentPage = 0
+let IsLoading = false
 function buildItemBox(postId, title, brief, image) {
     let res = document.createElement("div")
     res.classList.add("itemBox")
@@ -46,16 +45,27 @@ function buildItemBox(postId, title, brief, image) {
 }
 
 function loadPost() {
+    if (IsLoading){
+        return;
+    }
+    IsLoading = true;
     let httpRequest = new XMLHttpRequest();//第一步：建立所需的对象
-    httpRequest.open('GET', 'post?type=list&page='+CurrentPage.toString(), true);//第二步：打开连接  将请求参数写在url中  ps:"./Ptest.php?name=test&nameone=testone"
+    httpRequest.open('GET', 'post?type=list&page='+(CurrentPage+1).toString(), true);//第二步：打开连接  将请求参数写在url中  ps:"./Ptest.php?name=test&nameone=testone"
     httpRequest.send();//第三步：发送请求  将请求参数写在URL中
     httpRequest.onreadystatechange = function () {
         if (httpRequest.readyState === 4 && httpRequest.status === 200) {
             let json = JSON.parse(httpRequest.responseText);//获取到json字符串，还需解析
+            if (json.list === undefined) {
+                loadPost()
+                console.log("200")
+                return;
+            }
             let list = json.list
-            CurrentPage = json.page + 1
+            if (CurrentPage === json.page) {
+                return;
+            }
+            CurrentPage = json.page
             for (let i in list) {
-                console.log(list[i])
                 let read = list[i].readNum
                 let title = list[i].title
                 let brief = list[i].brief
@@ -69,8 +79,16 @@ function loadPost() {
                 contentList.append(buildItemBox(postID,title,brief,image))
             }
         }
+        IsLoading = false
     };
 }
 window.onload = function () {
     loadPost()
+
+    document.addEventListener("scroll",function () {
+        // console.log(document.scrollingElement.scrollTop+$(window).height(),"|",)
+        if (document.scrollingElement.scrollTop+$(window).height() >= $("body").height()-20){
+            loadPost()
+        }
+    })
 }
