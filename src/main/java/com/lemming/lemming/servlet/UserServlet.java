@@ -105,6 +105,9 @@ public class UserServlet extends HttpServlet {
             case "info":
                 getUserInfo(req,resp);
                 break;
+            case "exit":
+                exitUserLogin(req,resp);
+                break;
         }
     }
     protected void getUserInfo(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -140,5 +143,9 @@ public class UserServlet extends HttpServlet {
 
         resp.getWriter().print(json);
 
+    }
+    protected void exitUserLogin(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.getSession().setAttribute("user",null);
+        resp.sendRedirect(req.getHeader("Referer"));
     }
 }

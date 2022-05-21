@@ -49,7 +49,7 @@ public class PostServlet extends HttpServlet {
     protected void listServlet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String page = req.getParameter("page");
         int pageNumber = Integer.parseInt(page);
-        List<Post> list = PostDao.queryPost(pageNumber,20, PostDao.POST_ORDER.ORDER_BY_TIME);
+        List<Post> list = PostDao.queryPost(pageNumber,10, PostDao.POST_ORDER.ORDER_BY_TIME);
         JSONObject json = new JSONObject();
         json.put("list",list);
         json.put("page",PageNumber.getValidPage(pageNumber,PostDao.getCount()));

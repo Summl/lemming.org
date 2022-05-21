@@ -1,10 +1,22 @@
 class TopBar {
     userName;
+    user;
+    userMenu;
+    menuItem_exit;
+    headImage;
     constructor(id){
         let topBar = document.getElementById(id)
         topBar.append(this.buildTopBar())
     }
+    addMenuItem(text, url){
+        this.menuItem_exit = document.createElement("li")
+        this.menuItem_exit.innerHTML = "<a href='"+url+"'>"+text+"</a>"
+        this.userMenu.append(this.menuItem_exit)
+    }
     buildTopBar() {
+        this.userMenu = document.createElement("ul")
+        this.userMenu.classList.add("userMenu")
+
         let header = document.createElement("header")
         header.classList.add("container")
 
@@ -49,14 +61,14 @@ class TopBar {
         item_4.href="#"
         item_4.innerText="关于"
 
-        let user = document.createElement("div")
-        user.classList.add("user")
-        user.classList.add("col-md-3")
-        user.classList.add("col-xs-2")
+        this.user = document.createElement("div")
+        this.user.classList.add("user")
+        this.user.classList.add("col-md-3")
+        this.user.classList.add("col-xs-2")
 
-        let headImage = document.createElement("img")
-        headImage.id="head-image"
-        headImage.src="images/128x128.png"
+        this.headImage = document.createElement("img")
+        this.headImage.id="head-image"
+        this.headImage.src="images/128x128.png"
 
         let userBox = document.createElement("div")
         userBox.classList.add("userBox")
@@ -66,7 +78,7 @@ class TopBar {
         this.userName.classList.add("hidden-sm")
         this.userName.classList.add("hidden-xs")
         this.userName.href="login.jsp"
-        this.userName.innerText="注册"
+        this.userName.innerText="登录 / 注册"
 
         let groupName = document.createElement("span")
         groupName.id="groupName"
@@ -82,9 +94,10 @@ class TopBar {
         navRow.append(item_2)
         navRow.append(item_3)
         navRow.append(item_4)
-        row.append(user)
-        user.append(headImage)
-        user.append(userBox)
+        row.append(this.user)
+        this.user.append(this.headImage)
+        this.user.append(userBox)
+        this.user.append(this.userMenu)
         userBox.append(this.userName)
         userBox.append(groupName)
 
@@ -94,7 +107,6 @@ class TopBar {
 
 window.addEventListener("load",function () {
     let topBar = new TopBar("topBar")
-
     let httpRequest = new XMLHttpRequest();//第一步：建立所需的对象
     httpRequest.open('GET', 'user?type=info', true);//第二步：打开连接  将请求参数写在url中  ps:"./Ptest.php?name=test&nameone=testone"
     httpRequest.send();//第三步：发送请求  将请求参数写在URL中
@@ -102,7 +114,15 @@ window.addEventListener("load",function () {
         if (httpRequest.readyState === 4 && httpRequest.status === 200) {
             let json = JSON.parse(httpRequest.responseText);
             topBar.userName.innerText = json.name
+            topBar.addMenuItem("退出登录","user?type=exit")
         }
     }
+    topBar.headImage.addEventListener("mousemove",function () {
+        topBar.userMenu.style.right=topBar.headImage.right
+        topBar.userMenu.style.display="block"
+    })
+    topBar.userMenu.addEventListener("mouseleave",function (){
+        topBar.userMenu.style.display="none"
+    })
 
 })

@@ -26,6 +26,7 @@
     height: 70px;
 }
 #topBar header .user {
+    position: relative;
     height: 70px;
 }
 
@@ -94,4 +95,31 @@
 }
 #topBar .nav_item:link{
     text-decoration: none;
+}
+
+.userMenu {
+    display: none;
+    background-color: #fff;
+    padding: 10px 0;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    z-index: 100;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 2px 5px 10px 0 #3333;
+    list-style: none;
+}
+.userMenu li {
+    padding: 6px 20px;
+}
+.userMenu li a{
+    color: #24292e;
+    text-decoration: none;
+}
+.userMenu li:hover {
+    background-color: #ffa200;
+    color: white;
+}
+.userMenu li:hover a{
+    color: white;
 }
