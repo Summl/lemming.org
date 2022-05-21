@@ -1,13 +1,11 @@
 package com.lemming.lemming.dao;
 
-import com.alibaba.fastjson.JSONObject;
 import com.lemming.lemming.DataBaseConnect;
 import com.lemming.lemming.bean.User;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserDao {
 
@@ -134,5 +132,29 @@ public class UserDao {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+    public static List<User> getLeaderboard(int num){
+        List<User> res = new ArrayList<>();
+        Connection connection = DataBaseConnect.getConnection();
+
+        PreparedStatement preparedStatement = null;
+        if (connection==null){
+            return null;
+        }
+
+        String sql = "select user_id,user.user_name,count(post_info.id) as post_count from post_info,user where user.id=post_info.user_id group by user_id order by count(id) DESC limit 0,"+num+";";
+        try {
+            Statement st = connection.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()){
+                int id = rs.getInt("user_id");
+                res.add(getUserById(id));
+            }
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return res;
+        }
+        return res;
     }
 }

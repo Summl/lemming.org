@@ -1,6 +1,6 @@
 <%@ page import="java.util.List" %>
-<%@ page import="com.lemming.lemming.bean.Post" %>
-<%@ page import="com.lemming.lemming.dao.PostDao" %>
+<%@ page import="com.lemming.lemming.dao.UserDao" %>
+<%@ page import="com.lemming.lemming.bean.User" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
@@ -36,9 +36,12 @@
         <i class="bigIcon bi bi-star-fill"></i>
         <h2>旅游达人榜</h2>
         <ul>
-            <li>Maicss</li>
-            <li>啦啦啦</li>
-            <li>哦哦哦</li>
+            <%List<User> list = UserDao.getLeaderboard(6);
+            if (list == null){%>
+            <li>加载失败</li>
+            <%}else for (User user : list){%>
+            <li><%=user.getUserName()%></li>
+            <%}%>
         </ul>
         <div class="end"></div>
     </div>

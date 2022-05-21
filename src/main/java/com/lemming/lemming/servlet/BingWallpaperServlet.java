@@ -19,7 +19,6 @@ public class BingWallpaperServlet extends HttpServlet {
         req.setCharacterEncoding("UTF-8");
         resp.setCharacterEncoding("UTF-8");
         String json = sendGet("https://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=zh-CN","");
-        System.out.println(json);
         resp.setContentType("text/json;charset=UTF-8");
         resp.getWriter().print(json);
     }
