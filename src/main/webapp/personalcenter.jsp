@@ -28,7 +28,7 @@
     <div class="leftbox">
         <div class="user_information">
 <%--            头像、用户名称--%>
-            <image src="images/128x128.png"></image>
+            <image class="leftimage" src="images/128x128.png"></image>
             <h3>admin</h3>
         </div>
         <%--            左侧列表内容--%>
@@ -43,20 +43,36 @@
         </div>
     </div>
     <%--右侧内容--%>
+<%--1.个人信息界面--%>
     <div class="rightbox">
-        <ul>
-            <li>用户名</li>
-            <li>性别</li>
-            <li>电话号码</li>
-            <li>电子邮箱</li>
-            <li>用户权限</li>
-            <li>发帖数</li>
-            <li>注册时间</li>
-        </ul>
-        <div>
-            <a>用户名修改</a>
-
+        <div class="leftusercontent">
+            <span>用户名:</span>
+            <div class="recognizedtext">admin-识别到的用户名</div>
+            <br>
+            <span>性别:</span>
+            <div class="recognizedtext">admin-识别到的性别</div>
+            <br>
+            <span>电话号码:</span>
+            <div class="recognizedtext">admin-识别到的电话号码</div>
+            <br>
+            <span>电子邮箱:</span>
+            <div class="recognizedtext">admin-识别到的电子邮箱</div>
+        </div>
+        <div class="rightusercontent">
+            <span>用户权限:</span>
+            <div class="recognizedtext">admin-识别到的用户权限</div>
+            <br>
+            <span>发帖数:</span>
+            <div class="recognizedtext">admin-识别到的发帖数量</div>
+            <br>
+            <span>注册时间:</span>
+            <div class="recognizedtext">admin-识别到的注册时间</div>
+            <br>
         </div>
     </div>
+<%--    2.用户名修改界面--%>
+<%--    <div class="rightbox">--%>
+<%--        <div></div>--%>
+<%--    </div>--%>
 </body>
 </html>
