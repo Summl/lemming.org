@@ -144,6 +144,10 @@ public class PostDao {
         return 0;
     }
 
+    /**
+     * 通过帖文ID选择帖文并将帖文的浏览量加一
+     * @param id 要增加浏览量的帖文的ID
+     */
     public static void addReadNum(int id){
         Connection connection = DataBaseConnect.getConnection();
 

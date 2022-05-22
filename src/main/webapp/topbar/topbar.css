@@ -1,4 +1,6 @@
-
+body {
+    padding-top: 80px;
+}
 #topBar {
     z-index: 10;
     position: fixed;

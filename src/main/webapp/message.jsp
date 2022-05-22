@@ -8,18 +8,25 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <link rel="stylesheet" href="css/message.css">
 <html>
-<head>
-    <title>message</title>
-</head>
-<body>
 <%
     String title = (String) request.getAttribute("title");
     String content = (String) request.getAttribute("content");
 %>
+<head>
+    <title><%=title%></title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <script src="bootstrap/js/jquery.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="topbar/topbar.css">
+    <link rel="stylesheet" href="bootstrap-icons/bootstrap-icons.css">
+    <script src="topbar/topbar.js"></script>
+</head>
+<body>
+<div id="topBar"></div>
 <div class="page" id="messagePage">
+    <i id="icon" class="bi bi-chat-left-heart-fill"></i>
     <h1><%=title%></h1>
-    <h1><%=content%></h1>
-    <a href="index.jsp" id="return">返回首页</a>
+    <p><%=content%></p>
 </div>
 </body>
 </html>

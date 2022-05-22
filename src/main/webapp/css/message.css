@@ -1,12 +1,20 @@
-div{
+#messagePage {
+    padding-top: 200px;
     text-align: center;
     color: #ffa200;
 }
-h1{
-    margin: 30px;
+
+#icon {
+    display: block;
+    font-size: 90px;
 }
-#return{
-    margin: 30px;
-    font-size: 18px;
-    color: #ffa200;
+
+#messagePage h1 {
+    font-size: 50px;
+    margin: 30px 0;
+}
+
+#messagePage p {
+    font-size: 32px;
+
 }
