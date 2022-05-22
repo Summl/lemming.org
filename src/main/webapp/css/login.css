@@ -18,7 +18,6 @@ body {
     border-radius: 12px;
     background-color: rgba(255,149,0,1);
     background-image: url("../images/imgright.jpg");
-    background-position-x: -20px;
     background-position: right;
     background-repeat: no-repeat;
     background-position-x: 350px;
@@ -126,6 +125,10 @@ input:not([type="password"]):focus {
 #login_verifyCode {
     width: 70%;
     border-radius: 8px;
+    box-sizing: border-box;
+}
+#imageVerifyCode {
+    width: 25%;
 }
 #show_btn_login,
 #show_btn_register
@@ -155,3 +158,8 @@ input:not([type="password"]):focus {
     background-color: #ffa200;
 }
 
+#btn_mailVerifyCode:focus {
+    border: 1px solid #ffa200;
+    box-shadow: 0 0 5px #ffa200;
+    outline: 0;
+}

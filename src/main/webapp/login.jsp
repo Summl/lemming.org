@@ -40,10 +40,10 @@
                 <div class="passwordBox">
                     <input id="login_pwd" type="password" name="login_password" placeholder="密码"
                            value="<%=request.getParameter("login_password")==null?"":request.getParameter("login_password")%>">
-                    <button id="show_btn_login" class="bi bi-eye-fill" type="button"></button>
+                    <button id="show_btn_login" class="bi bi-eye-fill" type="button" tabindex=-1></button>
                 </div>
                 <input id="login_verifyCode" type="text" name="login_verifyCode" placeholder="验证码">
-                <img src="verifyCode?type=image" alt="验证码"  onclick="changCode(this)">
+                <img src="verifyCode?type=image" alt="验证码" id="imageVerifyCode"  onclick="changCode(this)">
                 <input type="submit" value="立即登录">
             </form>
         </div>
@@ -55,7 +55,7 @@
                 <div class="passwordBox">
                     <input id="register_pwd" type="password" name="register_password" placeholder="密码"
                            value="<%=request.getParameter("register_password")==null?"":request.getParameter("register_password")%>">
-                    <button id="show_btn_register" class="bi bi-eye-fill"  type="button"></button>
+                    <button id="show_btn_register" class="bi bi-eye-fill"  type="button" tabindex=-1></button>
                 </div>
                 <input id="register_email" type="email" name="register_email" placeholder="邮箱"
                        value="<%=request.getParameter("register_email")==null?"":request.getParameter("register_email")%>">
