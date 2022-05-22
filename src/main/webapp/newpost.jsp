@@ -29,22 +29,27 @@
 <%--            <h1 class="col-xs-12">发表文章</h1>--%>
 <%--        </div>--%>
     <div id="leftshow" >
-        <b id="font">发表文章</b>
-        <b id="great">&gt;</b>
+        <a href="#">
+            <b id="font">发表文章</b>
+            <b id="great">&gt;</b>
+        </a>
     </div>
         <form class="container" action="post?type=post" method="post">
             <div class="row">
-                <input id="title" class="col-xs-12" type="text" name="title" placeholder="请输入标题"
+                <input id="title" class="col-xs-12 form-control" type="text" name="title" placeholder="请输入标题"
                 value="<%=request.getParameter("title")==null?"":request.getParameter("title")%>">
                 <input id="content" name="content" type="hidden">
             </div>
+<%--            <input type="image" value="插入图片">--%>
+            <input type="file">
+
             <div id="editor" class="row vditor"></div>
 
             <div class="row submitBox">
                 <div class="draftBox">
                     <button type="button" value="存草稿" class="col-lg-1 btn-post col-md-2 col-xs-3  " >存草稿</button>
                 </div>
-                <input type="submit" onclick="return updateContent()" class="col-lg-1 btn-post col-md-2 col-md-offset-10 col-xs-3 col-xs-offset-0" value="发布">
+                <input id="publish" type="submit" onclick="return updateContent()" class="col-lg-1 btn-post col-md-2 col-md-offset-10 col-xs-3 col-xs-offset-0" value="发布">
 
             </div>
         </form>

@@ -12,22 +12,20 @@ function uuid() {
 }
 
 function updateContent(){
-    if($("#title").val() === ""){
+    if($("#title").val().trim() === ""){
         alert("请输入标题！");
         return false;
-    }else {
-        let hide_input = document.getElementById("content")
-        hide_input.value = editor.getValue();
-        return hide_input.value.replace("\n","").replace(" ","") !== "";
     }
-
+    let hide_input = document.getElementById("content")
+    hide_input.value = editor.getValue();
+    return hide_input.value.replace("\n","").replace(" ","") !== "";
 }
 
 window.onload = function () {
     // 初始化编辑器
     editor = new Vditor("editor", {
         input (md) {
-            updateContent()
+            //updateContent()
         },
         upload: {
             accept: 'image/*',
