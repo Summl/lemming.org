@@ -2,12 +2,13 @@ html{
     overflow-x: hidden;
 }
 #title {
-    font-size: 28px;
+    font-size: 26px !important;
     outline: none;
     border: none;
-    padding: 12px 0;
-    margin-top: 80px;
+    padding: 12px 0 !important;
+    margin-top: 80px !important;
     box-sizing: border-box;
+    margin-bottom: 5px;
 }
 #editor {
     min-height: 800px;
@@ -21,6 +22,10 @@ html{
     height: 40px;
     font-size: 16px;
 }
+.btn-post:hover,
+.btn-post:focus{
+    font-weight: bold;
+}
 .submitBox,
 .draftBox{
     margin: 10px 0;
@@ -29,21 +34,39 @@ html{
     left:900px;
     position: relative;
 }
+
 #leftshow{
-    width: 50px;
+    width: 55px;
     height: 126px;
     position: fixed;
-    left: 0;
-    top: 50%;
+    left: -5px;
+    top: 40%;
     z-index: 10;
     background-color: #ffa200;
     color: #fff;
     font-size: 16px;
     border-radius: 0 8px 8px 0;
+    text-decoration: none;
 }
-#leftshow:hover{
-    width: 54px;
+a{
+    text-decoration: none;
+    color: #fff;
 }
+a:hover,
+a:focus,
+#leftshow:hover
+{
+    left: 0px;
+    color: #fff;
+    text-decoration: none;
+}
+
+a:active,
+a:link{
+    color: #fff;
+    text-decoration: none;
+}
+
 #font{
     width: 25px;
     height: 120px;
