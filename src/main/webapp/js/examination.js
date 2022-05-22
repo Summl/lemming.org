@@ -9,7 +9,7 @@ window.onload=function(){
     request.open("get",url);    //设置请求方法与路径
     request.send(null);     //不发送数据到服务器
     request.onload = function (){
-        if(request.status==200){
+        if(request.status===200){
             var json = JSON.parse(request.responseText);
             for(var i=0;i<json.length;i++){
                 document.write(json[i].id);

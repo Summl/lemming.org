@@ -132,6 +132,9 @@ window.addEventListener("load",function () {
     topBar.userMenu.addEventListener("mouseleave",function (){
         topBar.userMenu.style.display="none"
     })
+    topBar.topBar.addEventListener("mouseleave",function (){
+        topBar.userMenu.style.display="none"
+    })
 
     let isChrome = window.navigator.userAgent.indexOf("Chrome") > -1;
     console.log(isChrome)

@@ -130,7 +130,6 @@ public class PostServlet extends HttpServlet {
                     if (it.getFieldName().equals("cover") && it.getContentType().split("/")[0].equals("image")){
                         String fname = UUID.randomUUID().toString();
                         String SavePath = this.getServletContext().getRealPath("data/images");
-                        System.out.println(SavePath +"/"+fname);
 
                         File d = new File(SavePath);
                         if (!d.exists()){
