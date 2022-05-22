@@ -18,15 +18,24 @@
     <script src="topbar/topbar.js"></script>
     <link rel="stylesheet" href="css/postpage.css">
 
+    <script>
+        function aa(){
+            document.body.scrollTop=0;
+        }
+    </script>
+    <title>旅鼠论坛</title>
 </head>
 <body>
 <div id="topBar"></div>
 <div id="head">
     <% Post post = (Post) request.getAttribute("post"); %>
-    <title><%=post.getTitle()%></title>
+    <h1><%=post.getTitle()%></h1>
 </div>
+<div class="container">
 <div id="view">
 </div>
+</div>
+<div id="jt" ><img src="images/jt.png" onclick="aa()"></div>
 <script>
     // 加载页面内容
     let httpRequest = new XMLHttpRequest();//第一步：建立所需的对象
