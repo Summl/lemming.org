@@ -28,10 +28,22 @@
 </head>
 <body>
     <div id="topBar"></div>
-    <div id="top"><h1>社区行为规范测试</h1></div>
+    <div id="top">
+        <h1>
+            社区行为规范测试
+        </h1>
+    </div>
     <hr>
     <div id="out">
-        <script src="js/examination.js"></script>
+<%--        <script src="js/examination.js"></script>--%>
+        123456
+        <script language="JavaScript">
+            for(var i=0;i<5;i++){
+                var div = document.createElement("div");
+                div.className="question";
+                document.body.appendChild(div);
+            }
+        </script>
     </div>
 </body>
 </html>

@@ -1,5 +1,34 @@
 #top{
-    margin: 0 0;
-    background-color: #d58512;
-    height: 80px;
+    background-color: #ffa200;
+    top: 0;
+    width: 100%;
+    height: 160px;
+    position: fixed;
+    z-index: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+}
+
+#top h1{
+    position: fixed;
+    top: 100px;
+    margin: 0 40%;
+}
+
+#out{
+    padding: 20px 0;
+    margin: 0px auto;
+    width: 60%;
+    border: darkgray 1px solid;
+    height: 2000px;
+    box-shadow: 0 0 10px #333333;
+    font-size: 25px;
+}
+
+#out .question{
+    width: 50%;
+    margin: 10px auto;
+    height: 200px;
+    border: black 1px solid;
 }

@@ -3,17 +3,15 @@ var obj = JSON.parse(json);
 console.log(obj.course);
 console.log(obj.fruits);*/
 
-function connjson(){
-    var url = "js/my.json";
+window.onload=function(){
+    var url = "js/my.json";     //json文件的url
     var request = new XMLHttpRequest();
-    request.open("get",url);
-    request.send(null);
+    request.open("get",url);    //设置请求方法与路径
+    request.send(null);     //不发送数据到服务器
     request.onload = function (){
         if(request.status==200){
             var json = JSON.parse(request.responseText);
             for(var i=0;i<json.length;i++){
-               // console.log(json[i].id);
-               // console.log(json[i].title);
                 document.write(json[i].id);
                 document.writeln(json[i].title);
                 document.write('<br>');
@@ -24,6 +22,5 @@ function connjson(){
             }
         }
     }
-
 }
 
