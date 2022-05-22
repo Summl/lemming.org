@@ -5,6 +5,7 @@ function updateContent(){
     return hide_input.value.replace("\n","").replace(" ","") !== "";
 }
 function checkSubmit(){
+    $("#submit_btn").submit();
     if($("#post_title").val().trim() === ""){
         alert("请输入标题！");
         return false;
