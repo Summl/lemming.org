@@ -27,6 +27,5 @@ function mdToHtml(markdownText) {
     return lute.MarkdownStr("", markdownText)
 }
 window.onload = function () {
-    // const result = lute.MarkdownStr("", document.getElementById('input').value);
-    // document.getElementById('output').innerHTML = result;
+
 }
