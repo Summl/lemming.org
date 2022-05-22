@@ -10,6 +10,7 @@ body{
     border-radius: 16px;
     background: #ffa200;
     box-sizing: border-box;
+    box-shadow:grey 5px 0 30px 0;
     float: left;
 }
 
@@ -50,18 +51,19 @@ body{
 .leftbox li:hover{
     color: black;
     background: snow;
-    /*border-bottom:#ffa200 4px;*/
 }
 .leftbox li:active{
     /*激活时*/
-    color: black;
+    color: white;
+    font-size: 24px;
 }
 .leftbox li:visited{
     /*访问过*/
     color: black;
 }
 /*.leftbox li a:link{*/
-/*    color: black;*/
+/*    !*color: white;*!*/
+/*    !*font-size: 24px;*!*/
 /*}*/
 .user_information{
     /*margin-top: 20px;*/
@@ -83,6 +85,7 @@ body{
     border-radius: 70px;
     border: 5px solid #0C9A9A ;
     box-sizing: border-box;
+    text-align: center;
     /*居中*/
     /*display:flex;*/
     /*justify-content: center;*/
@@ -105,20 +108,27 @@ body{
     padding:3%;
     /*font-size: 25px;*/
     float: left;
+    box-shadow:grey 5px 0 30px 0;
     box-sizing: border-box;
 }
-.rightbox span{
-    /*text-align: center;*/
-    font-size: 25px;
-    line-height: 100px;
-    display: inline-block;
-}
+/*.rightbox span{*/
+/*    !*text-align: center;*!*/
+/*    font-size: 25px;*/
+/*    line-height: 100px;*/
+/*    display: inline-block;*/
+/*}*/
 
 .leftusercontent{
+    font-size: 25px;
+    line-height: 50px;
+    display: inline-block;
     float: left;
 }
 .rightusercontent{
-    margin-left:60%;
+    font-size: 25px;
+    line-height: 50px;
+    display: inline-block;
+    margin-left:40%;
 }
 .recognizedtext{
     font-size: 20px;

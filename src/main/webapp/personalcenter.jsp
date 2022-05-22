@@ -35,10 +35,11 @@
         <div class="basic_information">
             <h2>个人资料</h2>
             <ul>
-                <li><a>用户名管理</a></li>
-                <li><a>密码管理</a></li>
-                <li><a>头像管理</a></li>
-                <li><a>邮箱修改/核验</a></li>
+                <li><a href="#">用户名管理</a></li>
+                <li><a href="#">密码管理</a></li>
+                <li><a href="#">头像管理</a></li>
+                <li><a href="#">邮箱修改/核验</a></li>
+                <li><a href="#">用户注销</a></li>
             </ul>
         </div>
     </div>
@@ -72,7 +73,13 @@
     </div>
 <%--    2.用户名修改界面--%>
 <%--    <div class="rightbox">--%>
-<%--        <div></div>--%>
+<%--        <div>--%>
+<%--            <span>原用户名：</span>--%>
+<%--            <div class="recognizedtext">admin-识别到的原用户名</div>--%>
+<%--            <br>--%>
+<%--            <span>新用户名：</span>--%>
+<%--            <input type="text" size="20">--%>
+<%--        </div>--%>
 <%--    </div>--%>
 </body>
 </html>
