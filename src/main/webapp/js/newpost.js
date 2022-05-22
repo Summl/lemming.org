@@ -37,6 +37,23 @@ window.onload = function () {
 
     let submit = document.getElementById("submit_btn")
     submit.addEventListener("click",updateContent)
+
+    let chooseCover = document.getElementById("chooseCover")
+    let inputChooser = document.getElementById("inputChooseCover")
+    chooseCover.addEventListener("click",function () {
+        inputChooser.click()
+        console.log("click")
+    })
+
+    inputChooser.addEventListener("change",function (){
+        let reader = new FileReader()
+        let file = this.files[0]
+        console.log(file)
+        reader.readAsDataURL(file)
+        reader.addEventListener("loadend",function () {
+            chooseCover.style.backgroundImage = "url("+this.result+")"
+        })
+    })
 }
 
 
