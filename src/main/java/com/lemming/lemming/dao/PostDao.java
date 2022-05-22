@@ -22,7 +22,7 @@ public class PostDao {
      * @param userId 发帖者的用户ID
      * @return 返回是否发帖成功
      */
-    public static boolean addPost(String title,String filename,int userId){
+    public static boolean addPost(String title,String filename,String brief,int userId){
         Connection connection = DataBaseConnect.getConnection();
 
         PreparedStatement preparedStatement = null;
@@ -30,12 +30,13 @@ public class PostDao {
             return false;
         }
 
-        String sql = "insert into post_info(title, post_filename, user_id, post_time) VALUES (?,?,?,NOW())";
+        String sql = "insert into post_info(title, post_filename, user_id, post_time,brief) VALUES (?,?,?,NOW(),?)";
         try {
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1,title);
             preparedStatement.setString(2,filename);
             preparedStatement.setInt(3,userId);
+            preparedStatement.setString(4,brief);
             int res = preparedStatement.executeUpdate();
             connection.close();
             preparedStatement.close();

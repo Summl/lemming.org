@@ -95,6 +95,7 @@ public class PostServlet extends HttpServlet {
     protected void uploadPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Integer userid = (Integer) req.getSession().getAttribute("user");
         String title = req.getParameter("title");
+        String brief = req.getParameter("brief");
         String content = req.getParameter("content");
         System.out.println(title);
         System.out.println(content);
@@ -126,7 +127,7 @@ public class PostServlet extends HttpServlet {
             return;
         }
 
-        if(!PostDao.addPost(title,uuid+".md",userid)){
+        if(!PostDao.addPost(title,uuid+".md",brief,userid)){
             req.setAttribute("title","发布失败");
             req.setAttribute("content","发布失败，数据库错误");
             req.getRequestDispatcher("message.jsp").forward(req,resp);

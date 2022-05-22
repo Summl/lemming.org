@@ -11,6 +11,7 @@
     <title>发表新文章</title>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="topbar/topbar.css">
+
     <script src="bootstrap/js/jquery.js"></script>
     <script src="bootstrap/js/bootstrap.bundle.js"></script>
     <script src="topbar/topbar.js"></script>
@@ -25,32 +26,23 @@
     <div id="topBar"></div>
 
     <div class="container">
-<%--        <div class="row">--%>
-<%--            <h1 class="col-xs-12">发表文章</h1>--%>
-<%--        </div>--%>
-    <div id="leftshow" >
-        <a href="#">
-            <b id="font">发表文章</b>
-            <b id="great">&gt;</b>
-        </a>
-    </div>
         <form class="container" action="post?type=post" method="post">
             <div class="row">
-                <input id="title" class="col-xs-12 form-control" type="text" name="title" placeholder="请输入标题"
-                value="<%=request.getParameter("title")==null?"":request.getParameter("title")%>">
+                <input id="post_title" class="col-xs-12" type="text" name="title" placeholder="请输入标题">
+                <h2 class="label_tip col-sm-1">简介：</h2>
+                <textarea id="post_brief" class="col-xs-6" name="brief" placeholder="请输入文章简介"></textarea>
                 <input id="content" name="content" type="hidden">
             </div>
 <%--            <input type="image" value="插入图片">--%>
-            <input type="file">
 
             <div id="editor" class="row vditor"></div>
-
+            <div class="row">
+            </div>
             <div class="row submitBox">
                 <div class="draftBox">
                     <button type="button" value="存草稿" class="col-lg-1 btn-post col-md-2 col-xs-3  " >存草稿</button>
                 </div>
-                <input id="publish" type="submit" onclick="return updateContent()" class="col-lg-1 btn-post col-md-2 col-md-offset-10 col-xs-3 col-xs-offset-0" value="发布">
-
+                <input id="submit_btn" type="submit" onclick="return checkSubmit()" class="col-lg-1 btn-post col-md-2 col-md-offset-10 col-xs-3 col-xs-offset-0" value="发布">
             </div>
         </form>
     </div>
