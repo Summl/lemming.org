@@ -152,7 +152,7 @@ public class PostDao {
             return;
         }
 
-        String sql = "update post_info set post_info.read_num=post_info.like_num+1 where id=?;";
+        String sql = "update post_info set post_info.read_num=post_info.read_num+1 where id=?;";
         try {
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1,id);
