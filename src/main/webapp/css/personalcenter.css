@@ -36,6 +36,7 @@ body{
     width:150px;
     height: 50px;
     color: white;
+    display: inline-block;
     text-decoration: none;
 }
 .leftbox li:hover{
@@ -63,25 +64,29 @@ body{
 }
 .rightbox{
     display: block;
-    height: 700px;
-    border-radius: 0 16px 16px 16px;
+    height: 600px;
+    border-radius: 0 16px 16px 0px;
     background: white;
     padding:3%;
     float: left;
     box-shadow: 0 0 12px 0 #33333333;
     box-sizing: border-box;
+    margin-bottom: 20px;
 }
 .leftusercontent{
     font-size: 25px;
     line-height: 50px;
     display: inline-block;
     float: left;
+    width: 50%;
 }
 .rightusercontent{
     font-size: 25px;
     line-height: 50px;
     display: inline-block;
-    margin-left:40%;
+    margin-left: 10%;
+    width: 40%;
+
 }
 .recognizedtext{
     font-size: 20px;
@@ -89,4 +94,13 @@ body{
 }
 .basic_information {
     padding: 0 40px;
+}
+#btsave{
+    float: right;
+    width: 100px;
+    height: 40px;
+    margin-top: 45px;
+    font-size: 17px;
+    color: #fff;
+    border-radius: 6px;
 }
