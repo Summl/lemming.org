@@ -104,3 +104,23 @@ body{
     color: #fff;
     border-radius: 6px;
 }
+input{
+    height: 50px !important;
+}
+span{
+    margin-bottom: 20px;
+}
+input[type="radio"] {
+    margin-right: 10px;
+}
+label{
+    margin-right: 40px;
+    position: relative;
+    top: -17px;
+    margin-bottom: 29px;
+    color: gray;
+}
+#phone{
+    margin-top: -50px;
+    position: absolute;
+}

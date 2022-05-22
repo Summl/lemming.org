@@ -67,11 +67,13 @@
                             <span>性别:</span>
                             <div class="recognizedtext form-check form-check-inline">
                                <%-- admin-识别到的性别（可直接修改）--%>
-                                <input class="form-check-input" type="radio" name="updatesex" value="man" checked="checked">男
-                                <input class="form-check-input" type="radio" name="updatesex" value="woman">女
+                                <input class="form-check-input" type="radio" name="updatesex" id="man" value="man" checked="checked">
+                                   <label class="form-check-label" for="man">男</label>
+                                <input class="form-check-input" type="radio" name="updatesex" id="woman" value="woman">
+                                   <label class="form-check-label" for="man">女</label>
                             </div>
                             <br>
-                            <span>电话号码:</span>
+                            <span id="phone">电话号码:</span>
                             <div class="recognizedtext">
                                 <input class="form-control" type="tel" name="updatephone" placeholder="admin-识别到的电话号码（可直接修改）" value="">
                             </div>
