@@ -26,15 +26,15 @@
     <div id="topBar"></div>
 
     <div class="container">
-        <form class="container" action="post?type=post" method="post">
+        <form class="container" action="post?type=post" method="post" enctype="multipart/form-data">
             <div class="row">
                 <input id="post_title" class="col-xs-12" type="text" name="title" placeholder="请输入标题">
                 <h2 class="label_tip col-sm-1">简介：</h2>
-                <textarea id="post_brief" class="col-xs-6" name="brief" placeholder="请输入文章简介"></textarea>
+                <textarea id="post_brief" class="col-xs-5" name="brief" placeholder="请输入文章简介"></textarea>
+                <h2 class="label_tip col-sm-1">封面图：</h2>
+                <input type="file" name="cover" accept="image/*">
                 <input id="content" name="content" type="hidden">
             </div>
-<%--            <input type="image" value="插入图片">--%>
-
             <div id="editor" class="row vditor"></div>
             <div class="row">
             </div>

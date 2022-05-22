@@ -68,7 +68,9 @@ public class PostServlet extends HttpServlet {
             try {
                 List<FileItem> list = upload.parseRequest(req);
                 for (FileItem it : list){
-
+                    if (it.isFormField()) {
+                        continue;
+                    }
                     String fname = UUID.randomUUID().toString();
 
                     String SavePath = this.getServletContext().getRealPath("data/images");
@@ -93,17 +95,58 @@ public class PostServlet extends HttpServlet {
         }
     }
     protected void uploadPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Integer userid = (Integer) req.getSession().getAttribute("user");
-        String title = req.getParameter("title");
-        String brief = req.getParameter("brief");
-        String content = req.getParameter("content");
-        System.out.println(title);
-        System.out.println(content);
 
+        Integer userid = (Integer) req.getSession().getAttribute("user");
+        String title ="";
+        String brief = "";
+        String content = "";
+        String imageFilename = null;
         if (userid==null){
             req.setAttribute("tip","您的登录已过期，请重新登录");
             req.getRequestDispatcher("login.jsp").forward(req,resp);
             return;
+        }
+
+        FileItemFactory factory = new DiskFileItemFactory();
+        ServletFileUpload upload = new ServletFileUpload(factory);
+        upload.setHeaderEncoding("UTF-8");
+        upload.setFileSizeMax(10*1024*1024);
+        if (ServletFileUpload.isMultipartContent(req)) {
+            try {
+                List<FileItem> list = upload.parseRequest(req);
+                for (FileItem it : list){
+                    System.out.println(it.getFieldName() + it.getContentType());
+                    if (it.isFormField()) {
+                        switch (it.getFieldName()){
+                            case "title":
+                                title=it.getString("UTF-8");
+                            case "brief":
+                                brief=it.getString("UTF-8");
+                            case "content":
+                                content=it.getString("UTF-8");
+                        }
+                        continue;
+                    }
+                    if (it.getFieldName().equals("cover") && it.getContentType().split("/")[0].equals("image")){
+                        String fname = UUID.randomUUID().toString();
+                        String SavePath = this.getServletContext().getRealPath("data/images");
+                        System.out.println(SavePath +"/"+fname);
+
+                        File d = new File(SavePath);
+                        if (!d.exists()){
+                            if (d.mkdir()){
+                                System.out.println("创建: "+SavePath);
+                            }
+                        }
+                        File f = new File(SavePath,fname);
+                        it.write(f);
+                        it.delete();
+                        imageFilename = fname;
+                    }
+                }
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
         }
 
         String postDir = req.getSession().getServletContext().getRealPath("data/posts");
@@ -127,7 +170,7 @@ public class PostServlet extends HttpServlet {
             return;
         }
 
-        if(!PostDao.addPost(title,uuid+".md",brief,userid)){
+        if(!PostDao.addPost(title,uuid+".md",brief,userid,imageFilename)){
             req.setAttribute("title","发布失败");
             req.setAttribute("content","发布失败，数据库错误");
             req.getRequestDispatcher("message.jsp").forward(req,resp);
