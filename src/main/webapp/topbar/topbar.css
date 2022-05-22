@@ -10,6 +10,8 @@ body {
     background-color: #fff;
     height: 70px;
     box-shadow: 0 0 20px 0 #2222;
+    backdrop-filter: blur(10px) brightness(100%);
+    transition: background-color 1s;
 }
 #topBar header {
     height: 70px;
@@ -68,8 +70,7 @@ body {
     text-align: right;
     cursor: pointer;
 }
-#topBar #groupName:hover
-{
+#topBar #groupName:hover {
     color: #ffa200;
 }
 #topBar .nav_item {
@@ -84,19 +85,9 @@ body {
     cursor: default;
 }
 #topBar .nav_item:hover {
-    background-color: #fff1;
     color: #ffa200;
     text-decoration: none;
     border-bottom: 4px solid #ffa200;
-}
-#topBar .nav_item:visited{
-    text-decoration: none;
-}
-#topBar .nav_item:active{
-    text-decoration: none;
-}
-#topBar .nav_item:link{
-    text-decoration: none;
 }
 
 .userMenu {

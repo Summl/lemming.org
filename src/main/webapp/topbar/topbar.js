@@ -4,9 +4,16 @@ class TopBar {
     userMenu;
     menuItem_exit;
     headImage;
+    topBar;
     constructor(id){
-        let topBar = document.getElementById(id)
-        topBar.append(this.buildTopBar())
+        this.topBar = document.getElementById(id)
+        this.topBar.append(this.buildTopBar())
+    }
+    onTransparent(){
+        this.topBar.style.backgroundColor = "#fff"
+    }
+    offTransparent(){
+        this.topBar.style.backgroundColor = "#fffa"
     }
     addMenuItem(text, url){
         this.menuItem_exit = document.createElement("li")
@@ -100,7 +107,6 @@ class TopBar {
         this.user.append(this.userMenu)
         userBox.append(this.userName)
         userBox.append(groupName)
-
         return header
     }
 }
@@ -126,5 +132,18 @@ window.addEventListener("load",function () {
     topBar.userMenu.addEventListener("mouseleave",function (){
         topBar.userMenu.style.display="none"
     })
+
+    let isChrome = window.navigator.userAgent.indexOf("Chrome") > -1;
+    console.log(isChrome)
+    if (isChrome){
+        document.addEventListener("scroll",function () {
+
+            if (document.scrollingElement.scrollTop===0){
+                topBar.onTransparent()
+            }else {
+                topBar.offTransparent()
+            }
+        })
+    }
 
 })
