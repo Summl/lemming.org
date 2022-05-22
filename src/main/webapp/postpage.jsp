@@ -27,11 +27,11 @@
 </head>
 <body>
 <div id="topBar"></div>
+<div class="container">
 <div id="head">
     <% Post post = (Post) request.getAttribute("post"); %>
     <h1><%=post.getTitle()%></h1>
 </div>
-<div class="container">
 <div id="view">
 </div>
 </div>
