@@ -1,0 +1,36 @@
+#head{
+    width: 100%;
+    height: 20px;
+    border-bottom: 2px solid #ffa200;
+    padding-top: 60px;
+}
+#head title{
+    position: relative;
+    color: #ffa200;
+}
+#view h1{
+    position: relative;
+    padding-top: 5px;
+    font-size: 25px;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+#view h2{
+    position: relative;
+    padding-top: 5px;
+    font-size: 20px;
+    margin-left: 24px;
+}
+#view h3{
+    position: relative;
+    padding-top: 5px;
+    font-size: 15px;
+    margin-left: 28px;
+}
+
+#view p{
+    position: relative;
+    font-size: 10px;
+    padding-top: 5px;
+    margin-left: 20px;
+}
