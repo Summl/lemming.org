@@ -8,16 +8,30 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <link rel="stylesheet" href="topbar/topbar.css">
+    <script src="topbar/topbar.js"></script>
+
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <script src="bootstrap/js/jquery.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="icon" href="images/logo.png">
+    <script src="js/index.js"></script>
+    <link rel="stylesheet" href="bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/examination.css">
     <title>社区行为规范测试</title>
     <br>
-    社区行为规范测试
-    <hr>
-    <form>
-        1、以下符合发帖规范的是（）
-    </form>
+
+
+
 
 </head>
 <body>
-
+    <div id="topBar"></div>
+    <div id="top"><h1>社区行为规范测试</h1></div>
+    <hr>
+    <div id="out">
+        <script src="js/examination.js"></script>
+    </div>
 </body>
 </html>
