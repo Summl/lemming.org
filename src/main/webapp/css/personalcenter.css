@@ -1,123 +1,76 @@
 body{
-    margin: auto;
+    padding-top: 90px;
 }
 .leftbox{
-    margin-top:80px;
-    margin-left: 20px;
-    /*text-align: center;*/
+    padding: 30px 0;
     height: 600px;
-    width: 20%;
-    border-radius: 16px;
+    border-radius: 16px 0 0 16px;
     background: #ffa200;
     box-sizing: border-box;
-    box-shadow:grey 5px 0 30px 0;
+    box-shadow: 0 0 10px 0 #33333333;
     float: left;
 }
 
-.leftbox h2{
-    margin: 20px 0 0 0;
-    text-align: center;
-    color: white;
-}
 .leftbox ul{
-    /*margin-top: 20px;*/
-    /*margin-left: 40px;*/
-    padding: 0;
-    margin:20px 0 0 0;
+    padding: 40px 0;
     height: 200px;
-    /*width: 150px;*/
     width: 100%;
     line-height: 20px;
-    border-bottom: grey 1px;
     box-sizing: border-box;
 }
 .leftbox li{
     text-align: center;
     margin: 0 0;
     font-size:18px;
-    /*width:150px;*/
     width: 100%;
     height: 50px;
     line-height: 50px;
     display: inline-block;
+    cursor: pointer;
+}
+.leftbox li:hover {
+    background: #ffaf23;
 }
 .leftbox li a{
     /*取消下划线*/
     width:150px;
     height: 50px;
-    color: black;
+    color: white;
     text-decoration: none;
 }
 .leftbox li:hover{
-    color: black;
-    background: snow;
 }
-.leftbox li:active{
-    /*激活时*/
-    color: white;
-    font-size: 24px;
-}
-.leftbox li:visited{
-    /*访问过*/
-    color: black;
-}
-/*.leftbox li a:link{*/
-/*    !*color: white;*!*/
-/*    !*font-size: 24px;*!*/
-/*}*/
 .user_information{
-    /*margin-top: 20px;*/
-    /*margin-left: 50px;*/
-    /*margin-bottom: 20px;*/
     margin: auto;
-    padding: 20%;
-    color: black;
+    color: white;
     width: 100%;
-    height: 180px;
+    text-align: center;
 }
 /*图片的设定*/
 .leftimage{
     margin: 0;
     /*图片尺寸大小*/
-    width: 120px;
-    height: 120px;
+    width: 90px;
+    height: 90px;
     background: white;
     border-radius: 70px;
     border: 5px solid #0C9A9A ;
     box-sizing: border-box;
     text-align: center;
-    /*居中*/
-    /*display:flex;*/
-    /*justify-content: center;*/
 }
 .user_information h3{
     text-align: center;
 }
-.basic_information{
-    margin-top: 20px;
-    padding: 20%;
-}
 .rightbox{
     display: block;
-    margin-top:80px ;
-    margin-left: 20px;
-    width: 75%;
     height: 700px;
-    border-radius: 16px;
-    background: whitesmoke;
+    border-radius: 0 16px 16px 16px;
+    background: white;
     padding:3%;
-    /*font-size: 25px;*/
     float: left;
-    box-shadow:grey 5px 0 30px 0;
+    box-shadow: 0 0 12px 0 #33333333;
     box-sizing: border-box;
 }
-/*.rightbox span{*/
-/*    !*text-align: center;*!*/
-/*    font-size: 25px;*/
-/*    line-height: 100px;*/
-/*    display: inline-block;*/
-/*}*/
-
 .leftusercontent{
     font-size: 25px;
     line-height: 50px;
@@ -133,4 +86,7 @@ body{
 .recognizedtext{
     font-size: 20px;
     color: darkgray;
+}
+.basic_information {
+    padding: 0 40px;
 }

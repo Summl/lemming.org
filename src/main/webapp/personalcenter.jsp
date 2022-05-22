@@ -19,58 +19,62 @@
     <link rel="icon" href="images/logo.png">
     <link rel="stylesheet" href="bootstrap-icons/bootstrap-icons.css">
     <link rel="stylesheet" href="css/personalcenter.css">
-    <script src="personalcenter.js"></script>
+    <script src="js/personalcenter.js"></script>
 </head>
 <body>
 <%--    页面通用顶栏--%>
     <div id="topBar"></div>
 <%--左侧--%>
-    <div class="leftbox">
-        <div class="user_information">
-<%--            头像、用户名称--%>
-            <image class="leftimage" src="images/128x128.png"></image>
-            <h3>admin</h3>
+<div class="container">
+    <div class="row">
+        <div class="leftbox col-sm-2">
+            <div class="user_information">
+                <%--            头像、用户名称--%>
+                <image class="leftimage" src="images/128x128.png"></image>
+            </div>
+            <%--            左侧列表内容--%>
+                <ul>
+                    <li><a href="#">基本信息</a></li>
+                    <li><a href="#">用户名管理</a></li>
+                    <li><a href="#">密码管理</a></li>
+                    <li><a href="#">头像管理</a></li>
+                    <li><a href="#">邮箱修改/核验</a></li>
+                    <li><a href="#">用户注销</a></li>
+                </ul>
         </div>
-        <%--            左侧列表内容--%>
-        <div class="basic_information">
-            <h2>个人资料</h2>
-            <ul>
-                <li><a href="#">用户名管理</a></li>
-                <li><a href="#">密码管理</a></li>
-                <li><a href="#">头像管理</a></li>
-                <li><a href="#">邮箱修改/核验</a></li>
-                <li><a href="#">用户注销</a></li>
-            </ul>
+        <%--右侧内容--%>
+        <%--1.个人信息界面--%>
+        <div class="rightbox col-sm-10">
+            <div class="basic_information">
+                <div class="leftusercontent">
+                    <span>用户名:</span>
+                    <div class="recognizedtext">admin-识别到的用户名</div>
+                    <br>
+                    <span>性别:</span>
+                    <div class="recognizedtext">admin-识别到的性别</div>
+                    <br>
+                    <span>电话号码:</span>
+                    <div class="recognizedtext">admin-识别到的电话号码</div>
+                    <br>
+                    <span>电子邮箱:</span>
+                    <div class="recognizedtext">admin-识别到的电子邮箱</div>
+                </div>
+                <div class="rightusercontent">
+                    <span>用户权限:</span>
+                    <div class="recognizedtext">admin-识别到的用户权限</div>
+                    <br>
+                    <span>发帖数:</span>
+                    <div class="recognizedtext">admin-识别到的发帖数量</div>
+                    <br>
+                    <span>注册时间:</span>
+                    <div class="recognizedtext">admin-识别到的注册时间</div>
+                    <br>
+                </div>
+            </div>
         </div>
     </div>
-    <%--右侧内容--%>
-<%--1.个人信息界面--%>
-    <div class="rightbox">
-        <div class="leftusercontent">
-            <span>用户名:</span>
-            <div class="recognizedtext">admin-识别到的用户名</div>
-            <br>
-            <span>性别:</span>
-            <div class="recognizedtext">admin-识别到的性别</div>
-            <br>
-            <span>电话号码:</span>
-            <div class="recognizedtext">admin-识别到的电话号码</div>
-            <br>
-            <span>电子邮箱:</span>
-            <div class="recognizedtext">admin-识别到的电子邮箱</div>
-        </div>
-        <div class="rightusercontent">
-            <span>用户权限:</span>
-            <div class="recognizedtext">admin-识别到的用户权限</div>
-            <br>
-            <span>发帖数:</span>
-            <div class="recognizedtext">admin-识别到的发帖数量</div>
-            <br>
-            <span>注册时间:</span>
-            <div class="recognizedtext">admin-识别到的注册时间</div>
-            <br>
-        </div>
-    </div>
+</div>
+
 <%--    2.用户名修改界面--%>
 <%--    <div class="rightbox">--%>
 <%--        <div>--%>
