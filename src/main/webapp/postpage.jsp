@@ -17,6 +17,7 @@
     <script src="bootstrap/js/bootstrap.bundle.js"></script>
     <script src="topbar/topbar.js"></script>
     <link rel="stylesheet" href="css/postpage.css">
+    <link rel="stylesheet" href="bootstrap-icons/bootstrap-icons.css">
 
     <script>
         function aa(){

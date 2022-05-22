@@ -20,6 +20,17 @@ class TopBar {
         this.menuItem_exit.innerHTML = "<a href='"+url+"'>"+text+"</a>"
         this.userMenu.append(this.menuItem_exit)
     }
+
+    addGoTopButton(){
+        let goTopBtn = document.createElement("div")
+        goTopBtn.classList.add("goTopBtn")
+        goTopBtn.innerHTML="<i class=\"bi bi-arrow-up-square-fill\"></i>"
+        document.getElementsByTagName("body")[0].append(goTopBtn)
+        goTopBtn.addEventListener("click",function () {
+            $("html, body").animate({scrollTop : 0},700);
+        })
+    }
+
     buildTopBar() {
         this.userMenu = document.createElement("ul")
         this.userMenu.classList.add("userMenu")
@@ -148,5 +159,6 @@ window.addEventListener("load",function () {
             }
         })
     }
+    topBar.addGoTopButton()
 
 })

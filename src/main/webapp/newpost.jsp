@@ -21,6 +21,7 @@
     <%--  --%>
     <script src="js/newpost.js"></script>
     <link rel="stylesheet" href="css/newpost.css">
+    <link rel="stylesheet" href="bootstrap-icons/bootstrap-icons.css">
 </head>
 <body>
 <div id="topBar"></div>

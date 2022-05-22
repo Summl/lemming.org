@@ -116,3 +116,13 @@ body {
 .userMenu li:hover a{
     color: white;
 }
+.goTopBtn {
+    position: fixed;
+    bottom: 100px;
+    right: 100px;
+    width: 48px;
+    height: 48px;
+    font-size: 48px;
+    color: #ffa200;
+    z-index: 99;
+}
