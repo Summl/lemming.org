@@ -31,7 +31,6 @@ a {
 }
 .contentList{
     z-index: 5;
-    padding-top: 70px;
     text-align: center;
 }
 .contentList .itemBox {
