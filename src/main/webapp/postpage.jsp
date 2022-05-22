@@ -9,14 +9,23 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <% Post post = (Post) request.getAttribute("post"); %>
-    <title><%=post.getTitle()%></title>
     <script src="lute/lute.min.js"></script>
     <script src="js/postpage.js"></script>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="topbar/topbar.css">
+    <script src="bootstrap/js/jquery.js"></script>
+    <script src="bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="topbar/topbar.js"></script>
+    <link rel="stylesheet" href="css/postpage.css">
+
 </head>
 <body>
+<div id="topBar"></div>
+<div id="head">
+    <% Post post = (Post) request.getAttribute("post"); %>
+    <title><%=post.getTitle()%></title>
+</div>
 <div id="view">
-
 </div>
 <script>
     // 加载页面内容

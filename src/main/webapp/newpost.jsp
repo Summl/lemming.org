@@ -20,6 +20,9 @@
 <%--  --%>
     <script src="js/newpost.js"></script>
     <link rel="stylesheet" href="css/newpost.css">
+    <script>
+
+    </script>
 </head>
 <body>
     <div id="topBar"></div>
@@ -38,6 +41,7 @@
             <div class="row">
                 <input id="title" class="col-xs-12 form-control" type="text" name="title" placeholder="请输入标题"
                 value="<%=request.getParameter("title")==null?"":request.getParameter("title")%>">
+
                 <input id="content" name="content" type="hidden">
             </div>
 <%--            <input type="image" value="插入图片">--%>
