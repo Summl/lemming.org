@@ -74,19 +74,18 @@ body{
     margin-bottom: 20px;
 }
 .leftusercontent{
-    font-size: 25px;
+    font-size: 20px;
     line-height: 50px;
     display: inline-block;
     float: left;
     width: 50%;
 }
 .rightusercontent{
-    font-size: 25px;
+    font-size: 20px;
     line-height: 50px;
     display: inline-block;
     margin-left: 10%;
     width: 40%;
-
 }
 .recognizedtext{
     font-size: 20px;
@@ -94,6 +93,14 @@ body{
 }
 .basic_information {
     padding: 0 40px;
+    display: block;
+}
+.updatepasswordinterface{
+    display: block;
+}
+.active{
+    /*被点击时的列表变化*/
+    background-color: #fead3f;
 }
 #btsave{
     float: right;
@@ -104,11 +111,13 @@ body{
     color: #fff;
     border-radius: 6px;
 }
+
 input{
     height: 50px !important;
     border-radius: 6px !important;
 }
 input:focus{
+    /*输入框的样式*/
     border: 1px solid #ffa200 !important;
     box-shadow: 0 0 5px #ffa200 !important;
     outline: 0 !important;
@@ -127,4 +136,24 @@ label{
 #phone{
     margin-top: -50px;
     position: absolute;
+}
+.btsaveandreset{
+    float: right;
+    margin-bottom: 30px;
+    /*font-size: ;*/
+}
+#interface-1{
+    display: block;
+}
+#interface-2{
+    display: none;
+}
+#interface-3{
+    display: none;
+}
+#interface-4{
+    display: none;
+}
+#interface-5{
+    display: none;
 }
