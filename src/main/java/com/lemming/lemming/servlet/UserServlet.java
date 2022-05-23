@@ -2,6 +2,7 @@ package com.lemming.lemming.servlet;
 
 import com.alibaba.fastjson.JSONObject;
 import com.lemming.lemming.bean.User;
+import com.lemming.lemming.dao.GroupDao;
 import com.lemming.lemming.dao.PostDao;
 import com.lemming.lemming.dao.UserDao;
 
@@ -136,10 +137,10 @@ public class UserServlet extends HttpServlet {
         json.put("name",user.getUserName());
         json.put("post_count", PostDao.getCountByUserId(user.getId()));
         json.put("registration_time",user.getRegistrationDate());
+        json.put("user_group", GroupDao.getGroupInfoByUserId(user.getId()));
         if (user.getId() == userId){
             json.put("sex",user.getSex());
             json.put("email",user.getEmail());
-            json.put("group_id",user.getGroup());
             json.put("phone",user.getPhone());
         }
 

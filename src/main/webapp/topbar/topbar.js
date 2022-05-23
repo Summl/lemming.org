@@ -1,5 +1,6 @@
 class TopBar {
     userName;
+    groupName;
     user;
     userMenu;
     menuItem_exit;
@@ -107,11 +108,11 @@ class TopBar {
         this.userName.href="login.jsp"
         this.userName.innerText="登录 / 注册"
 
-        let groupName = document.createElement("span")
-        groupName.id="groupName"
-        groupName.classList.add("hidden-sm")
-        groupName.classList.add("hidden-xs")
-        groupName.innerText="游客"
+        this.groupName = document.createElement("span")
+        this.groupName.id="groupName"
+        this.groupName.classList.add("hidden-sm")
+        this.groupName.classList.add("hidden-xs")
+        this.groupName.innerText="游客"
 
         header.append(row)
         row.append(logo)
@@ -126,7 +127,7 @@ class TopBar {
         this.user.append(userBox)
         this.user.append(this.userMenu)
         userBox.append(this.userName)
-        userBox.append(groupName)
+        userBox.append(this.groupName)
         return header
     }
 }
@@ -141,11 +142,12 @@ window.addEventListener("load",function () {
             let json = JSON.parse(httpRequest.responseText);
             topBar.userName.innerText = json.name
             topBar.userName.href = "personalcenter.jsp"
+            topBar.groupName.innerText = json.user_group.name;
             topBar.addMenuItem("个人中心","personalcenter.jsp")
             topBar.addMenuItem("退出登录","user?type=exit")
         }
     }
-    topBar.headImage.addEventListener("mousemove",function () {
+    topBar.headImage.addEventListener("mousemogroupNameve",function () {
         topBar.userMenu.style.right=topBar.headImage.right
         topBar.userMenu.style.display="block"
     })
