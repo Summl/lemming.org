@@ -41,7 +41,7 @@
 <%--        <div class="draftBox">--%>
 <%--            <button type="button" value="存草稿" class="col-lg-1 btn-post col-md-2 col-md-offset-9 col-xs-3 col-xs-offset-0" >存草稿</button>--%>
 <%--        </div>--%>
-        <input id="submit_btn" type="button" onclick="return checkSubmit()" class="col-lg-1 btn-post col-md-2 col-md-offset-11 col-xs-3 col-xs-offset-0" value="发布">
+        <input id="submit_btn" type="button" onclick="checkSubmit()" class="col-lg-1 btn-post col-md-2 col-md-offset-11 col-xs-3 col-xs-offset-0" value="发布">
     </div>
 </form>
 <div class="modal fade" data-backdrop="static"  id="mymodal">

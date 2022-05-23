@@ -8,12 +8,12 @@ function checkSubmit(){
     if($("#post_title").val().trim() === ""){
         $("#textinfo").text("请输入标题！");
         $("#mymodal").modal();
-        return false;
+        return;
     }
     if($("#post_brief").val().trim() === ""){
         $("#textinfo").text("请输入简介！");
         $("#mymodal").modal();
-        return false;
+        return;
     }
     updateContent()
     $("#select").submit();
@@ -44,6 +44,7 @@ window.onload = function () {
     let inputChooser = document.getElementById("inputChooseCover")
     chooseCover.addEventListener("click",function () {
             inputChooser.click()
+
     })
 
     inputChooser.addEventListener("change",function (){
