@@ -2,6 +2,7 @@ package com.lemming.lemming.servlet;
 
 import com.alibaba.fastjson.JSONObject;
 import com.lemming.lemming.bean.User;
+import com.lemming.lemming.dao.PostDao;
 import com.lemming.lemming.dao.UserDao;
 
 import javax.servlet.ServletException;
@@ -133,6 +134,7 @@ public class UserServlet extends HttpServlet {
         JSONObject json = new JSONObject();
         json.put("id",user.getId());
         json.put("name",user.getUserName());
+        json.put("post_count", PostDao.getCountByUserId(user.getId()));
 
         if (user.getId() == userId){
             json.put("sex",user.getSex());

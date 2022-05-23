@@ -169,4 +169,27 @@ public class PostDao {
             throw new RuntimeException(e);
         }
     }
+
+    /**
+     * 通过用户ID获取该用户的发帖数
+     * @param id 用户id
+     * @return 用户发帖数
+     */
+    public static int getCountByUserId(int id){
+        String sql = "select COUNT(*) from post_info where user_id="+id;
+        Connection c = DataBaseConnect.getConnection();
+        Integer count = null;
+        try {
+            Statement st = c.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            rs.next();
+            count = rs.getInt(1);
+
+            c.close();
+            return count;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
 }
