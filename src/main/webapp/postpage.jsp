@@ -1,4 +1,6 @@
 <%@ page import="com.lemming.lemming.bean.Post" %>
+<%@ page import="com.lemming.lemming.dao.UserDao" %>
+<%@ page import="com.lemming.lemming.bean.User" %>
 <%--
   Created by IntelliJ IDEA.
   User: maicss
@@ -9,6 +11,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <%
+        Post post = (Post) request.getAttribute("post");
+        User user = UserDao.getUserById(post.getUserId());
+    %>
     <script src="lute/lute.min.js"></script>
     <script src="js/postpage.js"></script>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
@@ -24,19 +30,27 @@
             document.body.scrollTop=0;
         }
     </script>
-    <title>旅鼠论坛</title>
+    <title><%=post.getTitle()%> - 旅鼠论坛</title>
 </head>
 <body>
 <div id="topBar"></div>
 <div class="container">
-<div id="head">
-    <% Post post = (Post) request.getAttribute("post"); %>
-    <h1><%=post.getTitle()%></h1>
+    <div class="content_left col-sm-9">
+        <div id="head">
+            <h1><%=post.getTitle()%></h1>
+            <p><%=post.getReadNum()%> 次浏览 · <%=post.getLikeNum()%> 次点赞</p>
+        </div>
+        <div id="view">
+        </div>
+    </div>
+
+    <div class="col-sm-3">
+        <div id="user_show" >
+            <h3>楼主卡片</h3>
+            <h4></h4>
+        </div>
+    </div>
 </div>
-<div id="view">
-</div>
-</div>
-<div id="jt" ><img src="images/jt.png" onclick="aa()"></div>
 <script>
     // 加载页面内容
     let httpRequest = new XMLHttpRequest();//第一步：建立所需的对象
