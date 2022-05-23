@@ -14,7 +14,6 @@
 #user_show {
     border-radius: 12px;
     background-color: #fff;
-    /*box-shadow: 0 0 10px 0 #33333322;*/
     min-height: 400px;
     padding: 0 10px 10px 20px;
     margin-top: 20px;
@@ -23,9 +22,13 @@
 #user_show h3 {
     font-size: 22px;
     padding-top: 10px;
+    margin-bottom: 28px;
     color: #616161;
 }
-
+#user_show p {
+    margin: 10px 0 0 0;
+    padding: 0 8px;
+}
 #view {
     margin-top: 28px;
 }

@@ -14,6 +14,8 @@
     <%
         Post post = (Post) request.getAttribute("post");
         User user = UserDao.getUserById(post.getUserId());
+
+        assert user != null;
     %>
     <script src="lute/lute.min.js"></script>
     <script src="js/postpage.js"></script>
@@ -46,8 +48,9 @@
 
     <div class="col-sm-3">
         <div id="user_show" >
-            <h3>楼主卡片</h3>
-            <h4></h4>
+            <h3><%=user.getUserName()%></h3>
+            <p>Email：<%=user.getEmail()%></p>
+            <p>注册时间：<%=user.getRegistrationDate()%></p>
         </div>
     </div>
 </div>
