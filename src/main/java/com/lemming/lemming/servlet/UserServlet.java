@@ -136,7 +136,6 @@ public class UserServlet extends HttpServlet {
         json.put("name",user.getUserName());
         json.put("post_count", PostDao.getCountByUserId(user.getId()));
         json.put("registration_time",user.getRegistrationDate());
-
         if (user.getId() == userId){
             json.put("sex",user.getSex());
             json.put("email",user.getEmail());
@@ -144,6 +143,7 @@ public class UserServlet extends HttpServlet {
             json.put("phone",user.getPhone());
         }
 
+        resp.setContentType("text/html;charset=UTF-8");
         resp.getWriter().print(json);
 
     }
