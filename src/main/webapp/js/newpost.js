@@ -15,6 +15,7 @@ function checkSubmit(){
         $("#mymodal").modal();
         return false;
     }
+    updateContent()
     $("#select").submit();
 }
 
@@ -38,8 +39,6 @@ window.onload = function () {
 
     })
 
-    let submit = document.getElementById("submit_btn")
-    submit.addEventListener("click",updateContent)
 
     let chooseCover = document.getElementById("chooseCover")
     let inputChooser = document.getElementById("inputChooseCover")
