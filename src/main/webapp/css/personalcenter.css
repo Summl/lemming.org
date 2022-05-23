@@ -17,6 +17,7 @@ body{
     width: 100%;
     line-height: 20px;
     box-sizing: border-box;
+    color: #fff;
 }
 .leftbox li{
     text-align: center;
@@ -94,6 +95,7 @@ body{
 .basic_information {
     padding: 0 40px;
     display: block;
+    margin-top: -20px;
 }
 .updatepasswordinterface{
     display: block;

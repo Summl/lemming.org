@@ -50,14 +50,14 @@
                         <div class="leftusercontent">
                             <span>用户名:</span>
                             <div class="recognizedtext">
-                                <input type="text" class="form-control" name="updatename" placeholder="admin-识别到的用户名（可直接修改）"
+                                <input id="updatename" type="text" class="form-control" name="updatename" placeholder="admin-识别到的用户名（可直接修改）"
                                        value="">
                             </div>
                             <br>
                             <span>性别:</span>
                             <div class="recognizedtext form-check form-check-inline">
                                 <%-- admin-识别到的性别（可直接修改）--%>
-                                <input class="form-check-input" type="radio" name="updatesex" id="man" value="man"
+                                <input id="updatesex" class="form-check-input" type="radio" name="updatesex" id="man" value="man"
                                        checked="checked">
                                 <label class="form-check-label" for="man">男</label>
                                 <input class="form-check-input" type="radio" name="updatesex" id="woman" value="woman">
@@ -66,30 +66,30 @@
                             <br>
                             <span id="phone">电话号码:</span>
                             <div class="recognizedtext">
-                                <input class="form-control" type="tel" name="updatephone"
+                                <input id="updatephone" class="form-control" type="tel" name="updatephone"
                                        placeholder="admin-识别到的电话号码（可直接修改）" value="">
                             </div>
                             <br>
                             <span>电子邮箱:</span>
                             <div class="recognizedtext">
-                                <input class="form-control" type="email" name="updateemail"
+                                <input id="updateemail" class="form-control" type="email" name="updateemail"
                                        placeholder="admin-识别到的电子邮箱（可直接修改）" value="">
                             </div>
                         </div>
                         <div class="rightusercontent">
                             <span>用户权限:</span>
                             <div class="recognizedtext">
-                                <input class="form-control" name="userlimit" placeholder="admin-识别到的用户权限" readonly value="">
+                                <input id="userlimit" class="form-control" name="userlimit" placeholder="admin-识别到的用户权限" readonly value="">
                             </div>
                             <br>
                             <span>发帖数:</span>
                             <div class="recognizedtext">
-                                <input class="form-control" name="postcount" placeholder="admin-识别到的发帖数量" readonly value="">
+                                <input id="postcount" class="form-control" name="postcount" placeholder="admin-识别到的发帖数量" readonly value="">
                             </div>
                             <br>
                             <span>注册时间:</span>
                             <div class="recognizedtext">
-                                <input class="form-control" name="registertime" placeholder="admin-识别到的注册时间" readonly
+                                <input id="registertime" class="form-control" name="registertime" placeholder="admin-识别到的注册时间" readonly
                                        value="">
                             </div>
                             <br>
