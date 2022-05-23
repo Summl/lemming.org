@@ -79,13 +79,13 @@ class TopBar {
         let item_3 = document.createElement("a")
         item_3.classList.add("nav_item")
         item_3.classList.add("col-xs-2")
-        item_3.href="#"
+        item_3.href="norml.jsp"
         item_3.innerText="准则"
 
         let item_4 = document.createElement("a")
         item_4.classList.add("nav_item")
         item_4.classList.add("col-xs-2")
-        item_4.href="#"
+        item_4.href="about.jsp"
         item_4.innerText="关于"
 
         this.user = document.createElement("div")
