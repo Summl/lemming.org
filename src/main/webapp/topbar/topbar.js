@@ -24,10 +24,19 @@ class TopBar {
     addGoTopButton(){
         let goTopBtn = document.createElement("div")
         goTopBtn.classList.add("goTopBtn")
+        goTopBtn.id="goTopBtn"
         goTopBtn.innerHTML="<i class=\"bi bi-arrow-up-square-fill\"></i>"
         document.getElementsByTagName("body")[0].append(goTopBtn)
         goTopBtn.addEventListener("click",function () {
             $("html, body").animate({scrollTop : 0},700);
+            $("#goTopBtn").animate({
+                top:'-=20px'
+            },200,function () {
+                $("#goTopBtn").animate({
+                    top:'+=20px'
+                },200)
+            });
+
         })
     }
 

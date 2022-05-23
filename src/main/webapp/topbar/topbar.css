@@ -1,5 +1,9 @@
 body {
     padding-top: 80px;
+    padding-right: 0 !important;
+}
+html {
+    overflow-y:scroll;
 }
 #topBar {
     z-index: 10;
