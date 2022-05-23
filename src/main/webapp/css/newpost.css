@@ -53,17 +53,21 @@
     height: 40px;
     font-size: 16px;
 }
+.modal-content{
+    top: 180px !important;
+}
 #modal-header h4{
     font-weight: bold;
 }
 .modal-header{
     padding: 15px 15px 0 15px;
 }
-span{
+.close span{
     margin-bottom: 20px;
     top: -30px !important;
     position: relative !important;
 }
+
 /*.submitBox,*/
 /*.draftBox{*/
 /*    margin: 10px 0;*/
