@@ -147,7 +147,7 @@ window.addEventListener("load",function () {
             topBar.addMenuItem("退出登录","user?type=exit")
         }
     }
-    topBar.headImage.addEventListener("mousemogroupNameve",function () {
+    topBar.headImage.addEventListener("mousemove",function () {
         topBar.userMenu.style.right=topBar.headImage.right
         topBar.userMenu.style.display="block"
     })

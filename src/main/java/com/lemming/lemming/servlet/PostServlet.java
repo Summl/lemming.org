@@ -2,6 +2,8 @@ package com.lemming.lemming.servlet;
 
 import com.alibaba.fastjson.JSONObject;
 import com.lemming.lemming.bean.Post;
+import com.lemming.lemming.bean.UserGroup;
+import com.lemming.lemming.dao.GroupDao;
 import com.lemming.lemming.dao.PostDao;
 import com.lemming.lemming.generic.PageNumber;
 import org.apache.commons.fileupload.FileItem;
@@ -97,6 +99,8 @@ public class PostServlet extends HttpServlet {
     protected void uploadPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         Integer userid = (Integer) req.getSession().getAttribute("user");
+
+
         String title ="";
         String brief = "";
         String content = "";
@@ -104,6 +108,22 @@ public class PostServlet extends HttpServlet {
         if (userid==null){
             req.setAttribute("tip","您的登录已过期，请重新登录");
             req.getRequestDispatcher("login.jsp").forward(req,resp);
+            return;
+        }
+
+        UserGroup group = GroupDao.getGroupInfoByUserId(userid);
+
+        if (group == null){
+            req.setAttribute("title","发布失败");
+            req.setAttribute("content","发布失败，您的账户异常");
+            req.getRequestDispatcher("message.jsp").forward(req,resp);
+            return;
+        }
+
+        if (!group.isAllowPost()){
+            req.setAttribute("title","发布失败");
+            req.setAttribute("content","发布失败，您暂时无权发布帖文");
+            req.getRequestDispatcher("message.jsp").forward(req,resp);
             return;
         }
 
