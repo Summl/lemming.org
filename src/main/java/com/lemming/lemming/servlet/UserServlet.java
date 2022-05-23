@@ -135,6 +135,7 @@ public class UserServlet extends HttpServlet {
         json.put("id",user.getId());
         json.put("name",user.getUserName());
         json.put("post_count", PostDao.getCountByUserId(user.getId()));
+        json.put("registration_time",user.getRegistrationDate());
 
         if (user.getId() == userId){
             json.put("sex",user.getSex());
