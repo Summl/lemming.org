@@ -144,7 +144,7 @@ public class UserServlet extends HttpServlet {
             json.put("phone",user.getPhone());
         }
 
-        resp.setContentType("text/html;charset=UTF-8");
+        resp.setContentType("text/json;charset=UTF-8");
         resp.getWriter().print(json);
 
     }

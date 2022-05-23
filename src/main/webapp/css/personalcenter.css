@@ -66,7 +66,7 @@ body{
 .rightbox{
     display: block;
     height: 600px;
-    border-radius: 0 16px 16px 0px;
+    border-radius: 0 16px 16px 0;
     /*background: white;*/
     padding:3%;
     float: left;

@@ -57,31 +57,41 @@ function updateUserBaseInfo() {
             let phone = json.phone;
             let email=json.email;
             let psot_count=json.post_count;
-            let groupid=json.groupId;
+            let groupname=json.user_group.name;
             let registration_time=json.registration_time;
+
+
+
             let updatename = document.getElementById("updatename");
-            let updatesex = document.getElementById("updatesex");
             let man = document.getElementById("man");
             let woman = document.getElementById("woman");
             let updatephone = document.getElementById("updatephone");
             let updateemail = document.getElementById("updateemail");
             let postcount = document.getElementById("postcount");
             let registertime=document.getElementById("registertime");
+            let userlimit = document.getElementById("userlimit");
+            let nosex= document.getElementById("no_sex");
             updatename.value = name;
+            console.log(sex)
+            updateemail.value = email;
+            userlimit.value = groupname;
 
-            if(sex == null || sex == "男"){
+            if(sex === "男"){
                 man.checked = true;
-            }else if(sex == "女"){
-                woman.checkd = true;
+            }else if(sex === "女"){
+                woman.checked = true;
+            }else {
+                nosex.checked = true;
             }
 
-            if(phone == null){
+            if(phone === undefined){
                 updatephone.placeholder = "请输入电话号码";
                 updatephone.value = "";
             }else{
                 updatephone.value = phone;
             }
-            updateemail.value = email;
+
+
             postcount.value = psot_count;
             registertime.value = registration_time;
         }

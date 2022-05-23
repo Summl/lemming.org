@@ -57,11 +57,12 @@
                             <span>性别:</span>
                             <div class="recognizedtext form-check form-check-inline">
                                 <%-- admin-识别到的性别（可直接修改）--%>
-                                <input id="updatesex" class="form-check-input" type="radio" name="updatesex" id="man" value="man"
-                                       checked="checked">
+                                <input class="form-check-input" type="radio" name="updatesex" id="man" value="男">
                                 <label class="form-check-label" for="man">男</label>
-                                <input class="form-check-input" type="radio" name="updatesex" id="woman" value="woman">
+                                <input class="form-check-input" type="radio" name="updatesex" id="woman" value="女">
                                 <label class="form-check-label" for="man">女</label>
+                                <input class="form-check-input" type="radio" name="updatesex" id="no_sex">
+                                <label class="form-check-label" for="man">保密</label>
                             </div>
                             <br>
                             <span id="phone">电话号码:</span>
@@ -73,7 +74,7 @@
                             <span>电子邮箱:</span>
                             <div class="recognizedtext">
                                 <input id="updateemail" class="form-control" type="email" name="updateemail"
-                                       placeholder="admin-识别到的电子邮箱（可直接修改）" value="">
+                                       placeholder="admin-识别到的电子邮箱（可直接修改）">
                             </div>
                         </div>
                         <div class="rightusercontent">
@@ -100,21 +101,21 @@
             </div>
             <%--      2.密码修改界面--%>
             <div id="interface-2" class="rightboxpage">
-                    <form action="" method="post">
-                        <div class="updatepasswordinterface">
-                            <span>原密码：</span>
-                            <input class="form-check-input" type="text" name="oldpassword" value="" placeholder="请输入原始密码">
-                            <br>
-                            <span>新密码：</span>
-                            <input class="form-check-input" type="text" name="newpassword" value="" placeholder="请输入新密码">
-                            <br>
-                            <span>重新输入新密码：</span>
-                            <input class="form-check-input" type="text" name="newpassword" value="" placeholder="请输入新密码">
-                            <br>
-                            <button type="submit" class="btn btn-warning">保存信息</button>
-                            <button type="submit" class="btn btn-warning">重置信息</button>
-                        </div>
-                    </form>
+                <form action="" method="post">
+                    <div class="updatepasswordinterface">
+                        <span>原密码：</span>
+                        <input class="form-check-input" type="text" name="oldpassword" value="" placeholder="请输入原始密码">
+                        <br>
+                        <span>新密码：</span>
+                        <input class="form-check-input" type="text" name="newpassword" value="" placeholder="请输入新密码">
+                        <br>
+                        <span>重新输入新密码：</span>
+                        <input class="form-check-input" type="text" name="newpassword" value="" placeholder="请输入新密码">
+                        <br>
+                        <button type="submit" class="btn btn-warning">保存信息</button>
+                        <button type="submit" class="btn btn-warning">重置信息</button>
+                    </div>
+                </form>
             </div>
             <div id="interface-3" class="rightboxpage">
                 <div>第三个界面内容</div>
