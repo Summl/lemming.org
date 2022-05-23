@@ -27,24 +27,16 @@
 
 </head>
 <body>
+    <div id="bg"></div>
     <div id="topBar"></div>
     <div id="top">
-        <h1>
-            社区行为规范测试
-        </h1>
+        <h1>社区行为规范测试</h1>
     </div>
-    <hr>
     <div id="out">
-<%--        <script src="js/examination.js"></script>--%>
-        123456
-        <script language="JavaScript">
-            for(var i=0;i<5;i++){
-                var div = document.createElement("div");
-                div.className="question";
-                document.body.appendChild(div);
-            }
-        </script>
-
+        <form action="" method="post">
+            <script src="js/examination.js"></script>
+<%--            <input type="submit" value="提交">--%>
+        </form>
     </div>
 </body>
 </html>
