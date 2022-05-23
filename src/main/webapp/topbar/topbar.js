@@ -99,11 +99,11 @@ class TopBar {
 
         let userBox = document.createElement("div")
         userBox.classList.add("userBox")
+        userBox.classList.add("hidden-sm")
+        userBox.classList.add("hidden-xs")
 
         this.userName = document.createElement("a")
         this.userName.id="userName"
-        this.userName.classList.add("hidden-sm")
-        this.userName.classList.add("hidden-xs")
         this.userName.href="login.jsp"
         this.userName.innerText="登录 / 注册"
 
