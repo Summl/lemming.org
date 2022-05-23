@@ -34,11 +34,11 @@
             </div>
             <%--            左侧列表内容--%>
             <ul>
-                <li onclick="page1()">基本信息</li>
-                <li onclick="page2()">密码管理</li>
-                <li onclick="page3()">头像管理</li>
-                <li onclick="page4()">邮箱修改/核验</li>
-                <li onclick="page5()">用户注销</li>
+                <li id="li-1"  onclick="page1()">基本信息</li>
+                <li id="li-2" onclick="page2()">密码管理</li>
+                <li id="li-3" onclick="page3()">头像管理</li>
+                <li id="li-4" onclick="page4()">邮箱修改/核验</li>
+                <li id="li-5" onclick="page5()">用户注销</li>
             </ul>
         </div>
         <%--右侧内容--%>
