@@ -106,10 +106,14 @@ body{
 }
 input{
     height: 50px !important;
+    border-radius: 6px !important;
 }
-span{
-    margin-bottom: 20px;
+input:focus{
+    border: 1px solid #ffa200 !important;
+    box-shadow: 0 0 5px #ffa200 !important;
+    outline: 0 !important;
 }
+
 input[type="radio"] {
     margin-right: 10px;
 }

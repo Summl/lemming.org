@@ -53,8 +53,16 @@
     height: 40px;
     font-size: 16px;
 }
-#popup{
-    display: none;
+#modal-header h4{
+    font-weight: bold;
+}
+.modal-header{
+    padding: 15px 15px 0 15px;
+}
+span{
+    margin-bottom: 20px;
+    top: -30px !important;
+    position: relative !important;
 }
 /*.submitBox,*/
 /*.draftBox{*/
