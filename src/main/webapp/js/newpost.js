@@ -5,17 +5,19 @@ function updateContent(){
     return hide_input.value.replace("\n","").replace(" ","") !== "";
 }
 function checkSubmit(){
-    $("#submit_btn").submit();
     if($("#post_title").val().trim() === ""){
-        alert("请输入标题！");
+        $("#textinfo").text("请输入标题！");
+        $("#mymodal").modal();
         return false;
     }
     if($("#post_brief").val().trim() === ""){
-        alert("请输入简介！");
+        $("#textinfo").text("请输入简介！");
+        $("#mymodal").modal();
         return false;
     }
-
+    $("#select").submit();
 }
+
 window.onload = function () {
     // 初始化编辑器
     editor = new Vditor("editor", {

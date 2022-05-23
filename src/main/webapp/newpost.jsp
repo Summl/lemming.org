@@ -26,7 +26,7 @@
 <body>
 <div id="topBar"></div>
 
-<form class="container" action="post?type=post" method="post" enctype="multipart/form-data">
+<form class="container" action="post?type=post" method="post" enctype="multipart/form-data" id="select">
     <div class="row">
         <input id="post_title" class="col-xs-12" type="text" name="title" placeholder="请输入标题">
         <h2 class="label_tip col-sm-1">简介：</h2>
@@ -41,8 +41,24 @@
 <%--        <div class="draftBox">--%>
 <%--            <button type="button" value="存草稿" class="col-lg-1 btn-post col-md-2 col-md-offset-9 col-xs-3 col-xs-offset-0" >存草稿</button>--%>
 <%--        </div>--%>
-        <input id="submit_btn" type="submit" onclick="return checkSubmit()" class="col-lg-1 btn-post col-md-2 col-md-offset-11 col-xs-3 col-xs-offset-0" value="发布">
+        <input id="submit_btn" type="button" onclick="return checkSubmit()" class="col-lg-1 btn-post col-md-2 col-md-offset-11 col-xs-3 col-xs-offset-0" value="发布">
     </div>
 </form>
+<div class="modal fade" data-backdrop="static"  id="mymodal">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5>提示信息</h5>
+                <button class="close" data-dismiss="modal"><span>&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="textinfo"></p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-warning" data-dismiss="modal">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

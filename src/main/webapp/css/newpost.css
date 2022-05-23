@@ -53,6 +53,9 @@
     height: 40px;
     font-size: 16px;
 }
+#popup{
+    display: none;
+}
 /*.submitBox,*/
 /*.draftBox{*/
 /*    margin: 10px 0;*/
