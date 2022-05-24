@@ -4,7 +4,9 @@ import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson2.JSON;
 import com.lemming.lemming.bean.Discuss;
 import com.lemming.lemming.bean.User;
+import com.lemming.lemming.bean.UserGroup;
 import com.lemming.lemming.dao.DiscussDao;
+import com.lemming.lemming.dao.GroupDao;
 import com.lemming.lemming.dao.PostDao;
 import com.lemming.lemming.dao.UserDao;
 import com.lemming.lemming.generic.PageNumber;
@@ -59,6 +61,8 @@ public class DiscussServlet extends HttpServlet {
 //
 //    }
     protected void addDiscussServlet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+
         Integer userId = (Integer) req.getSession().getAttribute("user");
         if (userId == null){
             resp.setStatus(500);
@@ -69,6 +73,13 @@ public class DiscussServlet extends HttpServlet {
         if (user == null){
             resp.setStatus(500);
             // 没有找到该用户
+            return;
+        }
+
+        UserGroup group = GroupDao.getGroupInfoByUserId(user.getId());
+        assert group != null;
+        if (!(group.isAllowComment())){
+            resp.setStatus(500);
             return;
         }
         String content = req.getParameter("content"); //评论内容

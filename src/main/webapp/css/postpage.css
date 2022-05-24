@@ -113,6 +113,11 @@
     background-color: #fefefe;
     box-sizing: border-box;
 }
+#discussContent:focus {
+    border: 1px solid #ffa200;
+    box-shadow: 0 0 5px #ffa200;
+    outline: 0;
+}
 #sendDiscussBtn {
     background-color: #ffa200;
     outline: none;
@@ -124,9 +129,15 @@
     font-size: 16px;
     margin: 20px 0 0 auto;
 }
+#sendDiscussBtn:hover {
+    background-color: #ffb02c;
+}
 .discussItem {
     padding: 20px 10px;
-    border-bottom: 1px solid #aaaaaa;
+    border-bottom: 1px solid #eee;
+}
+.discussItem:last-child {
+    border-bottom: none;
 }
 .discussItem .discussItemUserName{
     font-size: 18px;

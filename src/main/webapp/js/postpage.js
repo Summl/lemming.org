@@ -123,9 +123,9 @@ function sendDiscuss() {
         if (httpRequest.readyState === 4 && httpRequest.status === 200) {
             let discussList = document.getElementById("discussList")
             discussList.innerText = ""
+            document.getElementById("discussContent").value = ""
             CurrentPage = 0
             loadDiscuss()
-            document.getElementById("discussContent").innerText = ""
         }
     }
 
@@ -143,8 +143,7 @@ function loadDiscuss() {
         if (httpRequest.readyState === 4 && httpRequest.status === 200) {
             let json = JSON.parse(httpRequest.responseText);//获取到json字符串，还需解析
             if (json.list === undefined) {
-                loadPost()
-                console.log("200")
+                loadDiscuss()
                 return;
             }
             let list = json.list
@@ -157,7 +156,7 @@ function loadDiscuss() {
                 let id = list[i].id
                 let like = list[i].like
                 let userId = list[i].userId
-                let postID = list[i].postId
+                // let postID = list[i].postId
                 let regTime = list[i].regTime
                 let discussList = document.getElementById("discussList")
                 discussList.append(buildDiscussItem(content,id,like,userId,regTime))
@@ -179,7 +178,7 @@ function buildDiscussItem(content, id, like, userId, regTime){
     itemCtrl.classList.add("discussItemCtrl")
 
     let btn_like = document.createElement("button")
-    btn_like.innerHTML = "<i class=\"bi bi-heart-fill\"></i> 点赞"
+    btn_like.innerHTML = "<i class=\"bi bi-heart-fill\"></i> "+like
 
     let reg_time = document.createElement("span")
 

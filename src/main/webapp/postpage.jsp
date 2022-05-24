@@ -50,11 +50,15 @@
             }%>
         </div>
         <div class="discussBox">
+            <%if (loginUser != null){
+                if (GroupDao.getGroupInfoByUserId(loginUser).isAllowComment()){%>
             <h2>评论区</h2>
             <div class="inputDiscussBox">
                 <textarea id="discussContent" placeholder="请输入评论"></textarea>
                 <button id="sendDiscussBtn">发送</button>
             </div>
+            <%}
+            }%>
             <h3>评论列表</h3>
             <div id="discussList">
             </div>
