@@ -55,8 +55,8 @@
                                        value="">
                             </div>
                             <br>
-                            <span>性别:</span>
-                            <div class="recognizedtext form-check form-check-inline">
+                            <span id="sexBaseInfo">性别:</span>
+                            <div id="sexDiv" class="recognizedtext form-check form-check-inline">
                                 <%-- admin-识别到的性别（可直接修改）--%>
                                 <input class="form-check-input" type="radio" name="updatesex" id="man" value="男">
                                 <label class="form-check-label" for="man">男</label>

@@ -79,18 +79,29 @@ body{
     margin-bottom: 20px;
 }
 .leftusercontent{
-    font-size: 20px;
+    font-size: 18px;
     line-height: 50px;
     display: inline-block;
     float: left;
-    width: 50%;
+    width: 35%;
 }
 .rightusercontent{
-    font-size: 20px;
+    font-size: 18px;
     line-height: 50px;
     display: inline-block;
     margin-left: 10%;
-    width: 40%;
+    width: 35%;
+}
+leftusercontent input,
+.rightusercontent input{
+    margin-bottom: -5px;
+}
+#sexBaseInfo{
+    top: -5px;
+    position: relative;
+}
+#sexDiv{
+    margin-bottom: 10px;
 }
 .recognizedtext{
     font-size: 20px;
@@ -112,10 +123,9 @@ body{
 }
 
 #saveBaseInfo{
-    float: right;
     width: 100px;
     height: 40px;
-    margin-top: 45px;
+    margin-top: 54px;
     font-size: 17px;
     color: #fff;
     border-radius: 6px;
@@ -131,6 +141,7 @@ input:focus{
     box-shadow: 0 0 5px #ffa200 !important;
     outline: 0 !important;
 }
+
 
 input[type="radio"] {
     margin-right: 10px;
