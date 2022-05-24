@@ -1,6 +1,7 @@
 <%@ page import="com.lemming.lemming.bean.Post" %>
 <%@ page import="com.lemming.lemming.dao.UserDao" %>
 <%@ page import="com.lemming.lemming.bean.User" %>
+<%@ page import="com.lemming.lemming.dao.GroupDao" %>
 <%--
   Created by IntelliJ IDEA.
   User: maicss
@@ -42,7 +43,9 @@
 
         <div class="toolbar">
             <button id="btn_like"><i class="bi bi-heart-fill"></i>点赞</button>
+            <%if (GroupDao.getGroupInfoByUserId((int)(request.getSession().getAttribute("user"))).isAllowAdmin() || user.getId()==(int)request.getSession().getAttribute("user")){%>
             <button id="btn_delete"><i class="bi bi-trash2-fill"></i>删除</button>
+            <%}%>
         </div>
     </div>
 
