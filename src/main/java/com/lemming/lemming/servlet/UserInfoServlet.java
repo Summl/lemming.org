@@ -57,8 +57,8 @@ public class UserInfoServlet extends HttpServlet {
         }
         boolean b = UserInfoDao.updateUserBaseInfo(updatename,updatesex,updatephone,updateemail,id);
         if(b){
-            req.setAttribute("title","修改成功！");
-            req.setAttribute("content","修改成功！");
+            req.setAttribute("title","保存成功！");
+            req.setAttribute("content","保存成功！");
             req.getRequestDispatcher("message.jsp").forward(req,resp);
         }else{
             req.setAttribute("context", "信息修改失败，可重新进行修改。");

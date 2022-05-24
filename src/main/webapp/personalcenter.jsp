@@ -130,21 +130,21 @@
                         <tr>
                             <td>
                                 <p>原密码：</p>
-                                <input class="form-check-input updateinputsize" type="text" name="oldpassword" value="" placeholder="请输入原始密码">
+                                <input id="oldpassword" class="form-check-input updateinputsize" type="text" name="oldpassword" value="" placeholder="请输入原始密码">
                             </td>
                         </tr>
                         <tr><td><br></td></tr>
                         <tr>
                             <td>
                                 <p>新密码：</p>
-                                <input class="form-check-input updateinputsize" type="text" name="newpassword" value="" placeholder="请输入新密码">
+                                <input id="newpassword" class="form-check-input updateinputsize" type="text" name="newpassword" value="" placeholder="请输入新密码">
                             </td>
                         </tr>
                         <tr><td><br></td></tr>
                         <tr>
                             <td>
                                 <p>重新输入新密码：</p>
-                                <input class="form-check-input updateinputsize" type="text" name="newpassword" value="" placeholder="请输入新密码">
+                                <input id="renewpassword" class="form-check-input updateinputsize" type="text" name="renewpassword" value="" placeholder="请重新输入新密码">
                             </td>
                         </tr>
                         <tr><td><br></td></tr>
@@ -171,21 +171,21 @@
                         <tr>
                             <td>
                                 <p>原邮箱地址：</p>
-                                <input class="form-check-input updateinputsize" type="text" name="oldpassword" value="" placeholder="显示原本邮箱地址">
+                                <input id="oldemail" class="form-check-input updateinputsize" type="text" name="oldemail" value="" placeholder="显示原本邮箱地址">
                             </td>
                         </tr>
                         <tr><td><br></td></tr>
                         <tr>
                             <td>
                                 <p>新邮箱地址：</p>
-                                <input class="form-check-input updateinputsize" type="text" name="newpassword" value="" placeholder="请输入新密码">
-                                <button type="submit" class="btn btn-warning">重置</button>
+                                <input id="newemail" class="form-check-input updateinputsize" type="text" name="newemail" value="" placeholder="请输入新密码">
+                                <button id="emailbtn" type="reset" class="btn btn-warning">重置</button>
                             </td>
                         </tr>
                         <tr><td><br></td></tr>
                     </table>
                     <div id="buttonstyle">
-                        <button type="submit" class="btn btn-warning" >保存信息</button>
+                        <button id="emailbtnsave" type="submit" class="btn btn-warning" >保存信息</button>
                     </div>
                 </form>
             </div>

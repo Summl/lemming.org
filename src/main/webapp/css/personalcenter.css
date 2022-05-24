@@ -107,6 +107,17 @@ leftusercontent input,
     font-size: 20px;
     color: darkgray;
 }
+#modal-header h4{
+    font-weight: bold;
+}
+.modal-header{
+    padding: 15px 15px 0 15px;
+}
+.close span {
+    margin-bottom: 20px;
+    top: -30px !important;
+    position: relative !important;
+}
 
 
 
@@ -258,7 +269,7 @@ p{
 #buttonsave{
     /*float: right;*/
     /*上右下左*/
-    margin:50px 0 40% 40px;
+    margin:20px 0 40% -10px;
     width: 100px;
     height: 40px;
     color: white;
@@ -268,7 +279,7 @@ p{
 #buttonreset{
     /*float: right;*/
     text-align: center;
-    margin:50px 0 40% 40px;
+    margin:20px 0 40% 40px;
     width: 100px;
     height: 40px;
     color: white;
@@ -301,7 +312,7 @@ p{
     margin-left: 10%;
 }
 #uploadbuttonsave{
-    margin: 0 0 0 32%;
+    margin: 0 0 0 275px;
     width: 100px;
     height: 40px;
     color: white;
@@ -318,9 +329,28 @@ p{
     margin-top: 50px;
     margin-left: 20%;
 }
+.updateemailinterface input{
+    padding: 6px 12px;
+}
+#emailbtn{
+    height: 50px;
+    width: 60px;
+    margin-left: 10px;
+    border-radius: 8px;
+}
+#emailbtnsave{
+    height: 40px;
+    width: 100px;
+    left: -30px;
+    position: relative;
+    border-radius: 6px;
+    margin-top: 20px;
+}
+
 .revokeinterface{
     margin-top: 20px;
     margin-bottom: 30px;
+    margin-left: -15px;
 }
 .revokeinterface p{
     font-size: 20px;
@@ -331,4 +361,6 @@ p{
 }
 #revokebutton button{
     background-color: orangered;
+    border-radius: 6px;
+    height: 40px;
 }
