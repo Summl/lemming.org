@@ -55,7 +55,7 @@ public class UserServlet extends HttpServlet {
             assert user != null;
             // 注册成功
             req.setAttribute("title","注册成功");
-            req.setAttribute("context","恭喜您注册成功，您是第"+user.getId()+"位用户！");
+            req.setAttribute("content","恭喜您注册成功，您是第"+user.getId()+"位用户！");
             req.getRequestDispatcher("message.jsp").forward(req,resp);
         }else  {
             // 注册失败
