@@ -26,6 +26,9 @@ let IsLoading = false
 function buildItemBox(postId, title, brief, image, like, readNum) {
     let res = document.createElement("div")
     res.classList.add("itemBox")
+    let textBox = document.createElement("div")
+    textBox.classList.add("textBox")
+
     let title_h3 = document.createElement("h3")
     title_h3.innerText=title
     title_h3.classList.add("itemTitle")
@@ -49,8 +52,9 @@ function buildItemBox(postId, title, brief, image, like, readNum) {
     let read_span = document.createElement("span")
     read_span.innerHTML = "<i class=\"bi bi-eye-fill\"></i> "+readNum
     underBox.append(read_span)
-    res.append(title_h3)
-    res.append(brief_p)
+    res.append(textBox)
+    textBox.append(title_h3)
+    textBox.append(brief_p)
     res.append(underBox)
     res.addEventListener("click",function () {
         window.open("post?type=page&post="+postId.toString())

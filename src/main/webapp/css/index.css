@@ -88,6 +88,10 @@ a {
     background-size: cover;
 
 }
+.itemBox .textBox {
+    height: 240px;
+    overflow: hidden;
+}
 .itemBox .underBox {
     position: absolute;
     bottom: 0;
