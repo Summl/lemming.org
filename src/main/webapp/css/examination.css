@@ -1,49 +1,38 @@
-#bg{
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 0;
-    height: 100%;
-    background-image: url("../images/exambg.png");
-    background-repeat: no-repeat;
-    background-size: cover;
+.top{
+    text-align: left;
+    padding: 40px 0 60px 0;
+    font-size: 32px;
 }
-
-#top{
-    /*background-color: rgba(255, 162, 0, 0.66);*/
-    margin-top: 0;
-    width: 100%;
-    height: 60px;
-    position: relative;
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-radius: 20px;
-}
-
-#top h1{
-    text-align: center;
-    opacity: 1;
+.brief {
+    color: #888888;
 }
 
 #out{
-    padding: 30px 80px 20px 80px;
-    margin: 0px auto;
-    width: 60%;
-    border: darkgray 1px solid;
-    height: auto;
-    box-shadow: 0 0 10px 0 #33333333;
-    border-radius: 16px;
-    font-size: 25px;
-    z-index: 2;
-    position: relative;
-    background-color: rgba(255, 255, 255, 0.7);
-
+    padding: 40px 0;
+    border-top: 1px solid #eee;
+}
+#out .title {
+    margin: 26px 0 20px 0;
+    font-size: 20px;
 }
 
 input[type="radio"]{
-    width: 20px;
-    height: 20px;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    margin: 2px 12px 2px 16px;
+    float: left;
+}
+.option {
+    height: 26px;
+    margin: 6px 0;
+}
+.option span {
+    display: inline-block;
     font-size: 16px;
+    height: 26px;
+    line-height: 26px;
+    float: left;
 }
 
 input[type="submit"]{
@@ -54,7 +43,7 @@ input[type="submit"]{
     font-size: 17px;
     color: white;
     border-radius: 6px;
-    background-color: #f0ad4e;
-    border-color: #eea236;
+    background-color: #ffa200;
+    border: none;
 }
 

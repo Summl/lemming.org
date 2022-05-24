@@ -13,30 +13,25 @@ window.onload = function(){
             let json = JSON.parse(request.responseText);
             for(let i=0;i<json.length;i++){
                 let out = document.getElementById("out");
-                let inner = document.getElementById("inner");
-                let title = document.createElement("p");
-                title.innerText = json[i].title;
+                let title = document.createElement("h4");
+                title.innerText = i+1 +". "+ json[i].title;
                 title.classList.add("title");
-                inner.append(title);
+                out.append(title);
                 console.log(json[i].id);
                 for(let j=0;j<json[i].option.length;j++) {
                     let optionbox  = document.createElement("div");
                     let optiontext = document.createElement("span");
                     let option = document.createElement("input");
+                    option.name="ti"+json[i].option[j].id;
                     option.type = "radio";
-                    option.name = json[i].id;
-                    option.id = json[i].id;
-                    option.value = json[i].option[j];
+                    option.value = "ti"+j;
                     console.log(option.value);
                     optiontext.innerText = json[i].option[j];
                     optionbox.append(option);
                     optionbox.append(optiontext);
-                    option.classList.add("option");
-                    inner.append(optionbox);
+                    optionbox.classList.add("option");
+                    out.append(optionbox);
                 }
-                let br = document.createElement("br");
-                br.innerText = "";
-                inner.append(br);
             }
         }
     }
