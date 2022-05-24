@@ -30,9 +30,8 @@
     <div id="out">
         <form action="" method="post">
             <div id="inner"></div>
-            <input type="submit" value="提交">
+            <input type="submit" value="提交" onclick="submitdata()">
         </form>
-
     </div>
 </body>
 </html>
