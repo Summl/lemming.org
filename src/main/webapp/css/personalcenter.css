@@ -79,6 +79,7 @@ body{
     margin-bottom: 20px;
 }
 .leftusercontent{
+    margin-top: 20px;
     font-size: 18px;
     line-height: 50px;
     display: inline-block;
@@ -86,15 +87,30 @@ body{
     width: 35%;
 }
 .rightusercontent{
+    margin-top: 20px;
     font-size: 18px;
     line-height: 50px;
     display: inline-block;
-    margin-left: 10%;
+    margin-left: 15%;
     width: 35%;
 }
-leftusercontent input,
+.leftusercontent input,
 .rightusercontent input{
+    margin-bottom: -10px;
+}
+/*所有标题的样式*/
+.leftusercontent span,.rightusercontent span{
+    margin-top: 20px;
     margin-bottom: -5px;
+}
+
+.rightusercontent span{
+    margin-top: -10px;
+}
+/*所有输入框/不可输入框样式*/
+.recognizedtext input{
+    /*margin-top: -15px;*/
+    margin-bottom: -35px;
 }
 #sexBaseInfo{
     top: -5px;
@@ -103,6 +119,11 @@ leftusercontent input,
 #sexDiv{
     margin-bottom: 10px;
 }
+#sexDiv input+label{
+    margin-top: 5px;
+    margin-bottom: -20px;
+}
+/*文字和输入框的集体样式*/
 .recognizedtext{
     font-size: 20px;
     color: darkgray;
@@ -136,7 +157,7 @@ leftusercontent input,
 #saveBaseInfo{
     width: 100px;
     height: 40px;
-    margin-top: 54px;
+    margin-top: 50px;
     font-size: 17px;
     color: #fff;
     border-radius: 6px;

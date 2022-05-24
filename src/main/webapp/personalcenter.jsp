@@ -51,13 +51,13 @@
                             <span>用户名:</span>
                             <div class="recognizedtext">
                                 <input id="updatename" type="text" class="form-control" name="updatename"
-                                       placeholder="admin-识别到的用户名（可直接修改）"
+                                       placeholder="识别到的用户名（可直接修改）"
                                        value="">
                             </div>
                             <br>
+<%--                            单选框--%>
                             <span id="sexBaseInfo">性别:</span>
                             <div id="sexDiv" class="recognizedtext form-check form-check-inline">
-                                <%-- admin-识别到的性别（可直接修改）--%>
                                 <input class="form-check-input" type="radio" name="updatesex" id="man" value="男">
                                 <label class="form-check-label" for="man">男</label>
                                 <input class="form-check-input" type="radio" name="updatesex" id="woman" value="女">
@@ -69,37 +69,37 @@
                             <span id="phone">电话号码:</span>
                             <div class="recognizedtext">
                                 <input id="updatephone" class="form-control" type="tel" maxlength="11" name="updatephone"
-                                       placeholder="admin-识别到的电话号码（可直接修改）" value="">
+                                       placeholder="识别到的电话号码（可直接修改）" value="">
                             </div>
                             <br>
                             <span>电子邮箱:</span>
                             <div class="recognizedtext">
                                 <input id="updateemail" class="form-control" type="email" name="updateemail"
-                                       placeholder="admin-识别到的电子邮箱（可直接修改）">
+                                       placeholder="识别到的电子邮箱（可直接修改）">
                             </div>
                         </div>
+<%--                        不可编辑--%>
                         <div class="rightusercontent">
-                            <span>用户权限:</span>
+                            <span style="margin-top: 10px">用户权限:</span>
                             <div class="recognizedtext">
-                                <input id="userlimit" class="form-control" name="userlimit" placeholder="admin-识别到的用户权限"
+                                <input id="userlimit" class="form-control" name="userlimit" placeholder="识别到的用户权限"
                                        readonly value="">
                             </div>
                             <br>
                             <span>发帖数:</span>
                             <div class="recognizedtext">
-                                <input id="postcount" class="form-control" name="postcount" placeholder="admin-识别到的发帖数量"
+                                <input id="postcount" class="form-control" name="postcount" placeholder="识别到的发帖数量"
                                        readonly value="">
                             </div>
                             <br>
                             <span>注册时间:</span>
                             <div class="recognizedtext">
                                 <input id="registertime" class="form-control" name="registertime"
-                                       placeholder="admin-识别到的注册时间" readonly
+                                       placeholder="识别到的注册时间" readonly
                                        value="">
                             </div>
                             <br>
                             <span>
-<%--                                <button id="btsave" class="btn btn-warning" type="submit">保存</button>--%>
                                 <input id="saveBaseInfo" type="button" onclick="updateBaseInfo()" class="btn btn-warning" data-dismiss="modal" value="保存">
                             </span>
                         </div>
