@@ -18,7 +18,6 @@
         assert user != null;
     %>
     <script src="lute/lute.min.js"></script>
-    <script src="js/postpage.js"></script>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="topbar/topbar.css">
     <script src="bootstrap/js/jquery.js"></script>
@@ -26,23 +25,24 @@
     <script src="topbar/topbar.js"></script>
     <link rel="stylesheet" href="css/postpage.css">
     <link rel="stylesheet" href="bootstrap-icons/bootstrap-icons.css">
-
-    <script>
-        function aa(){
-            document.body.scrollTop=0;
-        }
-    </script>
+    <script src="js/postpage.js"></script>
     <title><%=post.getTitle()%> - 旅鼠论坛</title>
 </head>
 <body>
 <div id="topBar"></div>
 <div class="container">
+
     <div class="content_left col-sm-9">
         <div id="head">
             <h1><%=post.getTitle()%></h1>
-            <p><%=post.getReadNum()%> 次浏览 · <%=post.getLikeNum()%> 次点赞</p>
+            <p><%=post.getReadNum()%> 次浏览 · <span id="like_number"><%=post.getLikeNum()%></span> 次点赞</p>
         </div>
         <div id="view">
+        </div>
+
+        <div class="toolbar">
+            <button id="btn_like"><i class="bi bi-heart-fill"></i>点赞</button>
+            <button id="btn_delete">删除</button>
         </div>
     </div>
 
@@ -55,6 +55,7 @@
     </div>
 </div>
 <script>
+    let postID = <%=post.getId()%>
     // 加载页面内容
     let httpRequest = new XMLHttpRequest();//第一步：建立所需的对象
     httpRequest.open('GET', 'data/posts/<%=post.getPostFilename()%>', true);//第二步：打开连接  将请求参数写在url中  ps:"./Ptest.php?name=test&nameone=testone"

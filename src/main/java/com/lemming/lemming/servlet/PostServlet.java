@@ -43,8 +43,13 @@ public class PostServlet extends HttpServlet {
         switch (req.getParameter("type")){
             case "page": // 浏览帖文
                 pageServlet(req,resp);
+                break;
             case "list": // 获取列表Json
                 listServlet(req,resp);
+                break;
+            case "like":
+                likePostServlet(req,resp);
+                break;
         }
     }
 
@@ -224,5 +229,37 @@ public class PostServlet extends HttpServlet {
         req.getRequestDispatcher("postpage.jsp").forward(req,resp);
     }
 
+    protected void likePostServlet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        Integer userid = (Integer) req.getSession().getAttribute("user");
+
+        JSONObject json = new JSONObject();
+
+        if (userid==null){
+            json.put("error","needLogin");
+            resp.setContentType("text/json;charset=UTF-8");
+            resp.getWriter().print(json);
+            return;
+        }
+
+        String postid = req.getParameter("post");
+
+        PostDao.addLikeNum(Integer.parseInt(postid));
+
+        Post post = PostDao.getPostById(Integer.parseInt(postid));
+
+        if (post == null) {
+            json.put("error","postNotFound");
+            resp.setContentType("text/json;charset=UTF-8");
+            resp.getWriter().print(json);
+            return;
+        }
+
+        int likeNum = post.getLikeNum();
+
+        json.put("like_num",likeNum);
+        resp.setContentType("text/json;charset=UTF-8");
+        resp.getWriter().print(json);
+
+    }
 
 }

@@ -171,6 +171,29 @@ public class PostDao {
     }
 
     /**
+     * 添加帖文点赞量
+     * @param id 要点赞的帖文id
+     */
+    public static void addLikeNum(int id){
+        Connection connection = DataBaseConnect.getConnection();
+
+        PreparedStatement preparedStatement = null;
+        if (connection==null){
+            return;
+        }
+
+        String sql = "update post_info set post_info.like_num=post_info.like_num+1 where id=?;";
+        try {
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1,id);
+            preparedStatement.executeUpdate();
+            connection.close();
+            preparedStatement.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    /**
      * 通过用户ID获取该用户的发帖数
      * @param id 用户id
      * @return 用户发帖数
