@@ -45,7 +45,7 @@
         <div class="rightbox col-sm-10">
             <%--1.个人信息界面--%>
             <div id="interface-1" class="rightboxpage">
-                <form action="" method="post" id="selectBaseinfo">
+                <form action="userinfo?type=userBaseInfo" method="post" id="selectBaseinfo">
                     <div class="basic_information form-group">
                         <div class="leftusercontent">
                             <span>用户名:</span>

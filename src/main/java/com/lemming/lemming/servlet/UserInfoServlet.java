@@ -34,14 +34,36 @@ public class UserInfoServlet extends HttpServlet {
         String updatesex = req.getParameter("updatesex");
         String updatephone = req.getParameter("updatephone");
         String updateemail = req.getParameter("updateemail");
-        String name = (String) req.getSession().getAttribute("user");
-        User user = UserDao.getUserByName(name);
+        Integer id=(Integer) req.getSession().getAttribute("user");
+        User user = UserDao.getUserById(id);
         if (user == null){
             resp.setStatus(404);
             return;
         }
-        //boolean b = UserInfoDao.updateUserBaseInfo(name);
-
+        if(updatename.length() == 0){
+            req.setAttribute("context", "您的用户名不能为空，请重新检查您的输入!");
+            req.getRequestDispatcher("message.jsp").forward(req, resp);
+            return;
+        }
+        if(updatephone.length() == 0){
+            req.setAttribute("context", "您的电话不能为空，请重新检查您的输入!");
+            req.getRequestDispatcher("message.jsp").forward(req, resp);
+            return;
+        }
+        if(updateemail.length() == 0){
+            req.setAttribute("context", "您的邮箱不能为空，请重新检查您的输入!");
+            req.getRequestDispatcher("message.jsp").forward(req, resp);
+            return;
+        }
+        boolean b = UserInfoDao.updateUserBaseInfo(updatename,updatesex,updatephone,updateemail,id);
+        if(b){
+            req.setAttribute("title","修改成功！");
+            req.setAttribute("content","修改成功！");
+            req.getRequestDispatcher("message.jsp").forward(req,resp);
+        }else{
+            req.setAttribute("context", "信息修改失败，可重新进行修改。");
+            req.getRequestDispatcher("message.jsp").forward(req, resp);
+        }
 
     }
 }
