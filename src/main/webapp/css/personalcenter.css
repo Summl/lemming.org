@@ -318,3 +318,17 @@ p{
     margin-top: 50px;
     margin-left: 20%;
 }
+.revokeinterface{
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+.revokeinterface p{
+    font-size: 20px;
+    margin-left: 8%;
+}
+#revokebutton{
+    margin-left: 35%;
+}
+#revokebutton button{
+    background-color: orangered;
+}
