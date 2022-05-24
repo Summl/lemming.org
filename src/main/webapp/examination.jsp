@@ -14,16 +14,11 @@
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <script src="bootstrap/js/jquery.js"></script>
     <script src="bootstrap/js/bootstrap.js"></script>
-    <link rel="stylesheet" href="css/index.css">
     <link rel="icon" href="images/logo.png">
-    <script src="js/index.js"></script>
     <link rel="stylesheet" href="bootstrap-icons/bootstrap-icons.css">
     <link rel="stylesheet" href="css/examination.css">
+    <script src="js/examination.js"></script>
     <title>社区行为规范测试</title>
-    <br>
-
-
-
 
 </head>
 <body>
@@ -34,9 +29,10 @@
     </div>
     <div id="out">
         <form action="" method="post">
-            <script src="js/examination.js"></script>
-<%--            <input type="submit" value="提交">--%>
+            <div id="inner"></div>
+            <input type="submit" value="提交">
         </form>
+
     </div>
 </body>
 </html>

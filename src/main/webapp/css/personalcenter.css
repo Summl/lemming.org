@@ -93,6 +93,9 @@ body{
     font-size: 20px;
     color: darkgray;
 }
+
+
+
 .basic_information {
     padding: 0 40px;
     display: block;
@@ -110,7 +113,7 @@ body{
     /*color:#fead3f;*/
 }
 
-#btsave{
+#saveBaseInfo{
     float: right;
     width: 100px;
     height: 40px;
@@ -137,7 +140,7 @@ input[type="radio"] {
 label{
     margin-right: 40px;
     position: relative;
-    top: -17px;
+    /*top: -17px;*/
     margin-bottom: 29px;
     color: gray;
 }
@@ -164,6 +167,49 @@ label{
 }
 #interface-5{
     display: none;
+}
+
+.form-check-inline input {
+    display: none;
+}
+
+.recognizedtext label {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    padding-left: 25px;
+}
+
+.recognizedtext label:hover,
+.recognizedtext input:checked+label {
+    color: darkgray;
+}
+
+.recognizedtext label::before {
+    content: "";
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border-radius: 7px;
+    border: 1px solid #ff5e14;
+    position: absolute;
+    left: 0;
+    top: 18px;
+}
+
+.recognizedtext input:checked+label::after {
+    content: "";
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+    background-color: #ffa200;
+    position: absolute;
+    left: 3px;
+    top: 21px
+}
+.modal-content {
+    top: 180px !important;
 }
 
 

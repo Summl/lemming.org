@@ -34,7 +34,7 @@
             </div>
             <%--            左侧列表内容--%>
             <ul>
-                <li id="li-1"  onclick="page1()">基本信息</li>
+                <li id="li-1" onclick="page1()">基本信息</li>
                 <li id="li-2" onclick="page2()">密码管理</li>
                 <li id="li-3" onclick="page3()">头像管理</li>
                 <li id="li-4" onclick="page4()">邮箱修改/核验</li>
@@ -50,7 +50,8 @@
                         <div class="leftusercontent">
                             <span>用户名:</span>
                             <div class="recognizedtext">
-                                <input id="updatename" type="text" class="form-control" name="updatename" placeholder="admin-识别到的用户名（可直接修改）"
+                                <input id="updatename" type="text" class="form-control" name="updatename"
+                                       placeholder="admin-识别到的用户名（可直接修改）"
                                        value="">
                             </div>
                             <br>
@@ -60,14 +61,14 @@
                                 <input class="form-check-input" type="radio" name="updatesex" id="man" value="男">
                                 <label class="form-check-label" for="man">男</label>
                                 <input class="form-check-input" type="radio" name="updatesex" id="woman" value="女">
-                                <label class="form-check-label" for="man">女</label>
+                                <label class="form-check-label" for="woman">女</label>
                                 <input class="form-check-input" type="radio" name="updatesex" id="no_sex">
-                                <label class="form-check-label" for="man">保密</label>
+                                <label class="form-check-label" for="no_sex">保密</label>
                             </div>
                             <br>
                             <span id="phone">电话号码:</span>
                             <div class="recognizedtext">
-                                <input id="updatephone" class="form-control" type="tel" name="updatephone"
+                                <input id="updatephone" class="form-control" type="tel" maxlength="11" name="updatephone"
                                        placeholder="admin-识别到的电话号码（可直接修改）" value="">
                             </div>
                             <br>
@@ -80,24 +81,46 @@
                         <div class="rightusercontent">
                             <span>用户权限:</span>
                             <div class="recognizedtext">
-                                <input id="userlimit" class="form-control" name="userlimit" placeholder="admin-识别到的用户权限" readonly value="">
+                                <input id="userlimit" class="form-control" name="userlimit" placeholder="admin-识别到的用户权限"
+                                       readonly value="">
                             </div>
                             <br>
                             <span>发帖数:</span>
                             <div class="recognizedtext">
-                                <input id="postcount" class="form-control" name="postcount" placeholder="admin-识别到的发帖数量" readonly value="">
+                                <input id="postcount" class="form-control" name="postcount" placeholder="admin-识别到的发帖数量"
+                                       readonly value="">
                             </div>
                             <br>
                             <span>注册时间:</span>
                             <div class="recognizedtext">
-                                <input id="registertime" class="form-control" name="registertime" placeholder="admin-识别到的注册时间" readonly
+                                <input id="registertime" class="form-control" name="registertime"
+                                       placeholder="admin-识别到的注册时间" readonly
                                        value="">
                             </div>
                             <br>
-                            <span><button id="btsave" class="btn btn-warning" type="submit">保存</button></span>
+                            <span>
+<%--                                <button id="btsave" class="btn btn-warning" type="submit">保存</button>--%>
+                                <input id="saveBaseInfo" type="button" onclick="updateBaseInfo()" class="btn btn-warning" data-dismiss="modal" value="保存">
+                            </span>
                         </div>
                     </div>
                 </form>
+                <div class="modal fade" data-backdrop="static"  id="mymodalBaseInfo">
+                    <div class="modal-dialog modal-dialog-centered modal-sm">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5>提示信息：</h5>
+                                <button class="close" data-dismiss="modal"><span>&times;</span></button>
+                            </div>
+                            <div class="modal-body">
+                                <p id="textBaseInfo"></p>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-warning" data-dismiss="modal">确定</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <%--      2.密码修改界面--%>
             <div id="interface-2" class="rightboxpage">
