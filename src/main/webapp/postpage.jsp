@@ -42,7 +42,7 @@
 
         <div class="toolbar">
             <button id="btn_like"><i class="bi bi-heart-fill"></i>点赞</button>
-            <button id="btn_delete">删除</button>
+            <button id="btn_delete"><i class="bi bi-trash2-fill"></i>删除</button>
         </div>
     </div>
 

@@ -94,4 +94,9 @@ window.onload = function () {
         };
     })
 
+    let btn_delete = document.getElementById("btn_delete")
+    btn_delete.addEventListener("click",function () {
+        window.location.href = "post?type=delete&post="+postID;
+    })
+
 }

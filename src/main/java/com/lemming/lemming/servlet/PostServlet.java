@@ -50,6 +50,9 @@ public class PostServlet extends HttpServlet {
             case "like":
                 likePostServlet(req,resp);
                 break;
+            case "delete":
+                deletePostServlet(req,resp);
+                break;
         }
     }
 
@@ -228,6 +231,57 @@ public class PostServlet extends HttpServlet {
         req.setAttribute("post",post);
         req.getRequestDispatcher("postpage.jsp").forward(req,resp);
     }
+
+    protected void deletePostServlet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        Integer userid = (Integer) req.getSession().getAttribute("user");
+
+        if (userid == null){
+            req.setAttribute("title","删除失败");
+            req.setAttribute("content","删除失败，请先登录账户");
+            req.getRequestDispatcher("message.jsp").forward(req,resp);
+            return;
+        }
+
+        UserGroup group = GroupDao.getGroupInfoByUserId(userid);
+
+        if (group == null){
+            req.setAttribute("title","删除失败");
+            req.setAttribute("content","删除失败，您的账户异常");
+            req.getRequestDispatcher("message.jsp").forward(req,resp);
+            return;
+        }
+
+        String postid = req.getParameter("post");
+        Post post = PostDao.getPostById(Integer.parseInt(postid));
+
+        if (post == null){
+            req.setAttribute("title","删除失败");
+            req.setAttribute("content","抱歉，没有找到此帖文");
+            req.getRequestDispatcher("message.jsp").forward(req,resp);
+            return;
+        }
+
+        if (!(group.isAllowAdmin() || userid==post.getUserId())){
+            req.setAttribute("title","删除失败");
+            req.setAttribute("content","删除失败，您无权删除此帖文");
+            req.getRequestDispatcher("message.jsp").forward(req,resp);
+            return;
+        }
+
+        boolean res = PostDao.deletePost(post.getId());
+        if (res){
+            req.setAttribute("title","帖文删除成功");
+            req.setAttribute("content","帖文已经被成功删除");
+            req.getRequestDispatcher("message.jsp").forward(req,resp);
+        } else {
+
+            req.setAttribute("title","帖文删除失败");
+            req.setAttribute("content","未知错误，请联系系统管理员解决此问题");
+            req.getRequestDispatcher("message.jsp").forward(req,resp);
+        }
+    }
+
 
     protected void likePostServlet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Integer userid = (Integer) req.getSession().getAttribute("user");

@@ -215,4 +215,25 @@ public class PostDao {
         }
         return 0;
     }
+
+    public static boolean deletePost(int id){
+        Connection connection = DataBaseConnect.getConnection();
+
+        PreparedStatement preparedStatement = null;
+        if (connection==null){
+            return false;
+        }
+
+        String sql = "delete from post_info where id=?;";
+        try {
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1,id);
+            int res = preparedStatement.executeUpdate();
+            connection.close();
+            preparedStatement.close();
+            return res > 0;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
