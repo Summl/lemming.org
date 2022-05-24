@@ -55,8 +55,8 @@
                                        value="">
                             </div>
                             <br>
-                            <span>性别:</span>
-                            <div class="recognizedtext form-check form-check-inline">
+                            <span id="sexBaseInfo">性别:</span>
+                            <div id="sexDiv" class="recognizedtext form-check form-check-inline">
                                 <%-- admin-识别到的性别（可直接修改）--%>
                                 <input class="form-check-input" type="radio" name="updatesex" id="man" value="男">
                                 <label class="form-check-label" for="man">男</label>
@@ -122,30 +122,74 @@
                     </div>
                 </div>
             </div>
-            <%--      2.密码修改界面--%>
+            <%--2.密码修改界面--%>
             <div id="interface-2" class="rightboxpage">
                 <form action="" method="post">
-                    <div class="updatepasswordinterface">
-                        <span>原密码：</span>
-                        <input class="form-check-input" type="text" name="oldpassword" value="" placeholder="请输入原始密码">
-                        <br>
-                        <span>新密码：</span>
-                        <input class="form-check-input" type="text" name="newpassword" value="" placeholder="请输入新密码">
-                        <br>
-                        <span>重新输入新密码：</span>
-                        <input class="form-check-input" type="text" name="newpassword" value="" placeholder="请输入新密码">
-                        <br>
-                        <button type="submit" class="btn btn-warning">保存信息</button>
-                        <button type="submit" class="btn btn-warning">重置信息</button>
+                    <h2>修改密码</h2>
+                    <table class="updatepasswordinterface">
+                        <tr>
+                            <td>
+                                <p>原密码：</p>
+                                <input class="form-check-input updateinputsize" type="text" name="oldpassword" value="" placeholder="请输入原始密码">
+                            </td>
+                        </tr>
+                        <tr><td><br></td></tr>
+                        <tr>
+                            <td>
+                                <p>新密码：</p>
+                                <input class="form-check-input updateinputsize" type="text" name="newpassword" value="" placeholder="请输入新密码">
+                            </td>
+                        </tr>
+                        <tr><td><br></td></tr>
+                        <tr>
+                            <td>
+                                <p>重新输入新密码：</p>
+                                <input class="form-check-input updateinputsize" type="text" name="newpassword" value="" placeholder="请输入新密码">
+                            </td>
+                        </tr>
+                        <tr><td><br></td></tr>
+                    </table>
+                    <div class="buttonstyle">
+                        <button type="submit" class="btn btn-warning" id="buttonsave">保存信息</button>
+                        <button type="reset" class="btn btn-warning" id="buttonreset">重置信息</button>
                     </div>
                 </form>
             </div>
+            <%--3.上传头像界面--%>
             <div id="interface-3" class="rightboxpage">
-                <div>第三个界面内容</div>
+                <div id="uploadpicture">
+                    <h2>上传头像图片</h2>
+                    <div id="uploadimage"></div>
+                    <button type="submit" class="btn btn-warning" id="uploadbuttonsave">保存图片</button>
+                </div>
             </div>
+            <%--4.邮箱修改界面   --%>
             <div id="interface-4" class="rightboxpage">
-                <div>第四个界面内容</div>
+                <form action="" method="post">
+                    <h2>邮箱修改/核验</h2>
+                    <table class="updateemailinterface">
+                        <tr>
+                            <td>
+                                <p>原邮箱地址：</p>
+                                <input class="form-check-input updateinputsize" type="text" name="oldpassword" value="" placeholder="显示原本邮箱地址">
+                            </td>
+                        </tr>
+                        <tr><td><br></td></tr>
+                        <tr>
+                            <td>
+                                <p>新邮箱地址：</p>
+                                <input class="form-check-input updateinputsize" type="text" name="newpassword" value="" placeholder="请输入新密码">
+                                <button type="submit" class="btn btn-warning">重置</button>
+                            </td>
+                        </tr>
+                        <tr><td><br></td></tr>
+                    </table>
+                    <div id="buttonstyle">
+                        <button type="submit" class="btn btn-warning" >保存信息</button>
+                    </div>
+                </form>
             </div>
+            <%--5.注销账号--%>
             <div id="interface-5" class="rightboxpage">
                 <div>第五个界面内容</div>
             </div>

@@ -40,17 +40,17 @@ public class UserInfoServlet extends HttpServlet {
             resp.setStatus(404);
             return;
         }
-        if(updatename.length() == 0){
+        if(updatename == null){
             req.setAttribute("context", "您的用户名不能为空，请重新检查您的输入!");
             req.getRequestDispatcher("message.jsp").forward(req, resp);
             return;
         }
-        if(updatephone.length() == 0){
+        if(updatephone == null){
             req.setAttribute("context", "您的电话不能为空，请重新检查您的输入!");
             req.getRequestDispatcher("message.jsp").forward(req, resp);
             return;
         }
-        if(updateemail.length() == 0){
+        if(updateemail == null){
             req.setAttribute("context", "您的邮箱不能为空，请重新检查您的输入!");
             req.getRequestDispatcher("message.jsp").forward(req, resp);
             return;

@@ -1,14 +1,14 @@
 // 界面跳转
 function yincang(){
-    var list=document.getElementsByClassName("rightboxpage");
-    for(var i=0;i<list.length;i++){
+    let list=document.getElementsByClassName("rightboxpage");
+    for(let i=0;i<list.length;i++){
         list[i].style.display="none";
     }
 }
 //导航栏点击背景
 function listyincang(){
-    var list=document.getElementsByTagName("li")
-    for(var i=0;i<list.length;i++){
+    let list=document.getElementsByTagName("li")
+    for(let i=0;i<list.length;i++){
         list[i].className="";
     }
 }
