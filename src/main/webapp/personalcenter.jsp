@@ -130,21 +130,21 @@
                         <tr>
                             <td>
                                 <p>原密码：</p>
-                                <input class="form-check-input updateinputsize" type="text" name="oldpassword" value="" placeholder="请输入原始密码">
+                                <input id="oldpassword" class="form-check-input updateinputsize" type="text" name="oldpassword" value="" placeholder="请输入原始密码">
                             </td>
                         </tr>
                         <tr><td><br></td></tr>
                         <tr>
                             <td>
                                 <p>新密码：</p>
-                                <input class="form-check-input updateinputsize" type="text" name="newpassword" value="" placeholder="请输入新密码">
+                                <input id="newpassword" class="form-check-input updateinputsize" type="text" name="newpassword" value="" placeholder="请输入新密码">
                             </td>
                         </tr>
                         <tr><td><br></td></tr>
                         <tr>
                             <td>
                                 <p>重新输入新密码：</p>
-                                <input class="form-check-input updateinputsize" type="text" name="newpassword" value="" placeholder="请输入新密码">
+                                <input id="renewpassword" class="form-check-input updateinputsize" type="text" name="renewpassword" value="" placeholder="请重新输入新密码">
                             </td>
                         </tr>
                         <tr><td><br></td></tr>
@@ -171,27 +171,41 @@
                         <tr>
                             <td>
                                 <p>原邮箱地址：</p>
-                                <input class="form-check-input updateinputsize" type="text" name="oldpassword" value="" placeholder="显示原本邮箱地址">
+                                <input id="oldemail" class="form-check-input updateinputsize" type="text" name="oldemail" value="" placeholder="显示原本邮箱地址">
                             </td>
                         </tr>
                         <tr><td><br></td></tr>
                         <tr>
                             <td>
                                 <p>新邮箱地址：</p>
-                                <input class="form-check-input updateinputsize" type="text" name="newpassword" value="" placeholder="请输入新密码">
-                                <button type="submit" class="btn btn-warning">重置</button>
+                                <input id="newemail" class="form-check-input updateinputsize" type="text" name="newemail" value="" placeholder="请输入新密码">
+                                <button id="emailbtn" type="reset" class="btn btn-warning">重置</button>
                             </td>
                         </tr>
                         <tr><td><br></td></tr>
                     </table>
                     <div id="buttonstyle">
-                        <button type="submit" class="btn btn-warning" >保存信息</button>
+                        <button id="emailbtnsave" type="submit" class="btn btn-warning" >保存信息</button>
                     </div>
                 </form>
             </div>
             <%--5.注销账号--%>
             <div id="interface-5" class="rightboxpage">
-                <div>第五个界面内容</div>
+               <div>
+                   <h2>注销账号</h2>
+                        <div class="revokeinterface">
+                            <br>
+                            <p>账号注销则视为您主动放弃以下资产和权益，且同意以下规则: </p>
+                            <p>&nbsp;&nbsp;&nbsp;1.账号注销后,您将无法登录、使用旅鼠论坛账号,且不支持找回任何个人资料。</p>
+                            <p>&nbsp;&nbsp;&nbsp;2.该账号将解除与其他产品的绑定或授权关系，不支持找回。</p>
+                            <p>&nbsp;&nbsp;&nbsp;3.将不再支持使用已注销账号的用户ID注册新的账号。</p>
+                            <p>&nbsp;&nbsp;&nbsp;4.注销旅鼠论坛账号并不代表您注销前的账号行为和相关责任得到豁免或减轻。</p>
+                            <br>
+                        </div>
+                        <div id="revokebutton">
+                            <button type="submit" class="btn btn-warning">我已知悉，确认注销账号</button>
+                        </div>
+               </div>
             </div>
 
         </div>
