@@ -3,6 +3,7 @@ package com.lemming.lemming.servlet;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson2.JSON;
 import com.lemming.lemming.bean.Discuss;
+import com.lemming.lemming.bean.Post;
 import com.lemming.lemming.bean.User;
 import com.lemming.lemming.bean.UserGroup;
 import com.lemming.lemming.dao.DiscussDao;
@@ -32,7 +33,8 @@ public class DiscussServlet extends HttpServlet {
             case "list":
                 queryDiscussServlet(req,resp);
                 break;
-
+            case "like":
+                likeDiscussServlet(req,resp);
         }
     }
     protected void queryDiscussServlet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -92,6 +94,38 @@ public class DiscussServlet extends HttpServlet {
         }else {
             resp.setStatus(500);
         }
+
+    }
+    protected void likeDiscussServlet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        Integer userid = (Integer) req.getSession().getAttribute("user");
+
+        JSONObject json = new JSONObject();
+
+        if (userid==null){
+            json.put("error","needLogin");
+            resp.setContentType("text/json;charset=UTF-8");
+            resp.getWriter().print(json);
+            return;
+        }
+
+        String discussId = req.getParameter("discuss");
+
+        DiscussDao.addLikeNum(Integer.parseInt(discussId));
+
+        Discuss discuss = DiscussDao.getDiscussById(Integer.parseInt(discussId));
+
+        if (discuss == null) {
+            json.put("error","postNotFound");
+            resp.setContentType("text/json;charset=UTF-8");
+            resp.getWriter().print(json);
+            return;
+        }
+
+        int likeNum = discuss.getLike();
+
+        json.put("like_num",likeNum);
+        resp.setContentType("text/json;charset=UTF-8");
+        resp.getWriter().print(json);
 
     }
 }

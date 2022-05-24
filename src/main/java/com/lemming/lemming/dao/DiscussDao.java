@@ -2,6 +2,7 @@ package com.lemming.lemming.dao;
 
 import com.lemming.lemming.DataBaseConnect;
 import com.lemming.lemming.bean.Discuss;
+import com.lemming.lemming.bean.Post;
 import com.lemming.lemming.generic.PageNumber;
 
 import java.sql.*;
@@ -51,6 +52,32 @@ public class DiscussDao {
         }
     }
 
+    public static Discuss getDiscussById(int id){
+        Discuss discuss = new Discuss();
+        Connection connection = DataBaseConnect.getConnection();
+
+        PreparedStatement preparedStatement = null;
+        if (connection==null){
+            return null;
+        }
+
+        String sql = "select * from discuss_info where id=?";
+        try {
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1,id);
+            ResultSet res = preparedStatement.executeQuery();
+            if (res.next()){
+                discuss.parseFromResultSet(res);
+            }else {
+                discuss = null;
+            }
+            connection.close();
+            preparedStatement.close();
+            return discuss;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
     public static Integer getCount(){
         String sql = "select COUNT(*) from discuss_info";
         Connection c = DataBaseConnect.getConnection();

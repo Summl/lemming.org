@@ -208,6 +208,18 @@ function buildDiscussItem(content, id, like, userId, regTime){
     itemCtrl.append(btn_like);
     itemCtrl.append(reg_time);
 
+    btn_like.addEventListener("click",function () {
+        let httpRequest = new XMLHttpRequest();//第一步：建立所需的对象
+        httpRequest.open('GET', 'discuss?type=like&discuss='+id, true);//第二步：打开连接  将请求参数写在url中  ps:"./Ptest.php?name=test&nameone=testone"
+        httpRequest.send();//第三步：发送请求  将请求参数写在URL中
+        httpRequest.onreadystatechange = function () {
+            if (httpRequest.readyState === 4 && httpRequest.status === 200) {
+                let json = JSON.parse(httpRequest.responseText);
+                btn_like.innerHTML = "<i class=\"bi bi-heart-fill\"></i> "+json.like_num
+            }
+        }
+    })
+
     return itemBox
 
 }
