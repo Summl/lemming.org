@@ -26,6 +26,7 @@ input[type="radio"]{
 .option {
     height: 26px;
     margin: 6px 0;
+    cursor: pointer;
 }
 .option span {
     display: inline-block;

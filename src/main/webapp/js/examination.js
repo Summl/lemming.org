@@ -22,7 +22,7 @@ window.onload = function(){
                     let optionbox  = document.createElement("div");
                     let optiontext = document.createElement("span");
                     let option = document.createElement("input");
-                    option.name="ti"+json[i].option[j].id;
+                    option.name="ti"+json[i].id;
                     option.type = "radio";
                     option.value = "ti"+j;
                     console.log(option.value);
@@ -31,6 +31,10 @@ window.onload = function(){
                     optionbox.append(optiontext);
                     optionbox.classList.add("option");
                     out.append(optionbox);
+
+                    optionbox.addEventListener("click",function () {
+                        option.checked = true;
+                    })
                 }
             }
         }
