@@ -95,8 +95,116 @@ window.onload = function () {
     })
 
     let btn_delete = document.getElementById("btn_delete")
-    btn_delete.addEventListener("click",function () {
-        window.location.href = "post?type=delete&post="+postID;
-    })
+    if (btn_delete!==null){
+        btn_delete.addEventListener("click",function () {
+            window.location.href = "post?type=delete&post="+postID;
+        })
+    }
+    loadDiscuss();
+
+    let btn_discuss = document.getElementById("sendDiscussBtn")
+    btn_discuss.addEventListener("click",sendDiscuss);
+
+}
+
+let CurrentPage = 0
+let IsLoading = false
+function sendDiscuss() {
+    let content = document.getElementById("discussContent").value
+    console.log(content)
+    if (content===""){
+        return;
+    }
+    console.log(content)
+    let httpRequest = new XMLHttpRequest();//第一步：建立所需的对象
+    httpRequest.open('POST', 'discuss?type=add&content='+encodeURI(content)+'&post='+postID, true);//第二步：打开连接  将请求参数写在url中  ps:"./Ptest.php?name=test&nameone=testone"
+    httpRequest.send();//第三步：发送请求  将请求参数写在URL中
+    httpRequest.onreadystatechange = function () {
+        if (httpRequest.readyState === 4 && httpRequest.status === 200) {
+            let discussList = document.getElementById("discussList")
+            discussList.innerText = ""
+            CurrentPage = 0
+            loadDiscuss()
+            document.getElementById("discussContent").innerText = ""
+        }
+    }
+
+}
+
+function loadDiscuss() {
+    if (IsLoading){
+        return;
+    }
+    IsLoading = true;
+    let httpRequest = new XMLHttpRequest();//第一步：建立所需的对象
+    httpRequest.open('POST', 'discuss?type=list&post='+postID+'&page='+(CurrentPage+1).toString(), true);//第二步：打开连接  将请求参数写在url中  ps:"./Ptest.php?name=test&nameone=testone"
+    httpRequest.send();//第三步：发送请求  将请求参数写在URL中
+    httpRequest.onreadystatechange = function () {
+        if (httpRequest.readyState === 4 && httpRequest.status === 200) {
+            let json = JSON.parse(httpRequest.responseText);//获取到json字符串，还需解析
+            if (json.list === undefined) {
+                loadPost()
+                console.log("200")
+                return;
+            }
+            let list = json.list
+            if (CurrentPage === json.page) {
+                return;
+            }
+            CurrentPage = json.page
+            for (let i in list) {
+                let content = list[i].discuss
+                let id = list[i].id
+                let like = list[i].like
+                let userId = list[i].userId
+                let postID = list[i].postId
+                let regTime = list[i].regTime
+                let discussList = document.getElementById("discussList")
+                discussList.append(buildDiscussItem(content,id,like,userId,regTime))
+            }
+        }
+        IsLoading = false
+    };
+}
+function buildDiscussItem(content, id, like, userId, regTime){
+    let itemBox = document.createElement("div")
+    itemBox.classList.add("discussItem")
+
+    let userName = document.createElement("h5")
+    userName.classList.add("discussItemUserName")
+
+    let content_p = document.createElement("p")
+
+    let itemCtrl = document.createElement("div")
+    itemCtrl.classList.add("discussItemCtrl")
+
+    let btn_like = document.createElement("button")
+    btn_like.innerHTML = "<i class=\"bi bi-heart-fill\"></i> 点赞"
+
+    let reg_time = document.createElement("span")
+
+    let httpRequest = new XMLHttpRequest();//第一步：建立所需的对象
+    httpRequest.open('GET', 'user?type=info&id='+userId, true);//第二步：打开连接  将请求参数写在url中  ps:"./Ptest.php?name=test&nameone=testone"
+    httpRequest.send();//第三步：发送请求  将请求参数写在URL中
+    httpRequest.onreadystatechange = function () {
+        if (httpRequest.readyState === 4 && httpRequest.status === 200) {
+            let json = JSON.parse(httpRequest.responseText);
+            userName.innerText = json.name
+        }else {
+            userName.innerText = "用户"+userId
+        }
+    }
+
+    content_p.innerText = content
+
+    reg_time.innerText = regTime
+
+    itemBox.append(userName);
+    itemBox.append(content_p);
+    itemBox.append(itemCtrl);
+    itemCtrl.append(btn_like);
+    itemCtrl.append(reg_time);
+
+    return itemBox
 
 }

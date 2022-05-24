@@ -99,3 +99,49 @@
     position: relative;
     margin-right: 30px;
 }
+#discussContent {
+    display: block;
+    resize: none;
+    padding: 12px;
+    border: 1px solid #eee;
+    height: 100px;
+    width: 100%;
+    outline: none;
+    text-align: left;
+    margin: 0;
+    border-radius: 8px;
+    background-color: #fefefe;
+    box-sizing: border-box;
+}
+#sendDiscussBtn {
+    background-color: #ffa200;
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    display: inline-block;
+    padding: 8px 20px;
+    font-size: 16px;
+    margin: 20px 0 0 auto;
+}
+.discussItem {
+    padding: 20px 10px;
+    border-bottom: 1px solid #aaaaaa;
+}
+.discussItem .discussItemUserName{
+    font-size: 18px;
+    font-weight: 600;
+}
+.discussItem p {
+    margin: 20px 10px;
+}
+.discussItem button {
+    background: none;
+    outline: none;
+    border: none;
+    position: relative;
+    margin-right: 30px;
+}
+.discussItem .discussItemCtrl{
+    color: #888888;
+}

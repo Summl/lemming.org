@@ -15,7 +15,7 @@
     <%
         Post post = (Post) request.getAttribute("post");
         User user = UserDao.getUserById(post.getUserId());
-
+        Integer loginUser = (Integer) request.getSession().getAttribute("user");
         assert user != null;
     %>
     <script src="lute/lute.min.js"></script>
@@ -42,10 +42,23 @@
         </div>
 
         <div class="toolbar">
-            <button id="btn_like"><i class="bi bi-heart-fill"></i>点赞</button>
-            <%if (GroupDao.getGroupInfoByUserId((int)(request.getSession().getAttribute("user"))).isAllowAdmin() || user.getId()==(int)request.getSession().getAttribute("user")){%>
-            <button id="btn_delete"><i class="bi bi-trash2-fill"></i>删除</button>
-            <%}%>
+            <button id="btn_like"><i class="bi bi-heart-fill"></i> 点赞</button>
+            <%if (loginUser != null){
+                if (GroupDao.getGroupInfoByUserId(loginUser).isAllowAdmin() || user.getId()==loginUser){%>
+                    <button id="btn_delete"><i class="bi bi-trash2-fill"></i> 删除</button>
+                <%}
+            }%>
+        </div>
+        <div class="discussBox">
+            <h2>评论区</h2>
+            <div class="inputDiscussBox">
+                <textarea id="discussContent" placeholder="请输入评论"></textarea>
+                <button id="sendDiscussBtn">发送</button>
+            </div>
+            <h3>评论列表</h3>
+            <div id="discussList">
+            </div>
+
         </div>
     </div>
 
@@ -58,8 +71,8 @@
     </div>
 </div>
 <script>
-    let postID = <%=post.getId()%>
-    // 加载页面内容
+    let postID = <%=post.getId()%>;
+
     let httpRequest = new XMLHttpRequest();//第一步：建立所需的对象
     httpRequest.open('GET', 'data/posts/<%=post.getPostFilename()%>', true);//第二步：打开连接  将请求参数写在url中  ps:"./Ptest.php?name=test&nameone=testone"
     httpRequest.send();//第三步：发送请求  将请求参数写在URL中
