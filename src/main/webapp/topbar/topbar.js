@@ -3,7 +3,7 @@ class TopBar {
     groupName;
     user;
     userMenu;
-    menuItem_exit;
+    menuItem;
     headImage;
     topBar;
     constructor(id){
@@ -17,9 +17,12 @@ class TopBar {
         this.topBar.style.backgroundColor = "#fffa"
     }
     addMenuItem(text, url){
-        this.menuItem_exit = document.createElement("li")
-        this.menuItem_exit.innerHTML = "<a href='"+url+"'>"+text+"</a>"
-        this.userMenu.append(this.menuItem_exit)
+        this.menuItem = document.createElement("li")
+        this.menuItem.innerHTML = text;
+        this.menuItem.addEventListener("click",function (){
+            window.location.href = url;
+        })
+        this.userMenu.append(this.menuItem)
     }
 
     addGoTopButton(){

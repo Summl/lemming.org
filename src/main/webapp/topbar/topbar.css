@@ -106,11 +106,9 @@ html {
     list-style: none;
 }
 .userMenu li {
-    padding: 6px 20px;
-}
-.userMenu li a{
     color: #24292e;
-    text-decoration: none;
+    padding: 6px 20px;
+    cursor: pointer;
 }
 .userMenu li:hover {
     background-color: #ffa200;
