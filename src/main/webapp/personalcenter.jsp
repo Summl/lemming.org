@@ -125,23 +125,42 @@
             <%--      2.密码修改界面--%>
             <div id="interface-2" class="rightboxpage">
                 <form action="" method="post">
-                    <div class="updatepasswordinterface">
-                        <span>原密码：</span>
-                        <input class="form-check-input" type="text" name="oldpassword" value="" placeholder="请输入原始密码">
-                        <br>
-                        <span>新密码：</span>
-                        <input class="form-check-input" type="text" name="newpassword" value="" placeholder="请输入新密码">
-                        <br>
-                        <span>重新输入新密码：</span>
-                        <input class="form-check-input" type="text" name="newpassword" value="" placeholder="请输入新密码">
-                        <br>
-                        <button type="submit" class="btn btn-warning">保存信息</button>
-                        <button type="submit" class="btn btn-warning">重置信息</button>
+                    <h2>修改密码</h2>
+                    <table class="updatepasswordinterface">
+                        <tr>
+                            <td>
+                                <p>原密码：</p>
+                                <input class="form-check-input updateinputsize" type="text" name="oldpassword" value="" placeholder="请输入原始密码">
+                            </td>
+                        </tr>
+                        <tr><td><br></td></tr>
+                        <tr>
+                            <td>
+                                <p>新密码：</p>
+                                <input class="form-check-input updateinputsize" type="text" name="newpassword" value="" placeholder="请输入新密码">
+                            </td>
+                        </tr>
+                        <tr><td><br></td></tr>
+                        <tr>
+                            <td>
+                                <p>重新输入新密码：</p>
+                                <input class="form-check-input updateinputsize" type="text" name="newpassword" value="" placeholder="请输入新密码">
+                            </td>
+                        </tr>
+                        <tr><td><br></td></tr>
+                    </table>
+                    <div class="buttonstyle">
+                        <button type="submit" class="btn btn-warning" id="buttonsave">保存信息</button>
+                        <button type="reset" class="btn btn-warning" id="buttonreset">重置信息</button>
                     </div>
                 </form>
             </div>
             <div id="interface-3" class="rightboxpage">
-                <div>第三个界面内容</div>
+                <div id="uploadpicture">
+                    <h2>上传头像图片</h2>
+                    <div id="uploadimage"></div>
+                    <button type="submit" class="btn btn-warning" id="uploadbuttonsave">保存图片</button>
+                </div>
             </div>
             <div id="interface-4" class="rightboxpage">
                 <div>第四个界面内容</div>

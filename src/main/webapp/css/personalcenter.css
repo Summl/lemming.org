@@ -154,6 +154,7 @@ label{
 #interface-1{
     height: 600px;
     display: block;
+    /*display: none;*/
 }
 #interface-2{
     height: 600px;
@@ -230,4 +231,67 @@ label{
     top: 180px !important;
 }
 
-
+.updatepasswordinterface{
+    margin-top: 2%;
+    padding: 5%;
+    margin-left: 20%;
+}
+.updatepasswordinterface input{
+    padding: 6px 12px;
+}
+p{
+    font-size: 20px;
+    line-height: 30px;
+    margin: 10px;
+}
+#buttonsave{
+    /*float: right;*/
+    /*上右下左*/
+    margin:50px 0 40% 40px;
+    width: 100px;
+    height: 40px;
+    color: white;
+    font-size: 17px;
+    border-radius: 6px;
+}
+#buttonreset{
+    /*float: right;*/
+    text-align: center;
+    margin:50px 0 40% 40px;
+    width: 100px;
+    height: 40px;
+    color: white;
+    font-size: 17px;
+    border-radius: 6px;
+}
+.buttonstyle{
+    margin-bottom: 10px;
+    margin-left: 25%;
+}
+.updateinputsize{
+    width: 350px;
+    border: 1px solid darkgray;
+}
+#uploadimage{
+    /*上右下左*/
+    margin: 30px 0 20px 15%;
+    background-color:white;
+    width: 380px;
+    height: 380px;
+    cursor: pointer;
+    border-radius: 10px;
+    border: 4px dashed wheat;
+    background-size: contain;
+    text-align: center;
+}
+.uploadpicture h2{
+    margin-left: 10%;
+}
+#uploadbuttonsave{
+    margin: 0 0 0 32%;
+    width: 100px;
+    height: 40px;
+    color: white;
+    font-size: 17px;
+    border-radius: 6px;
+}
