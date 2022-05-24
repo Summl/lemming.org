@@ -24,7 +24,7 @@ public class PageNumber {
      * @return 返回页面的顶部位置
      */
     public static int getTop(int page){
-        return (page-1)*getPageSize();
+        return Math.max((page-1)*getPageSize(),0);
     }
 
     /**
