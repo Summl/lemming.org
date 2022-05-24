@@ -45,7 +45,7 @@
         <div class="rightbox col-sm-10">
             <%--1.个人信息界面--%>
             <div id="interface-1" class="rightboxpage">
-                <form action="" method="post">
+                <form action="" method="post" id="selectBaseinfo">
                     <div class="basic_information form-group">
                         <div class="leftusercontent">
                             <span>用户名:</span>
@@ -100,7 +100,7 @@
                             <br>
                             <span>
 <%--                                <button id="btsave" class="btn btn-warning" type="submit">保存</button>--%>
-                                <input id="saveBaseInfo" type="button" onclick="return checkInfo()" class="btn btn-warning" data-dismiss="modal" value="保存">
+                                <input id="saveBaseInfo" type="button" onclick="updateBaseInfo()" class="btn btn-warning" data-dismiss="modal" value="保存">
                             </span>
                         </div>
                     </div>
