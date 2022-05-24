@@ -75,7 +75,7 @@ public class DiscussDao {
         PageNumber.setPageSize(10);
         pageNum = PageNumber.getValidPage(pageNum,getCount());
 
-        String sql = "select * from discuss_info order by id DESC limit "+PageNumber.getTop(pageNum)+","+PageNumber.getEnd(pageNum);
+        String sql = "select * from discuss_info where post_id="+postId+" order by id DESC limit "+PageNumber.getTop(pageNum)+","+PageNumber.getEnd(pageNum);
         Connection c = DataBaseConnect.getConnection();
         if (c==null){
             return list;

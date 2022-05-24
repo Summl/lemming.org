@@ -153,6 +153,10 @@
     position: relative;
     margin-right: 30px;
 }
+
+.discussItem button:hover {
+    color: #ffa200;
+}
 .discussItem .discussItemCtrl{
     color: #888888;
 }
