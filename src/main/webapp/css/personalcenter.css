@@ -212,7 +212,7 @@ label{
 
 .recognizedtext label:hover,
 .recognizedtext input:checked+label {
-    color: darkgray;
+    color: #ffa200;
 }
 
 .recognizedtext label::before {
