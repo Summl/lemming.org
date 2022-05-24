@@ -124,6 +124,10 @@ function sendDiscuss() {
             let discussList = document.getElementById("discussList")
             discussList.innerText = ""
             document.getElementById("discussContent").value = ""
+            document.getElementById("tipBox").style.top = "50%"
+            setTimeout(function(){
+                document.getElementById("tipBox").style.top = "-100px"
+            },2000);
             CurrentPage = 0
             loadDiscuss()
         }

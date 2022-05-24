@@ -160,3 +160,24 @@
 .discussItem .discussItemCtrl{
     color: #888888;
 }
+#tipBox {
+    position: fixed;
+    background-color: #0009;
+    color: #fff;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    border-radius: 12px;
+    left: 50%;
+    top: -100px;
+    margin-top: -50px;
+    margin-left: -50px;
+    transition: top 0.5s;
+}
+#tipBox h5{
+    margin-top: 20px;
+    font-size: 20px;
+}
+#tipBox h6{
+    font-size: 18px;
+}

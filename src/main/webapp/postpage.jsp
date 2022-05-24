@@ -74,6 +74,10 @@
         </div>
     </div>
 </div>
+<div id="tipBox">
+    <h5><i class="bi bi-check-circle"></i></h5>
+    <h6>评论成功</h6>
+</div>
 <script>
     let postID = <%=post.getId()%>;
 
