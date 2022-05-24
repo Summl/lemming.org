@@ -122,7 +122,7 @@
                     </div>
                 </div>
             </div>
-            <%--      2.密码修改界面--%>
+            <%--2.密码修改界面--%>
             <div id="interface-2" class="rightboxpage">
                 <form action="" method="post">
                     <h2>修改密码</h2>
@@ -155,6 +155,7 @@
                     </div>
                 </form>
             </div>
+            <%--3.上传头像界面--%>
             <div id="interface-3" class="rightboxpage">
                 <div id="uploadpicture">
                     <h2>上传头像图片</h2>
@@ -162,9 +163,33 @@
                     <button type="submit" class="btn btn-warning" id="uploadbuttonsave">保存图片</button>
                 </div>
             </div>
+            <%--4.邮箱修改界面   --%>
             <div id="interface-4" class="rightboxpage">
-                <div>第四个界面内容</div>
+                <form action="" method="post">
+                    <h2>邮箱修改/核验</h2>
+                    <table class="updateemailinterface">
+                        <tr>
+                            <td>
+                                <p>原邮箱地址：</p>
+                                <input class="form-check-input updateinputsize" type="text" name="oldpassword" value="" placeholder="显示原本邮箱地址">
+                            </td>
+                        </tr>
+                        <tr><td><br></td></tr>
+                        <tr>
+                            <td>
+                                <p>新邮箱地址：</p>
+                                <input class="form-check-input updateinputsize" type="text" name="newpassword" value="" placeholder="请输入新密码">
+                                <button type="submit" class="btn btn-warning">重置</button>
+                            </td>
+                        </tr>
+                        <tr><td><br></td></tr>
+                    </table>
+                    <div id="buttonstyle">
+                        <button type="submit" class="btn btn-warning" >保存信息</button>
+                    </div>
+                </form>
             </div>
+            <%--5.注销账号--%>
             <div id="interface-5" class="rightboxpage">
                 <div>第五个界面内容</div>
             </div>

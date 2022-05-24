@@ -276,11 +276,13 @@ p{
     border-radius: 6px;
 }
 .buttonstyle{
-    margin-bottom: 10px;
-    margin-left: 25%;
+    margin-bottom: 20px;
+    margin-left: 30%;
+    /*text-align: center;*/
+
 }
 .updateinputsize{
-    width: 350px;
+    width: 400px;
     border: 1px solid darkgray;
 }
 #uploadimage{
@@ -305,4 +307,14 @@ p{
     color: white;
     font-size: 17px;
     border-radius: 6px;
+}
+#buttonstyle{
+    margin-bottom: 20px;
+    margin-left: 40%;
+    /*text-align: center;*/
+
+}
+.updateemailinterface{
+    margin-top: 50px;
+    margin-left: 20%;
 }
