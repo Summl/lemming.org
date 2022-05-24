@@ -100,7 +100,7 @@
                             <br>
                             <span>
 <%--                                <button id="btsave" class="btn btn-warning" type="submit">保存</button>--%>
-                                <input id="saveBaseInfo" type="button" onclick="updateBaseInfo()" class="btn btn-warning" data-dismiss="modal" value="保存">
+                                <input id="saveBaseInfo" type="button" onclick="return checkInfo()" class="btn btn-warning" data-dismiss="modal" value="保存">
                             </span>
                         </div>
                     </div>

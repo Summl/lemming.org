@@ -100,32 +100,33 @@ function updateUserBaseInfo() {
 window.onload=function (){
     updateUserBaseInfo();
 }
-function updateBaseInfo(){
+function checkInfo(){
     if($("#updatename").val().trim() === ""){
         $("#textBaseInfo").text("请输入用户名！");
         $("#mymodalBaseInfo").modal();
-        return;
+        return false;
     }
     if($("#updatephone").val().trim() === ""){
         $("#textBaseInfo").text("请输入电话号码！");
-        $("#mymodalBaseInfo").modal();
-        return;
+        $("#mymodalBaseInfo").modal()
+        return false;
     }
     let phoneReg = /^1[3-9][0-9]{9}$/;
     if(!phoneReg.test($("#updatephone").val())){
         $("#textBaseInfo").text("请输入正确的电话号码！");
         $("#mymodalBaseInfo").modal();
-        return;
+        return false;
     }
     if($("#updateemail").val().trim() === ""){
         $("#textBaseInfo").text("请输入邮箱！");
         $("#mymodalBaseInfo").modal();
-        return;
+        return false;
     }
     let emailReg = /\w{3,}(\.\w+)*@[A-z0-9]+(\.[A-z]{2,5}){1,2}/;
     if(!emailReg.test($("#updateemail").val())){
         $("#textBaseInfo").text("请输入正确的邮箱！");
-        $("#mymodalBaseInfo").modal();
-        return;
+        $("#mymodalBaseInfo").modal()
+        return false;
     }
+    return true
 }
