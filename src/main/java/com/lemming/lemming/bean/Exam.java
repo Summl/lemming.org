@@ -16,10 +16,10 @@ public class Exam {
     public void parseFromResultSet(ResultSet res) throws SQLException {
         setId(res.getInt("id"));
         setTitle(res.getString("title"));
-        setOptionA(res.getString("optionA"));
-        setOptionB(res.getString("optionB"));
-        setOptionC(res.getString("optionC"));
-        setOptionD(res.getString("optionD"));
+        setOptionA(res.getString("option_a"));
+        setOptionB(res.getString("option_b"));
+        setOptionC(res.getString("option_c"));
+        setOptionD(res.getString("option_d"));
         setAnswer(res.getString("answer"));
         setScore(res.getInt("score"));
     }
