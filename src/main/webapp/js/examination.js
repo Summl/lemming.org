@@ -4,13 +4,14 @@ console.log(obj.course);
 console.log(obj.fruits);*/
 
 window.onload = function(){
-    let url = "js/my.json";     //json文件的url
+    let url = "exam?type=get";     //json文件的url
     let request = new XMLHttpRequest();
     request.open("get",url);    //设置请求方法与路径
-    request.send(null);     //不发送数据到服务器
+    request.send();     //不发送数据到服务器
     request.onload = function (){
         if(request.status===200){
             let json = JSON.parse(request.responseText);
+            console.log(json);
             for(let i=0;i<json.length;i++){
                 let out = document.getElementById("out");
                 let title = document.createElement("h4");

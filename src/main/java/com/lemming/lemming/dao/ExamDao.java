@@ -12,7 +12,6 @@ public class ExamDao {
         List<Exam> res = new ArrayList<>();
         Exam exam = new Exam();
         Connection conn = DataBaseConnect.getConnection();
-//        PreparedStatement preparedStatement = null;
 
         if(conn == null){
             return null;
@@ -21,7 +20,6 @@ public class ExamDao {
         String sql="select * from exam_info where active = 1";
         try {
             Statement st = conn.createStatement();
-//            preparedStatement.setInt(1,num);
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()){
                 exam.parseFromResultSet(rs);
@@ -34,22 +32,24 @@ public class ExamDao {
         return res;
     }
 
-    public static int getScore(int num){
+    public static int getScore(int id){
         Connection conn = DataBaseConnect.getConnection();
 
         if(conn == null){
             return 0;
         }
 
-        String sql="select score from exam_info where id="+num;
+        String sql="select score from exam_info where id="+id;
         int score;
         try {
             Statement st = conn.createStatement();
             ResultSet rs = st.executeQuery(sql);
-            score = Integer.parseInt(rs.toString());
+            rs.next();
+            score = rs.getInt("score");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         return score;
     }
+
 }

@@ -44,20 +44,20 @@ public class ExamServlet extends HttpServlet {
 
     protected void examServlet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Exam> examList = ExamDao.getExamData();
-        JSONObject json = new JSONObject();
-        JSONArray option = new JSONArray();
+        JSONArray res = new JSONArray();
         assert examList != null;
         for (Exam exam : examList) {
-            if (exam != null) {
-                json.put("id", exam.getId());
-                json.put("title", exam.getTitle());
-                String str = exam.getOptions();
-                option.addAll(Arrays.asList(str.split(";")));
-                json.put("option", option);
-            }
-            resp.setContentType("text/json;charset=UTF-8");
-            resp.getWriter().print(json);
+            JSONObject json = new JSONObject();
+            json.put("id", exam.getId());
+            json.put("title", exam.getTitle());
+            String str = exam.getOptions();
+            JSONArray option = new JSONArray();
+            option.addAll(Arrays.asList(str.split(";")));
+            json.put("option", option);
+            res.add(json);
         }
+        resp.setContentType("text/json;charset=UTF-8");
+        resp.getWriter().print(res);
     }
 }
 
