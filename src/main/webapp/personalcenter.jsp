@@ -244,10 +244,16 @@
                         <p>&nbsp;&nbsp;&nbsp;4.注销旅鼠论坛账号并不代表您注销前的账号行为和相关责任得到豁免或减轻。</p>
                         <br>
                     </div>
+                    <div id="revokepasswordpart">
+                        <p>此账号密码</p>
+                        <input id="revokepassword" class="form-check-input updateinputsize" type="password"
+                               name="newpassword" value="" placeholder="请输入密码">
+                    </div>
                     <div id="RevokeButton">
-                        <button type="submit" onclick="buttonrevoke()" class="btn btn-warning" >我已知悉，确认注销账号</button>
+                        <button id="rbtn" type="button" onclick="buttonrevoke()" class="btn btn-warning" >我已知悉，确认注销账号</button>
                     </div>
                 </form>
+            </div>
             </div>
         </div>
     </div>
