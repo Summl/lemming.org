@@ -27,6 +27,24 @@
     <i id="icon" class="bi bi-chat-left-heart-fill"></i>
     <h1><%=title%></h1>
     <p><%=content%></p>
+    <p id="reLoginTip">3秒后将返回登录页面</p>
 </div>
 </body>
 </html>
+<script>
+    let ReLogin = <%=request.getAttribute("relogin")%>;
+    let tip = document.getElementById("reLoginTip")
+    if (ReLogin){
+        let second = 3;
+        setInterval(function (){
+            second -= 1;
+            tip.innerText = second.toString() + "秒后将返回登录页面";
+        },1000)
+        setTimeout(function () {
+            top.location.href="login.jsp"
+        },3000)
+        tip.style.display="block"
+    }else {
+        tip.style.display="none"
+    }
+</script>

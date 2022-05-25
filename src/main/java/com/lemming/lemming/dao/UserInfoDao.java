@@ -8,6 +8,26 @@ import java.sql.SQLException;
 
 public class UserInfoDao {
 
+
+    public static boolean changePassword(Integer id,String newpassword){
+        Connection connection = DataBaseConnect.getConnection();
+        PreparedStatement preparedStatement = null;
+        if (connection==null){
+            return false;
+        }
+        String sql = "update user set user_password=? where id=?";
+        try {
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1,newpassword);
+            preparedStatement.setInt(2,id);
+            int res = preparedStatement.executeUpdate();
+            return res == 1;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
     public static boolean updateUserBaseInfo(String name,String sex,String phone, String email,Integer id) {
         Connection connection = DataBaseConnect.getConnection();
         PreparedStatement preparedStatement = null;

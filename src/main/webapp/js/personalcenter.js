@@ -130,3 +130,27 @@ function updateBaseInfo(){
     }
     $("#selectBaseinfo").submit();
 }
+function updatePassword(){
+    if($("#oldpassword").val().trim() === ""){
+        $("#textUpdatePassword").text("请输入原始密码！");
+        $("#mymodalUpdatePassword").modal();
+        return;
+    }
+    if($("#newpassword").val().trim() === ""){
+        $("#textUpdatePassword").text("请输入新密码！");
+        $("#mymodalUpdatePassword").modal();
+        return;
+    }
+    if($("#renewpassword").val().trim() === ""){
+        $("#textUpdatePassword").text("请重新输入新密码！");
+        $("#mymodalUpdatePassword").modal();
+        return;
+    }
+    if($("#newpassword").val() != $("#renewpassword").val()){
+        $("#textUpdatePassword").text("您两次输入的新密码不一致！");
+        $("#mymodalUpdatePassword").modal();
+        return;
+    }
+
+    $("#selectUpdatePassword").submit();
+}

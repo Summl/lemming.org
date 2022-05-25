@@ -124,36 +124,53 @@
             </div>
             <%--2.密码修改界面--%>
             <div id="interface-2" class="rightboxpage">
-                <form action="" method="post">
+                <form action="userinfo?type=updatePassword" method="post"   id="selectUpdatePassword">
                     <h2>修改密码</h2>
                     <table class="updatepasswordinterface">
                         <tr>
                             <td>
                                 <p>原密码：</p>
-                                <input id="oldpassword" class="form-check-input updateinputsize" type="text" name="oldpassword" value="" placeholder="请输入原始密码">
+                                <input id="oldpassword" class="form-check-input updateinputsize" type="password" name="oldpassword" value="" placeholder="请输入原始密码">
                             </td>
                         </tr>
                         <tr><td><br></td></tr>
                         <tr>
                             <td>
                                 <p>新密码：</p>
-                                <input id="newpassword" class="form-check-input updateinputsize" type="text" name="newpassword" value="" placeholder="请输入新密码">
+                                <input id="newpassword" class="form-check-input updateinputsize" type="password" name="newpassword" value="" placeholder="请输入新密码">
                             </td>
                         </tr>
                         <tr><td><br></td></tr>
                         <tr>
                             <td>
                                 <p>重新输入新密码：</p>
-                                <input id="renewpassword" class="form-check-input updateinputsize" type="text" name="renewpassword" value="" placeholder="请重新输入新密码">
+                                <input id="renewpassword" class="form-check-input updateinputsize" type="password" name="renewpassword" value="" placeholder="请重新输入新密码">
                             </td>
                         </tr>
                         <tr><td><br></td></tr>
                     </table>
                     <div class="buttonstyle">
-                        <button type="submit" class="btn btn-warning" id="buttonsave">保存信息</button>
+                        <button type="button" onclick="updatePassword()" class="btn btn-warning" id="buttonsave">保存信息</button>
                         <button type="reset" class="btn btn-warning" id="buttonreset">重置信息</button>
                     </div>
                 </form>
+                <div class="modal fade" data-backdrop="static" id="mymodalUpdatePassword">
+                    <div class="modal-dialog modal-dialog-centered modal-sm">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5>提示信息：</h5>
+                                <button class="close" data-dismiss="modal"><span>&times;</span></button>
+                            </div>
+                            <div class="modal-body">
+                                <p id="textUpdatePassword"></p>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-warning" data-dismiss="modal">确定</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             </div>
             <%--3.上传头像界面--%>
             <div id="interface-3" class="rightboxpage">
