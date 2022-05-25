@@ -32,7 +32,6 @@
         <h2 class="label_tip col-sm-1">简介：</h2>
         <textarea maxlength="80" id="post_brief" class="col-xs-5" name="brief" placeholder="请输入文章简介"></textarea>
         <h2 class="label_tip col-sm-1 col-sm-offset-1">封面图：</h2>
-        <div id="chooseCover" class="col-sm-4"></div>
         <input id="inputChooseCover" type="file" name="cover" accept="image/*">
         <input id="content" name="content" type="hidden">
     </div>

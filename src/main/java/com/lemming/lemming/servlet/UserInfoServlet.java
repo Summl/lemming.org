@@ -3,13 +3,20 @@ package com.lemming.lemming.servlet;
 import com.lemming.lemming.bean.User;
 import com.lemming.lemming.dao.UserDao;
 import com.lemming.lemming.dao.UserInfoDao;
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.FileItemFactory;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.File;
 import java.io.IOException;
+import java.util.List;
+import java.util.UUID;
 
 @WebServlet("/userinfo")
 public class UserInfoServlet extends HttpServlet {
@@ -32,8 +39,70 @@ public class UserInfoServlet extends HttpServlet {
             case "revokeUserAccount":
                 revokeUserAccount(req, resp);
                 break;
+            case "updateImg":
+                updateImg(req, resp);
+                break;
         }
     }
+
+    protected void updateImg(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        FileItemFactory factory = new DiskFileItemFactory();
+        ServletFileUpload upload = new ServletFileUpload(factory);
+        upload.setHeaderEncoding("UTF-8");
+        upload.setFileSizeMax(10*1024*1024);
+        String fname = UUID.randomUUID().toString();
+        if (ServletFileUpload.isMultipartContent(req)) {
+            try {
+                List<FileItem> list = upload.parseRequest(req);
+                for (FileItem it : list){
+                    if (it.isFormField()) {
+                        continue;
+                    }
+
+                    String SavePath = this.getServletContext().getRealPath("data/images");
+
+                    System.out.println(SavePath +"/"+fname);
+
+                    File d = new File(SavePath);
+                    if (!d.exists()){
+                        if (d.mkdir()){
+                            System.out.println("创建: "+SavePath);
+                        }
+                    }
+                    File f = new File(SavePath,fname);
+                    it.write(f);
+                    it.delete();
+                    resp.setContentType("text/html;charset=UTF-8");
+                    resp.getWriter().println(fname);
+                }
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        }
+        Integer userId = (Integer) req.getSession().getAttribute("user");
+        User user = UserDao.getUserById(userId);
+        Integer id = user.getId();
+        if (user == null){
+            resp.setStatus(404);
+            return;
+        }
+        if(fname == null){
+            req.setAttribute("content", "头像有误!");
+            req.getRequestDispatcher("message.jsp").forward(req, resp);
+            return;
+        }
+        boolean b = UserInfoDao.changeImg(id,fname);
+        if(b){
+            req.setAttribute("title","头像保存成功！");
+            req.setAttribute("content","头像保存成功！");
+            req.getRequestDispatcher("message.jsp").forward(req,resp);
+        }else{
+            req.setAttribute("content", "头像保存失败。");
+            req.getRequestDispatcher("message.jsp").forward(req, resp);
+        }
+    }
+
+
 
     protected void updatePassword(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Integer userId = (Integer) req.getSession().getAttribute("user");

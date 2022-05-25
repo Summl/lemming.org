@@ -99,7 +99,32 @@ function updateUserBaseInfo() {
 }
 window.onload=function (){
     updateUserBaseInfo();
+
+    let uploadimage = document.getElementById("uploadimage")
+    let inputimage = document.getElementById("inputimage")
+    //let showimg = document.getElementById("showimg")
+    uploadimage.addEventListener("click",function () {
+        inputimage.click()
+
+    })
+
+    inputimage.addEventListener("change",function (){
+        let reader = new FileReader()
+        let file = this.files[0]
+        reader.readAsDataURL(file)
+        reader.addEventListener("loadend",function () {
+            uploadimage.style.backgroundImage = "url("+this.result+")"
+            uploadimage.style.border = "4px dashed wheat;"
+            //$("#showimg").src=this.result;
+            //uploadimage.style.border = "border: 1px solid #ffa200;";
+            //uploadimage.style.boxShadow = "box-shadow: 0 0 5px #ffa200;"
+        })
+    })
+
     RevokeUserAccount();
+}
+function updateImg() {
+    $("#secletImg").submit();
 }
 function updateBaseInfo(){
     if($("#updatename").val().trim() === ""){

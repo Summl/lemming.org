@@ -65,4 +65,22 @@ public class UserInfoDao {
         }
 
     }
+
+    public static boolean changeImg(Integer id,String fname) {
+        Connection connection = DataBaseConnect.getConnection();
+        PreparedStatement preparedStatement = null;
+        if (connection==null) {
+            return false;
+        }
+        String sql = "update user set img_filename=? where id=?";
+        try {
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1,fname);
+            preparedStatement.setInt(2,id);
+            int res=preparedStatement.executeUpdate();
+            return res == 1;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

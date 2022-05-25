@@ -53,7 +53,9 @@ window.onload = function () {
         reader.readAsDataURL(file)
         reader.addEventListener("loadend",function () {
             chooseCover.style.backgroundImage = "url("+this.result+")"
+
         })
+
     })
 }
 

@@ -11,6 +11,7 @@
     <title>旅鼠论坛-个人中心</title>
     <link rel="stylesheet" href="topbar/topbar.css">
     <script src="topbar/topbar.js"></script>
+
     <link rel="icon" href="images/logo.png">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <script src="bootstrap/js/jquery.js"></script>
@@ -28,10 +29,10 @@
     <div class="row">
         <div class="leftbox col-sm-2">
             <div class="user_information">
-                <%-- 头像、用户名称--%>
+                <%--            头像、用户名称--%>
                 <image class="leftimage" src="images/128x128.png"></image>
             </div>
-            <%--  左侧列表内容--%>
+            <%--            左侧列表内容--%>
             <ul>
                 <li id="li-1" onclick="page1()">基本信息</li>
                 <li id="li-2" onclick="page2()">密码管理</li>
@@ -184,22 +185,25 @@
             </div>
             <%--3.上传头像界面--%>
             <div id="interface-3" class="rightboxpage">
-                <div id="uploadpicture">
+                <form action="userinfo?type=updateImg" method="post" enctype="multipart/form-data" id="secletImg">
                     <h2>上传头像图片</h2>
-                    <div id="uploadimage"></div>
-                    <button type="submit" class="btn btn-warning" id="uploadbuttonsave">保存图片</button>
-                </div>
-            </div>
-            <%--4.邮箱修改界面   --%>
+                    <div id="uploadimage"  class="col-sm-4">
+<%--                        <img src="" id="showimg">--%>
+                    </div>
+                    <input  id="inputimage" type="file" name="cover" accept="image/*">
+                    <button type="submit" class="btn btn-warning" onclick="updateImg()" id="uploadbuttonsave">保存头像</button>
+                </form>
+           </div>
+           <%--4.邮箱修改界面   --%>
             <div id="interface-4" class="rightboxpage">
                 <form action="" method="post">
                     <h2>邮箱修改/核验</h2>
                     <table class="updateemailinterface">
                         <tr>
                             <td>
-                                <p>输入账号密码</p>
-                                <input id="password" class="form-check-input updateinputsize" type="text"
-                                name="password" value="" placeholder="输入该账号密码">
+                                <p>原邮箱地址：</p>
+                                <input id="oldemail" class="form-check-input updateinputsize" type="text"
+                                       name="oldemail" value="" placeholder="显示原本邮箱地址">
                             </td>
                         </tr>
                         <tr>
@@ -209,20 +213,12 @@
                             <td>
                                 <p>新邮箱地址：</p>
                                 <input id="newemail" class="form-check-input updateinputsize" type="text"
-                                       name="newemail" value="" placeholder="请输入新邮箱地址">
+                                       name="newemail" value="" placeholder="请输入新密码">
                                 <button id="emailbtn" type="reset" class="btn btn-warning">重置</button>
                             </td>
                         </tr>
                         <tr>
                             <td><br></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p>验证码：</p>
-<%--                                验证码框样式直接套用了修改界面的边框样式--%>
-                                <input id="login_verifyCode" class="updateinputsize" type="text" name="login_verifyCode" placeholder="输入验证码">
-                                <img src="verifyCode?type=image" alt="验证码" id="imageVerifyCode"  onclick="changCode(this)">
-                            </td>
                         </tr>
                     </table>
                     <div id="buttonstyle">
@@ -251,6 +247,6 @@
         </div>
     </div>
 </div>
-</div>
+
 </body>
 </html>
