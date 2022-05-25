@@ -13,7 +13,6 @@ public class Exam {
     private String answer;
     private int score;
 
-
     public void parseFromResultSet(ResultSet res) throws SQLException {
         setId(res.getInt("id"));
         setTitle(res.getString("title"));

@@ -20,8 +20,8 @@ window.onload = function(){
                 console.log(json[i].id);
                 for(let j=0;j<json[i].option.length;j++) {
                     let optionbox  = document.createElement("div");
-                    let optiontext = document.createElement("span");
-                    let option = document.createElement("input");
+                    let optiontext = document.createElement("span");    //题目内容
+                    let option = document.createElement("input");   //单选按钮
                     option.name="ti"+json[i].id;
                     option.type = "radio";
                     option.value = "ti"+j;
@@ -49,17 +49,22 @@ function submitdata(){
     request.onload = function () {
         let score = 0;
         if (request.status === 200) {
+
             let json = JSON.parse(request.responseText);
+            let radio = document.getElementsByName("option");
             for (let i = 0; i < json.length; i++) {
                 for (let j = 0; j < json[i].option.length; j++) {
-                    if (json[i].option[j].check == json[i].answer) {
-                        score += 10;
-                        // alert("恭喜您，升级为博主！");
+                    if (json[i].option[j].check === json[i].answer) {
+                    //     let value = json[i].option[j];
+                    //     if(value == json[i].answer) {
+                            score += 10;
+                            alert("恭喜您，升级为博主！");
+                            break;
+                        // }
                     }
                 }
             }
             alert(score);
-
         }
     }
 }

@@ -27,9 +27,8 @@
     <p class="brief row">
         为了维护良好的社区环境，需要您先回答该问卷的内容，我们将依此确认你是否明白社区礼仪以及需要遵守的社区规范，另外还会涉及到本论坛的常识性问题，请您认真作答非常感谢您的配合。
     </p>
-    <form class="row" action="" method="post">
-        <div id="out">
-        </div>
+    <form class="row" action="exam?type=submit" method="post" >
+        <div id="out"></div>
         <input type="submit" value="提交" onclick="submitdata()">
     </form>
 </div>
