@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @WebServlet("/exam")
@@ -45,20 +46,14 @@ public class ExamServlet extends HttpServlet {
         List<Exam> examList = ExamDao.getExamData();
         JSONObject json = new JSONObject();
         JSONArray option = new JSONArray();
-
-
-        for (int i = 0; i < examList.size(); i++) {
-            Exam exam = examList.get(i);
-            if (exam != null){
-                json.put("id",exam.getId());
-                json.put("title",exam.getTitle());
+        assert examList != null;
+        for (Exam exam : examList) {
+            if (exam != null) {
+                json.put("id", exam.getId());
+                json.put("title", exam.getTitle());
                 String str = exam.getOptions();
-                String s[];
-                s = str.split(";");
-                for(int j = 0;j < s.length;j++){
-                    option.add(s[j]);
-                }
-                json.put("option",option);
+                option.addAll(Arrays.asList(str.split(";")));
+                json.put("option", option);
             }
             resp.setContentType("text/json;charset=UTF-8");
             resp.getWriter().print(json);
