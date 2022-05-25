@@ -147,6 +147,9 @@ window.addEventListener("load",function () {
             topBar.userName.href = "personalcenter.jsp"
             topBar.groupName.innerText = json.user_group.name;
             topBar.addMenuItem("个人中心","personalcenter.jsp")
+            if (json.user_group.id<1){
+                topBar.addMenuItem("申请博主","examination.jsp")
+            }
             topBar.addMenuItem("退出登录","user?type=exit")
         }
     }
