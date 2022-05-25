@@ -197,7 +197,7 @@
            </div>
            <%--4.邮箱修改界面   --%>
             <div id="interface-4" class="rightboxpage">
-                <form action="" method="post">
+                <form action="userinfo?type=updateemail" method="post">
                     <h2>邮箱修改/核验</h2>
                     <table class="updateemailinterface">
                         <tr>
@@ -215,7 +215,6 @@
                                 <p>新邮箱地址：</p>
                                 <input id="newemail" class="form-check-input updateinputsize" type="email"
                                        name="newemail" value="" placeholder="请输入新新邮箱地址">
-                                <button id="emailbtn" type="reset" class="btn btn-warning">重置</button>
                             </td>
                         </tr>
                         <tr>
@@ -223,7 +222,7 @@
                                 <p>向新邮箱发送验证码：</p>
                                 <input class="form-check-input updateinputsize" type="text" name="emailcode"
                                        id="emailcode" value="" placeholder="请输入邮箱验证码">
-                                <button id="emailcodebtn" type="submit" class="btn btn-warning">发送邮箱验证码</button>
+                                <button id="emailcodebtn" type="button" class="btn btn-warning">发送邮箱验证码</button>
                             </td>
                         </tr>
                     </table>

@@ -278,7 +278,7 @@ label{
 .updatepasswordinterface{
     margin-top: 2%;
     padding: 5%;
-    margin-left: 20%;
+    margin-left: 10%;
 }
 .updatepasswordinterface input{
     padding: 6px 12px;
@@ -291,7 +291,7 @@ p{
 #buttonsave{
     /*float: right;*/
     /*上右下左*/
-    margin:20px 0 40% -10px;
+    margin:20px 0 40% -105px;
     width: 100px;
     height: 40px;
     color: white;
@@ -385,7 +385,7 @@ p{
 
 }
 #oldemail{
-    background-color: #eeeeee;
+    /*background-color: #eeeeee;*/
 }
 #emailcodebtn{
     margin-left: 10px;
@@ -393,7 +393,7 @@ p{
     height: 40px;
 }
 .updateemailinterface{
-    margin-left: 15%;
+    margin-left: 10%;
 }
 .updateemailinterface p{
     margin-top: 15px;
@@ -411,7 +411,7 @@ p{
 #emailbtnsave{
     height: 40px;
     width: 100px;
-    left: -30px;
+    left: -125px;
     position: relative;
     border-radius: 6px;
     margin-top: 20px;

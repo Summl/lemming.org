@@ -100,4 +100,22 @@ public class UserInfoDao {
             throw new RuntimeException(e);
         }
     }
+
+    public static boolean changeEmail(Integer id, String newemail) {
+        Connection connection = DataBaseConnect.getConnection();
+        PreparedStatement preparedStatement = null;
+        if (connection==null) {
+            return false;
+        }
+        String sql = "update user set email=? where id=?";
+        try {
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1,newemail);
+            preparedStatement.setInt(2,id);
+            int res=preparedStatement.executeUpdate();
+            return res == 1;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

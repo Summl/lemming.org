@@ -42,6 +42,46 @@ public class UserInfoServlet extends HttpServlet {
             case "updateImg":
                 updateImg(req, resp);
                 break;
+            case "updateemail":
+                updateemail(req, resp);
+                break;
+        }
+    }
+    protected void updateemail(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        Integer userId = (Integer) req.getSession().getAttribute("user");
+        String oldemail = req.getParameter("oldemail");
+        String newemail = req.getParameter("newemail");
+        req.setAttribute("title","邮箱修改失败");
+        User user = UserDao.getUserById(userId);
+        Integer id = user.getId();
+        if (user == null){
+            resp.setStatus(404);
+            return;
+        }
+        if(oldemail.trim().equals("")){
+            req.setAttribute("content", "您的原始邮箱地址不能为空，请重新检查您的输入!");
+            req.getRequestDispatcher("message.jsp").forward(req, resp);
+            return;
+        }
+        if(newemail.trim().equals("")){
+            req.setAttribute("content", "您的新邮箱地址不能为空，请重新检查您的输入!");
+            req.getRequestDispatcher("message.jsp").forward(req, resp);
+            return;
+        }
+
+        if (!user.getEmail().equals(oldemail)) {
+            req.setAttribute("content", "您的旧邮箱地址不正确，请重新检查后输入。");
+            req.getRequestDispatcher("message.jsp").forward(req, resp);
+            return;
+        }
+        boolean b = UserInfoDao.changeEmail(id,newemail);
+        if (b) {
+            req.setAttribute("title", "邮箱修改成功");
+            req.setAttribute("content", "邮箱已经被成功修改。");
+            req.getRequestDispatcher("message.jsp").forward(req, resp);
+        } else {
+            req.setAttribute("content", "服务器错误，您的邮箱没有被修改。");
+            req.getRequestDispatcher("message.jsp").forward(req, resp);
         }
     }
 
