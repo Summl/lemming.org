@@ -33,4 +33,23 @@ public class ExamDao {
         }
         return res;
     }
+
+    public static int getScore(int num){
+        Connection conn = DataBaseConnect.getConnection();
+
+        if(conn == null){
+            return 0;
+        }
+
+        String sql="select score from exam_info where id="+num;
+        int score;
+        try {
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            score = Integer.parseInt(rs.toString());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return score;
+    }
 }

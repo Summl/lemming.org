@@ -6,20 +6,14 @@ import java.sql.SQLException;
 public class Exam {
     private int id;
     private String title;
-    private String optionA;
-    private String optionB;
-    private String optionC;
-    private String optionD;
+    private String options;
     private String answer;
     private int score;
 
     public void parseFromResultSet(ResultSet res) throws SQLException {
         setId(res.getInt("id"));
         setTitle(res.getString("title"));
-        setOptionA(res.getString("option_a"));
-        setOptionB(res.getString("option_b"));
-        setOptionC(res.getString("option_c"));
-        setOptionD(res.getString("option_d"));
+        setOptions(res.getString("options"));
         setAnswer(res.getString("answer"));
         setScore(res.getInt("score"));
     }
@@ -40,36 +34,12 @@ public class Exam {
         this.title = title;
     }
 
-    public String getOptionA() {
-        return optionA;
+    public String getOptions() {
+        return options;
     }
 
-    public void setOptionA(String optionA) {
-        this.optionA = optionA;
-    }
-
-    public String getOptionB() {
-        return optionB;
-    }
-
-    public void setOptionB(String optionB) {
-        this.optionB = optionB;
-    }
-
-    public String getOptionC() {
-        return optionC;
-    }
-
-    public void setOptionC(String optionC) {
-        this.optionC = optionC;
-    }
-
-    public String getOptionD() {
-        return optionD;
-    }
-
-    public void setOptionD(String optionD) {
-        this.optionD = optionD;
+    public void setOptions(String options) {
+        this.options = options;
     }
 
     public String getAnswer() {
