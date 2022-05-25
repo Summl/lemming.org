@@ -90,6 +90,7 @@ function updateUserBaseInfo() {
             let psot_count=json.post_count;
             let groupname=json.user_group.name;
             let registration_time=json.registration_time;
+            let head_image = json.head_image
 
 
 
@@ -102,6 +103,8 @@ function updateUserBaseInfo() {
             let registertime=document.getElementById("registertime");
             let userlimit = document.getElementById("userlimit");
             let nosex= document.getElementById("no_sex");
+            let headImage=document.getElementById("headimage");
+
             updatename.value = name;
             console.log(sex)
             updateemail.value = email;
@@ -125,6 +128,9 @@ function updateUserBaseInfo() {
 
             postcount.value = psot_count;
             registertime.value = registration_time;
+
+            headImage.src = "data/images/"+head_image;
+
         }
     }
 }

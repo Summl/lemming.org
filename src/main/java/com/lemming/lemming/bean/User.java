@@ -14,6 +14,7 @@ public class User {
     private String password;
     private Date registrationDate;
     private int condition;
+    private String headImage;
 
 
 
@@ -27,6 +28,7 @@ public class User {
         setPassword(res.getString("user_password"));
         setRegistrationDate(res.getDate("registration_time"));
         setCondition(res.getInt("user_condition"));
+        setHeadImage(res.getString("img_filename"));
     }
 
     public int getId() {
@@ -95,4 +97,12 @@ public class User {
     public int getCondition() {        return condition;    }
 
     public void setCondition(int condition) {        this.condition = condition;    }
+
+    public String getHeadImage() {
+        return headImage;
+    }
+
+    public void setHeadImage(String headImage) {
+        this.headImage = headImage;
+    }
 }

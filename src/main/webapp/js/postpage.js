@@ -105,6 +105,11 @@ window.onload = function () {
     let btn_discuss = document.getElementById("sendDiscussBtn")
     btn_discuss.addEventListener("click",sendDiscuss);
 
+    document.addEventListener("scroll",function () {
+        if (document.scrollingElement.scrollTop+$(window).height() >= $("body").height()-20){
+            loadDiscuss()
+        }
+    })
 }
 
 let CurrentPage = 0

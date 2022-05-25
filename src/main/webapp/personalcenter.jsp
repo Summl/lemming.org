@@ -31,7 +31,7 @@
         <div class="leftbox col-sm-2">
             <div class="user_information">
                 <%--            头像、用户名称--%>
-                <img class="leftimage" src="images/128x128.png"></img>
+                <img id="headimage" class="leftimage" src="images/128x128.png">
             </div>
             <%--            左侧列表内容--%>
             <ul>
@@ -192,7 +192,7 @@
 <%--                        <img src="" id="showimg">--%>
                     </div>
                     <input  id="inputimage" type="file" name="cover" accept="image/*">
-                    <button type="submit" class="btn btn-warning" onclick="updateImg()" id="uploadbuttonsave">保存头像</button>
+                    <button type="submit" class="btn btn-warning" id="uploadbuttonsave">保存头像</button>
                 </form>
            </div>
            <%--4.邮箱修改界面   --%>

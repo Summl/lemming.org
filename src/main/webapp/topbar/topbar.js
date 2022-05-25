@@ -151,6 +151,7 @@ window.addEventListener("load",function () {
                 topBar.addMenuItem("申请博主","examination.jsp")
             }
             topBar.addMenuItem("退出登录","user?type=exit")
+            topBar.headImage.src = "data/images/"+json.head_image;
         }
     }
     topBar.headImage.addEventListener("mousemove",function () {
