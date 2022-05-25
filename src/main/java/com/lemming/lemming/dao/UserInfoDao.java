@@ -54,7 +54,7 @@ public class UserInfoDao {
         if(connection==null){
             return false;
         }
-        String sql="update user set user_condition='0' where id=?";
+        String sql="update user set user_condition=0 where id=?";
         try{
             preparedStatement=connection.prepareStatement(sql);
             preparedStatement.setInt(1,id);

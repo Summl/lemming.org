@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="css/personalcenter.css">
     <script src="js/personalcenter.js"></script>
 </head>
+
 <body>
 <%--    页面通用顶栏--%>
 <div id="topBar"></div>
@@ -30,7 +31,7 @@
         <div class="leftbox col-sm-2">
             <div class="user_information">
                 <%--            头像、用户名称--%>
-                <image class="leftimage" src="images/128x128.png"></image>
+                <img class="leftimage" src=""></img>
             </div>
             <%--            左侧列表内容--%>
             <ul>
@@ -75,7 +76,7 @@
                             <br>
                             <span>电子邮箱:</span>
                             <div class="recognizedtext">
-                                <input id="updateemail" class="form-control" type="email" name="updateemail"
+                                <input id="updateemail" class="form-control" type="email" name="updateemail" readonly
                                        placeholder="识别到的电子邮箱（可直接修改）">
                             </div>
                         </div>
@@ -201,9 +202,9 @@
                     <table class="updateemailinterface">
                         <tr>
                             <td>
-                                <p>原邮箱地址：</p>
-                                <input id="oldemail" class="form-check-input updateinputsize" type="text"
-                                       name="oldemail" value="" placeholder="显示原本邮箱地址">
+                                <p>原始邮箱地址：</p>
+                                <input id="oldemail" class="form-check-input updateinputsize" type="email"
+                                       name="oldemail" value="" placeholder="请输入原始邮箱地址">
                             </td>
                         </tr>
                         <tr>
@@ -212,8 +213,8 @@
                         <tr>
                             <td>
                                 <p>新邮箱地址：</p>
-                                <input id="newemail" class="form-check-input updateinputsize" type="text"
-                                       name="newemail" value="" placeholder="请输入新密码">
+                                <input id="newemail" class="form-check-input updateinputsize" type="email"
+                                       name="newemail" value="" placeholder="请输入新新邮箱地址">
                                 <button id="emailbtn" type="reset" class="btn btn-warning">重置</button>
                             </td>
                         </tr>
@@ -247,12 +248,29 @@
                     <div id="revokepasswordpart">
                         <p>此账号密码</p>
                         <input id="revokepassword" class="form-check-input updateinputsize" type="password"
-                               name="newpassword" value="" placeholder="请输入密码">
+                               name="revokepassword" value="" placeholder="请输入密码">
                     </div>
                     <div id="RevokeButton">
-                        <button id="rbtn" type="button" onclick="buttonrevoke()" class="btn btn-warning" >我已知悉，确认注销账号</button>
+                        <input type="button" onclick="buttonrevoke()" class="btn btn-warning" value="我已知悉，确认注销账号">
+<%--                        <button id="rbtn" type="button" onclick="buttonrevoke()" class="btn btn-warning" >我已知悉，确认注销账号</button>--%>
                     </div>
                 </form>
+                <div class="modal fade" data-backdrop="static" id="mymodalRevoke">
+                    <div class="modal-dialog modal-dialog-centered modal-sm">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5>提示信息：</h5>
+                                <button class="close" data-dismiss="modal"><span>&times;</span></button>
+                            </div>
+                            <div class="modal-body">
+                                <p id="textRevoke"></p>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-warning" data-dismiss="modal">确定</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             </div>
         </div>

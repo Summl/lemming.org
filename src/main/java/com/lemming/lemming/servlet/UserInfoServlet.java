@@ -195,14 +195,23 @@ public class UserInfoServlet extends HttpServlet {
     protected void revokeUserAccount(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Integer id=(Integer) req.getSession().getAttribute("user");
         User user = UserDao.getUserById(id);
+        Integer userIdRevoke = user.getId();
+        req.setAttribute("title","注销用户失败");
+        String revokepassword = req.getParameter("revokepassword");
         if (user == null){
             resp.setStatus(404);
+            return;
+        }
+        if (!user.getPassword().equals(revokepassword)) {
+            req.setAttribute("content", "您的密码不正确，请重新检查后输入。");
+            req.getRequestDispatcher("message.jsp").forward(req, resp);
             return;
         }
         boolean b=UserInfoDao.revokeUserAccountDao(id);
         if(b){
             req.setAttribute("title","账号注销成功！");
-            req.setAttribute("content","您的账号已注销成功！");
+            req.setAttribute("content","您的账号已注销成功，您可以重新注册！");
+            req.setAttribute("relogin", "true");
             req.getRequestDispatcher("message.jsp").forward(req,resp);
         }else{
             req.setAttribute("content", "账号注销失败，请重试。");

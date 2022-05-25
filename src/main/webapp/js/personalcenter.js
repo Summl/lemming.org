@@ -43,6 +43,37 @@ function page5(){
     document.getElementById("li-5").className="active";
 }
 
+// function updateUserImg() {
+//     let url ="user?type=info"; //Json文件的url
+//     let request = new XMLHttpRequest();
+//     request.open("get",url); //设置请求方法与路径
+//     request.send(null); //不发送数据到服务器
+//     request.onload=function (){
+//         if(request.status === 200) {
+//             let json = JSON.parse(request.responseText);
+//             let img_filename = json.img_filename;
+//             // String uuid = img_filename.value;
+//             // $(".leftimage").src=
+//
+//         }
+//     }
+
+//获取邮箱
+function getEmailVerifyCode2() {
+    let getMailCodeBtn2 = document.getElementById("emailcodebtn")
+    let email2 = document.getElementById("newemail");
+    if (email2.value === ""){
+        return false;
+    }
+    let httpRequest = new XMLHttpRequest();//第一步：建立所需的对象
+    httpRequest.open('GET', 'verifyCode?type=email&to='+email2.value, true);//第二步：打开连接  将请求参数写在url中  ps:"./Ptest.php?name=test&nameone=testone"
+    httpRequest.send();//第三步：发送请求  将请求参数写在URL中
+    getMailCodeBtn2.innerText = "正在发送，请稍候"
+    httpRequest.onreadystatechange = function () {
+        getMailCodeBtn2.innerText = "重新发送"
+    };
+    return false;
+}
 //通过界面修改信息
 function updateUserBaseInfo() {
     let url ="user?type=info"; //Json文件的url
@@ -120,8 +151,9 @@ window.onload=function (){
             //uploadimage.style.boxShadow = "box-shadow: 0 0 5px #ffa200;"
         })
     })
+    let getMailCodeBtn2 = document.getElementById("emailcodebtn")
+    getMailCodeBtn2.addEventListener("click",getEmailVerifyCode2)
 
-    RevokeUserAccount();
 }
 function updateImg() {
     $("#secletImg").submit();
@@ -186,12 +218,11 @@ function changCode(img) {
 }
 //用户注销
 function buttonrevoke(){
-    //判定密码是否正确
-    if(confirm("注销操作不可逆，您是否将要继续注销账户？")){
+    if($("#revokepassword").val().trim() === ""){
+        $("#textRevoke").text("请输入您的密码！");
+        $("#mymodalRevoke").modal();
+        return;
+    }
         $("#selectrevokebutton").submit();
-    }
-    else{
-        return false;
-    }
 }
 

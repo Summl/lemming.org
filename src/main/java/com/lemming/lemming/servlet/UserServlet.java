@@ -93,6 +93,11 @@ public class UserServlet extends HttpServlet {
             req.getRequestDispatcher("login.jsp").forward(req,resp);
             return;
         }
+        if(user.getCondition() == 0){
+            req.setAttribute("tip","登录失败，您的账号已被注销。");
+            req.getRequestDispatcher("login.jsp").forward(req,resp);
+            return;
+        }
 
         // 登录成功
         req.getSession().setAttribute("user",user.getId());

@@ -13,6 +13,9 @@ public class User {
     private String sex;
     private String password;
     private Date registrationDate;
+    private int condition;
+
+
 
     public void parseFromResultSet(ResultSet res) throws SQLException {
         setId(res.getInt("id"));
@@ -23,6 +26,7 @@ public class User {
         setPhone(res.getString("phone"));
         setPassword(res.getString("user_password"));
         setRegistrationDate(res.getDate("registration_time"));
+        setCondition(res.getInt("user_condition"));
     }
 
     public int getId() {
@@ -88,4 +92,7 @@ public class User {
     public void setRegistrationDate(Date registrationDate) {
         this.registrationDate = registrationDate;
     }
+    public int getCondition() {        return condition;    }
+
+    public void setCondition(int condition) {        this.condition = condition;    }
 }
