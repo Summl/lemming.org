@@ -29,9 +29,10 @@
 <div class="container">
     <div class="row">
         <div class="leftbox col-sm-2">
-            <div class="user_information">
+            <div class="user_information " >
+                <div class="leftimage" id="headimage"></div>
                 <%--            头像、用户名称--%>
-                <img id="headimage" class="leftimage" src="images/128x128.png">
+<%--                <img id="headimage" class="leftimage" src="images/128x128.png">--%>
             </div>
             <%--            左侧列表内容--%>
             <ul>
@@ -192,8 +193,24 @@
 <%--                        <img src="" id="showimg">--%>
                     </div>
                     <input  id="inputimage" type="file" name="cover" accept="image/*">
-                    <button type="submit" class="btn btn-warning" id="uploadbuttonsave">保存头像</button>
+                    <button type="button" onclick="updateImg()" class="btn btn-warning" id="uploadbuttonsave">保存头像</button>
                 </form>
+                <div class="modal fade" data-backdrop="static" id="mymodalUpdateImg">
+                    <div class="modal-dialog modal-dialog-centered modal-sm">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5>提示信息：</h5>
+                                <button class="close" data-dismiss="modal"><span>&times;</span></button>
+                            </div>
+                            <div class="modal-body">
+                                <p id="textUpdateImg"></p>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-warning" data-dismiss="modal">确定</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
            </div>
            <%--4.邮箱修改界面   --%>
             <div id="interface-4" class="rightboxpage">

@@ -129,7 +129,8 @@ function updateUserBaseInfo() {
             postcount.value = psot_count;
             registertime.value = registration_time;
 
-            headImage.src = "data/images/"+head_image;
+           // headImage.src = "data/images/"+head_image;
+            headImage.style.backgroundImage = "url(data/images/"+head_image+")";
 
         }
     }
@@ -161,9 +162,9 @@ window.onload=function (){
     getMailCodeBtn2.addEventListener("click",getEmailVerifyCode2)
 
 }
-function updateImg() {
-    $("#secletImg").submit();
-}
+// function updateImg() {
+//     $("#secletImg").submit();
+// }
 function updateBaseInfo(){
     if($("#updatename").val().trim() === ""){
         $("#textBaseInfo").text("请输入用户名！");
@@ -194,6 +195,7 @@ function updateBaseInfo(){
     }
     $("#selectBaseinfo").submit();
 }
+//修改密码
 function updatePassword(){
     if($("#oldpassword").val().trim() === ""){
         $("#textUpdatePassword").text("请输入原始密码！");
@@ -217,6 +219,24 @@ function updatePassword(){
     }
 
     $("#selectUpdatePassword").submit();
+}
+//修改头像
+function updateImg(){
+    if($("#inputimage").val().trim() === ""){
+        $("#textUpdateImg").text("请插入您的头像！");
+        $("#mymodalUpdateImg").modal();
+        return;
+    }
+    // let filename = document.getElementById("#inputimage").value;
+    // // let filename = $("#inputimage").val();
+    // let suffixIndex=fileName.lastIndexOf(".");
+    // let suffix=fileName.substring(suffixIndex+1).toUpperCase();
+    // if(suffix!="BMP"&&suffix!="JPG"&&suffix!="JPEG"&&suffix!="PNG"&&suffix!="GIF"){
+    //     $("#textUpdateImg").text("您输入的图片格式不正确！");
+    //     $("#mymodalUpdateImg").modal();
+    //     return;
+    // }
+    $("#secletImg").submit();
 }
 
 //修改邮箱
