@@ -31,7 +31,7 @@
         <div class="leftbox col-sm-2">
             <div class="user_information">
                 <%--            头像、用户名称--%>
-                <img class="leftimage" src=""></img>
+                <img class="leftimage" src="images/128x128.png"></img>
             </div>
             <%--            左侧列表内容--%>
             <ul>
@@ -197,7 +197,7 @@
            </div>
            <%--4.邮箱修改界面   --%>
             <div id="interface-4" class="rightboxpage">
-                <form action="userinfo?type=updateemail" method="post">
+                <form action="userinfo?type=updateemail" method="post" id="selectUpdateEmail">
                     <h2>邮箱修改/核验</h2>
                     <table class="updateemailinterface">
                         <tr>
@@ -227,9 +227,25 @@
                         </tr>
                     </table>
                     <div id="buttonstyle">
-                        <button id="emailbtnsave" type="submit" class="btn btn-warning">保存信息</button>
+                        <button id="emailbtnsave" type="button" onclick="saveEmail()" class="btn btn-warning">保存信息</button>
                     </div>
                 </form>
+                <div class="modal fade" data-backdrop="static" id="mymodalUpdateEmail">
+                    <div class="modal-dialog modal-dialog-centered modal-sm">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5>提示信息：</h5>
+                                <button class="close" data-dismiss="modal"><span>&times;</span></button>
+                            </div>
+                            <div class="modal-body">
+                                <p id="textUpdateEmail"></p>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-warning" data-dismiss="modal">确定</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <%--5.注销账号--%>
             <div id="interface-5" class="rightboxpage">

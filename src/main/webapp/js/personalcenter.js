@@ -212,6 +212,27 @@ function updatePassword(){
 
     $("#selectUpdatePassword").submit();
 }
+
+//修改邮箱
+function saveEmail(){
+    if($("#oldemail").val().trim() === ""){
+        $("#textUpdateEmail").text("请输入原始邮箱地址！");
+        $("#mymodalUpdateEmail").modal();
+        return;
+    }
+    if($("#newemail").val().trim() === ""){
+        $("#textUpdateEmail").text("请输入新邮箱地址！");
+        $("#mymodalUpdateEmail").modal();
+        return;
+    }
+    if($("#emailcode").val().trim() === ""){
+        $("#textUpdateEmail").text("请输入邮箱验证码！");
+        $("#mymodalUpdateEmail").modal();
+        return;
+    }
+    $("#selectUpdateEmail").submit();
+}
+
 // 验证码
 function changCode(img) {
     img.src = "verifyCode?type=image&r="+Math.random();
@@ -225,4 +246,5 @@ function buttonrevoke(){
     }
         $("#selectrevokebutton").submit();
 }
+
 
