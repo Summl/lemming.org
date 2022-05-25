@@ -44,7 +44,6 @@ window.onload = function () {
     let inputChooser = document.getElementById("inputChooseCover")
     chooseCover.addEventListener("click",function () {
             inputChooser.click()
-
     })
 
     inputChooser.addEventListener("change",function (){
@@ -53,9 +52,7 @@ window.onload = function () {
         reader.readAsDataURL(file)
         reader.addEventListener("loadend",function () {
             chooseCover.style.backgroundImage = "url("+this.result+")"
-
         })
-
     })
 }
 
