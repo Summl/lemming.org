@@ -48,6 +48,7 @@ html {
     border: 2px solid #ffa200;
     box-sizing: border-box;
     cursor: pointer;
+    background-size: cover;
 }
 #topBar .userBox {
     float: right;

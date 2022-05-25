@@ -97,9 +97,9 @@ class TopBar {
         this.user.classList.add("col-md-3")
         this.user.classList.add("col-xs-2")
 
-        this.headImage = document.createElement("img")
+        this.headImage = document.createElement("div")
         this.headImage.id="head-image"
-        this.headImage.src="images/128x128.png"
+        this.headImage.style.backgroundImage="url(images/128x128.png)"
 
         let userBox = document.createElement("div")
         userBox.classList.add("userBox")
@@ -151,7 +151,7 @@ window.addEventListener("load",function () {
                 topBar.addMenuItem("申请博主","examination.jsp")
             }
             topBar.addMenuItem("退出登录","user?type=exit")
-            topBar.headImage.src = "data/images/"+json.head_image;
+            topBar.headImage.style.backgroundImage="url(data/images/"+json.head_image +")"
         }
     }
     topBar.headImage.addEventListener("mousemove",function () {
