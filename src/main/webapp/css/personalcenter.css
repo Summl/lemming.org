@@ -360,19 +360,19 @@ p{
     margin-top: 20px;
 }
 
-.revokeinterface{
+.RevokeInterface{
     margin-top: 20px;
     margin-bottom: 30px;
     margin-left: -15px;
 }
-.revokeinterface p{
+.RevokeInterface p{
     font-size: 20px;
     margin-left: 8%;
 }
-#revokebutton{
+#RevokeButton{
     margin-left: 35%;
 }
-#revokebutton button{
+#RevokeButton button{
     background-color: orangered;
     border-radius: 6px;
     height: 40px;

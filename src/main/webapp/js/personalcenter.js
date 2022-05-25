@@ -99,6 +99,7 @@ function updateUserBaseInfo() {
 }
 window.onload=function (){
     updateUserBaseInfo();
+    RevokeUserAccount();
 }
 function updateBaseInfo(){
     if($("#updatename").val().trim() === ""){
@@ -157,4 +158,8 @@ function updatePassword(){
 // 验证码
 function changCode(img) {
     img.src = "verifyCode?type=image&r="+Math.random();
+}
+//用户注销
+function buttonrevoke(){
+    $("#selectrevokebutton").submit();
 }

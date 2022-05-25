@@ -232,9 +232,9 @@
             </div>
             <%--5.注销账号--%>
             <div id="interface-5" class="rightboxpage">
-                <div>
+                <form action="userinfo?type=revokeUserAccount" method="post" id="selectrevokebutton">
                     <h2>注销账号</h2>
-                    <div class="revokeinterface">
+                    <div class="RevokeInterface">
                         <br>
                         <p>账号注销则视为您主动放弃以下资产和权益，且同意以下规则: </p>
                         <p>&nbsp;&nbsp;&nbsp;1.账号注销后,您将无法登录、使用旅鼠论坛账号,且不支持找回任何个人资料。</p>
@@ -243,10 +243,10 @@
                         <p>&nbsp;&nbsp;&nbsp;4.注销旅鼠论坛账号并不代表您注销前的账号行为和相关责任得到豁免或减轻。</p>
                         <br>
                     </div>
-                    <div id="revokebutton">
-                        <button type="submit" class="btn btn-warning">我已知悉，确认注销账号</button>
+                    <div id="RevokeButton">
+                        <button type="submit" onclick="buttonrevoke()" class="btn btn-warning" >我已知悉，确认注销账号</button>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>

@@ -48,4 +48,21 @@ public class UserInfoDao {
             throw new RuntimeException(e);
         }
     }
+    public static boolean revokeUserAccountDao(Integer id){
+        Connection connection=DataBaseConnect.getConnection();
+        PreparedStatement preparedStatement=null;
+        if(connection==null){
+            return false;
+        }
+        String sql="update user set user_condition='0' where id=?";
+        try{
+            preparedStatement=connection.prepareStatement(sql);
+            preparedStatement.setInt(1,id);
+            int res=preparedStatement.executeUpdate();
+            return res ==1;
+        }catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
 }

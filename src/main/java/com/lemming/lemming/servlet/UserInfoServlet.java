@@ -29,6 +29,9 @@ public class UserInfoServlet extends HttpServlet {
             case "updatePassword":
                 updatePassword(req, resp);
                 break;
+            case "revokeUserAccount":
+                revokeUserAccount(req, resp);
+                break;
         }
     }
 
@@ -118,5 +121,23 @@ public class UserInfoServlet extends HttpServlet {
             req.getRequestDispatcher("message.jsp").forward(req, resp);
         }
 
+    }
+//    注销账号
+    protected void revokeUserAccount(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        Integer id=(Integer) req.getSession().getAttribute("user");
+        User user = UserDao.getUserById(id);
+        if (user == null){
+            resp.setStatus(404);
+            return;
+        }
+        boolean b=UserInfoDao.revokeUserAccountDao(id);
+        if(b){
+            req.setAttribute("title","账号注销成功！");
+            req.setAttribute("content","您的账号已注销成功！");
+            req.getRequestDispatcher("message.jsp").forward(req,resp);
+        }else{
+            req.setAttribute("content", "账号注销失败，请重试。");
+            req.getRequestDispatcher("message.jsp").forward(req, resp);
+        }
     }
 }
