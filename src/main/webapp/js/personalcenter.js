@@ -154,3 +154,7 @@ function updatePassword(){
 
     $("#selectUpdatePassword").submit();
 }
+// 验证码
+function changCode(img) {
+    img.src = "verifyCode?type=image&r="+Math.random();
+}

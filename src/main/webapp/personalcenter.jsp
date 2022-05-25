@@ -11,7 +11,6 @@
     <title>旅鼠论坛-个人中心</title>
     <link rel="stylesheet" href="topbar/topbar.css">
     <script src="topbar/topbar.js"></script>
-
     <link rel="icon" href="images/logo.png">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <script src="bootstrap/js/jquery.js"></script>
@@ -29,10 +28,10 @@
     <div class="row">
         <div class="leftbox col-sm-2">
             <div class="user_information">
-                <%--            头像、用户名称--%>
+                <%-- 头像、用户名称--%>
                 <image class="leftimage" src="images/128x128.png"></image>
             </div>
-            <%--            左侧列表内容--%>
+            <%--  左侧列表内容--%>
             <ul>
                 <li id="li-1" onclick="page1()">基本信息</li>
                 <li id="li-2" onclick="page2()">密码管理</li>
@@ -198,9 +197,9 @@
                     <table class="updateemailinterface">
                         <tr>
                             <td>
-                                <p>原邮箱地址：</p>
-                                <input id="oldemail" class="form-check-input updateinputsize" type="text"
-                                       name="oldemail" value="" placeholder="显示原本邮箱地址">
+                                <p>输入账号密码</p>
+                                <input id="password" class="form-check-input updateinputsize" type="text"
+                                name="password" value="" placeholder="输入该账号密码">
                             </td>
                         </tr>
                         <tr>
@@ -210,12 +209,20 @@
                             <td>
                                 <p>新邮箱地址：</p>
                                 <input id="newemail" class="form-check-input updateinputsize" type="text"
-                                       name="newemail" value="" placeholder="请输入新密码">
+                                       name="newemail" value="" placeholder="请输入新邮箱地址">
                                 <button id="emailbtn" type="reset" class="btn btn-warning">重置</button>
                             </td>
                         </tr>
                         <tr>
                             <td><br></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>验证码：</p>
+<%--                                验证码框样式直接套用了修改界面的边框样式--%>
+                                <input id="login_verifyCode" class="updateinputsize" type="text" name="login_verifyCode" placeholder="输入验证码">
+                                <img src="verifyCode?type=image" alt="验证码" id="imageVerifyCode"  onclick="changCode(this)">
+                            </td>
                         </tr>
                     </table>
                     <div id="buttonstyle">
@@ -245,7 +252,5 @@
     </div>
 </div>
 </div>
-
-
 </body>
 </html>

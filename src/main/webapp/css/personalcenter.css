@@ -201,33 +201,18 @@ label{
 }
 #interface-2{
     height: 600px;
-    /*background-image: url("../images/background-1.png");*/
-    /*background-position: bottom right;*/
-    /*background-repeat: no-repeat;*/
-    /*background-image: url("../images/background-1-little.png");*/
-    /*!*background-position: bottom right;*!*/
-    /*background-position: right;*/
     display: none;
 }
 #interface-3{
     height: 600px;
-    /*background-repeat: no-repeat;*/
-    /*background-image: url("../images/background-1-little.png");*/
-    /*background-position: bottom right;*/
     display: none;
 }
 #interface-4{
     height: 600px;
-    /*background-repeat: no-repeat;*/
-    /*background-image: url("../images/background-1-little.png");*/
-    /*background-position: bottom right;*/
     display: none;
 }
 #interface-5{
     height: 600px;
-    /*background-repeat: no-repeat;*/
-    /*background-image: url("../images/background-1-little.png");*/
-    /*background-position: bottom right;*/
     display: none;
 }
 
@@ -329,9 +314,16 @@ p{
     background-size: contain;
     text-align: center;
 }
-.uploadpicture h2{
-    margin-left: 10%;
+.uploadpicture{
+    /*float: right;*/
+    box-sizing: border-box;
+    margin-right: 10%;
 }
+/*.uploadpicture h2{*/
+/*    height: 50px;*/
+/*    width: 100%;*/
+/*    margin-left: 10%;*/
+/*}*/
 #uploadbuttonsave{
     margin: 0 0 0 275px;
     width: 100px;
@@ -384,4 +376,8 @@ p{
     background-color: orangered;
     border-radius: 6px;
     height: 40px;
+}
+/*验证码边框样式*/
+#login_verifyCode{
+    width: 200px;
 }
