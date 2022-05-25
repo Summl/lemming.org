@@ -186,5 +186,12 @@ function changCode(img) {
 }
 //用户注销
 function buttonrevoke(){
-    $("#selectrevokebutton").submit();
+    //判定密码是否正确
+    if(confirm("注销操作不可逆，您是否将要继续注销账户？")){
+        $("#selectrevokebutton").submit();
+    }
+    else{
+        return false;
+    }
 }
+
