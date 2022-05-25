@@ -376,17 +376,29 @@ p{
     left: 285px;
 }
 #buttonstyle{
+    margin-top: 20px;
     margin-bottom: 20px;
     margin-left: 40%;
     /*text-align: center;*/
 
 }
+#oldemail{
+    background-color: #eeeeee;
+}
+#emailcodebtn{
+    margin-left: 10px;
+    border-radius: 8px;
+    height: 40px;
+}
 .updateemailinterface{
-    margin-top: 50px;
-    margin-left: 20%;
+    margin-left: 15%;
+}
+.updateemailinterface p{
+    margin-top: 15px;
 }
 .updateemailinterface input{
     padding: 6px 12px;
+    margin-bottom: 10px;
 }
 #emailbtn{
     height: 50px;

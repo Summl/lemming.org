@@ -218,7 +218,12 @@
                             </td>
                         </tr>
                         <tr>
-                            <td><br></td>
+                            <td>
+                                <p>向新邮箱发送验证码：</p>
+                                <input class="form-check-input updateinputsize" type="text" name="emailcode"
+                                       id="emailcode" value="" placeholder="请输入邮箱验证码">
+                                <button id="emailcodebtn" type="submit" class="btn btn-warning">发送邮箱验证码</button>
+                            </td>
                         </tr>
                     </table>
                     <div id="buttonstyle">
