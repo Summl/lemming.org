@@ -133,6 +133,12 @@ public class UserDao {
             throw new RuntimeException(e);
         }
     }
+
+    /**
+     * 获取排行榜数据
+     * @param num 获取的人数
+     * @return 返回排行榜数据
+     */
     public static List<User> getLeaderboard(int num){
         List<User> res = new ArrayList<>();
         Connection connection = DataBaseConnect.getConnection();
@@ -157,4 +163,5 @@ public class UserDao {
         }
         return res;
     }
+
 }

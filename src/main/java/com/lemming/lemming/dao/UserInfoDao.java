@@ -83,4 +83,21 @@ public class UserInfoDao {
             throw new RuntimeException(e);
         }
     }
+    public static boolean setGroupById(int userId, int groupId){
+        Connection connection = DataBaseConnect.getConnection();
+        PreparedStatement preparedStatement = null;
+        if (connection==null) {
+            return false;
+        }
+        String sql = "update user set group_id=? where id=?";
+        try {
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1,groupId);
+            preparedStatement.setInt(2,userId);
+            int res=preparedStatement.executeUpdate();
+            return res == 1;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

@@ -29,7 +29,7 @@
     </p>
     <form class="row" action="exam?type=submit" method="post" >
         <div id="out"></div>
-        <input type="submit" value="提交" onclick="submitdata()">
+        <input type="submit" value="提交">
     </form>
 </div>
 

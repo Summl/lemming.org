@@ -10,7 +10,6 @@ import java.util.List;
 public class ExamDao {
     public static List<Exam> getExamData(){
         List<Exam> res = new ArrayList<>();
-        Exam exam = new Exam();
         Connection conn = DataBaseConnect.getConnection();
 
         if(conn == null){
@@ -22,6 +21,7 @@ public class ExamDao {
             Statement st = conn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()){
+                Exam exam = new Exam();
                 exam.parseFromResultSet(rs);
                 res.add(exam);
             }
@@ -32,7 +32,27 @@ public class ExamDao {
         return res;
     }
 
-    public static int getScore(int id){
+    public static int getAnswerById(int id){
+        Connection conn = DataBaseConnect.getConnection();
+
+        if(conn == null){
+            return 0;
+        }
+
+        String sql="select answer from exam_info where id="+id;
+        int answer;
+        try {
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            rs.next();
+            answer = rs.getInt("answer");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return answer;
+    }
+
+    public static int getScoreById(int id){
         Connection conn = DataBaseConnect.getConnection();
 
         if(conn == null){
