@@ -55,7 +55,7 @@
                                        value="">
                             </div>
                             <br>
-<%--                            单选框--%>
+                            <%--                            单选框--%>
                             <span id="sexBaseInfo">性别:</span>
                             <div id="sexDiv" class="recognizedtext form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="updatesex" id="man" value="男">
@@ -68,7 +68,8 @@
                             <br>
                             <span id="phone">电话号码:</span>
                             <div class="recognizedtext">
-                                <input id="updatephone" class="form-control" type="tel" maxlength="11" name="updatephone"
+                                <input id="updatephone" class="form-control" type="tel" maxlength="11"
+                                       name="updatephone"
                                        placeholder="识别到的电话号码（可直接修改）" value="">
                             </div>
                             <br>
@@ -78,7 +79,7 @@
                                        placeholder="识别到的电子邮箱（可直接修改）">
                             </div>
                         </div>
-<%--                        不可编辑--%>
+                        <%--                        不可编辑--%>
                         <div class="rightusercontent">
                             <span style="margin-top: 10px">用户权限:</span>
                             <div class="recognizedtext">
@@ -100,12 +101,13 @@
                             </div>
                             <br>
                             <span>
-                                <input id="saveBaseInfo" type="button" onclick="updateBaseInfo()" class="btn btn-warning" data-dismiss="modal" value="保存">
+                                <input id="saveBaseInfo" type="button" onclick="updateBaseInfo()"
+                                       class="btn btn-warning" data-dismiss="modal" value="保存">
                             </span>
                         </div>
                     </div>
                 </form>
-                <div class="modal fade" data-backdrop="static"  id="mymodalBaseInfo">
+                <div class="modal fade" data-backdrop="static" id="mymodalBaseInfo">
                     <div class="modal-dialog modal-dialog-centered modal-sm">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -124,33 +126,43 @@
             </div>
             <%--2.密码修改界面--%>
             <div id="interface-2" class="rightboxpage">
-                <form action="userinfo?type=updatePassword" method="post"   id="selectUpdatePassword">
+                <form action="userinfo?type=updatePassword" method="post" id="selectUpdatePassword">
                     <h2>修改密码</h2>
                     <table class="updatepasswordinterface">
                         <tr>
                             <td>
                                 <p>原密码：</p>
-                                <input id="oldpassword" class="form-check-input updateinputsize" type="password" name="oldpassword" value="" placeholder="请输入原始密码">
+                                <input id="oldpassword" class="form-check-input updateinputsize" type="password"
+                                       name="oldpassword" value="" placeholder="请输入原始密码">
                             </td>
                         </tr>
-                        <tr><td><br></td></tr>
+                        <tr>
+                            <td><br></td>
+                        </tr>
                         <tr>
                             <td>
                                 <p>新密码：</p>
-                                <input id="newpassword" class="form-check-input updateinputsize" type="password" name="newpassword" value="" placeholder="请输入新密码">
+                                <input id="newpassword" class="form-check-input updateinputsize" type="password"
+                                       name="newpassword" value="" placeholder="请输入新密码">
                             </td>
                         </tr>
-                        <tr><td><br></td></tr>
+                        <tr>
+                            <td><br></td>
+                        </tr>
                         <tr>
                             <td>
                                 <p>重新输入新密码：</p>
-                                <input id="renewpassword" class="form-check-input updateinputsize" type="password" name="renewpassword" value="" placeholder="请重新输入新密码">
+                                <input id="renewpassword" class="form-check-input updateinputsize" type="password"
+                                       name="renewpassword" value="" placeholder="请重新输入新密码">
                             </td>
                         </tr>
-                        <tr><td><br></td></tr>
+                        <tr>
+                            <td><br></td>
+                        </tr>
                     </table>
                     <div class="buttonstyle">
-                        <button type="button" onclick="updatePassword()" class="btn btn-warning" id="buttonsave">保存信息</button>
+                        <button type="button" onclick="updatePassword()" class="btn btn-warning" id="buttonsave">保存信息
+                        </button>
                         <button type="reset" class="btn btn-warning" id="buttonreset">重置信息</button>
                     </div>
                 </form>
@@ -171,7 +183,6 @@
                     </div>
                 </div>
             </div>
-            </div>
             <%--3.上传头像界面--%>
             <div id="interface-3" class="rightboxpage">
                 <div id="uploadpicture">
@@ -188,45 +199,51 @@
                         <tr>
                             <td>
                                 <p>原邮箱地址：</p>
-                                <input id="oldemail" class="form-check-input updateinputsize" type="text" name="oldemail" value="" placeholder="显示原本邮箱地址">
+                                <input id="oldemail" class="form-check-input updateinputsize" type="text"
+                                       name="oldemail" value="" placeholder="显示原本邮箱地址">
                             </td>
                         </tr>
-                        <tr><td><br></td></tr>
+                        <tr>
+                            <td><br></td>
+                        </tr>
                         <tr>
                             <td>
                                 <p>新邮箱地址：</p>
-                                <input id="newemail" class="form-check-input updateinputsize" type="text" name="newemail" value="" placeholder="请输入新密码">
+                                <input id="newemail" class="form-check-input updateinputsize" type="text"
+                                       name="newemail" value="" placeholder="请输入新密码">
                                 <button id="emailbtn" type="reset" class="btn btn-warning">重置</button>
                             </td>
                         </tr>
-                        <tr><td><br></td></tr>
+                        <tr>
+                            <td><br></td>
+                        </tr>
                     </table>
                     <div id="buttonstyle">
-                        <button id="emailbtnsave" type="submit" class="btn btn-warning" >保存信息</button>
+                        <button id="emailbtnsave" type="submit" class="btn btn-warning">保存信息</button>
                     </div>
                 </form>
             </div>
             <%--5.注销账号--%>
             <div id="interface-5" class="rightboxpage">
-               <div>
-                   <h2>注销账号</h2>
-                        <div class="revokeinterface">
-                            <br>
-                            <p>账号注销则视为您主动放弃以下资产和权益，且同意以下规则: </p>
-                            <p>&nbsp;&nbsp;&nbsp;1.账号注销后,您将无法登录、使用旅鼠论坛账号,且不支持找回任何个人资料。</p>
-                            <p>&nbsp;&nbsp;&nbsp;2.该账号将解除与其他产品的绑定或授权关系，不支持找回。</p>
-                            <p>&nbsp;&nbsp;&nbsp;3.将不再支持使用已注销账号的用户ID注册新的账号。</p>
-                            <p>&nbsp;&nbsp;&nbsp;4.注销旅鼠论坛账号并不代表您注销前的账号行为和相关责任得到豁免或减轻。</p>
-                            <br>
-                        </div>
-                        <div id="revokebutton">
-                            <button type="submit" class="btn btn-warning">我已知悉，确认注销账号</button>
-                        </div>
-               </div>
+                <div>
+                    <h2>注销账号</h2>
+                    <div class="revokeinterface">
+                        <br>
+                        <p>账号注销则视为您主动放弃以下资产和权益，且同意以下规则: </p>
+                        <p>&nbsp;&nbsp;&nbsp;1.账号注销后,您将无法登录、使用旅鼠论坛账号,且不支持找回任何个人资料。</p>
+                        <p>&nbsp;&nbsp;&nbsp;2.该账号将解除与其他产品的绑定或授权关系，不支持找回。</p>
+                        <p>&nbsp;&nbsp;&nbsp;3.将不再支持使用已注销账号的用户ID注册新的账号。</p>
+                        <p>&nbsp;&nbsp;&nbsp;4.注销旅鼠论坛账号并不代表您注销前的账号行为和相关责任得到豁免或减轻。</p>
+                        <br>
+                    </div>
+                    <div id="revokebutton">
+                        <button type="submit" class="btn btn-warning">我已知悉，确认注销账号</button>
+                    </div>
+                </div>
             </div>
-
         </div>
     </div>
+</div>
 </div>
 
 
