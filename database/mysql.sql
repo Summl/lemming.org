@@ -1,14 +1,14 @@
+create database lemming;
+use lemming;
 create table exam_info
 (
-    id      int auto_increment
+    id      int            not null
         primary key,
-    title   text           null,
-    optionA text           null,
-    optionB text           null,
-    optionC text           null,
-    optionD text           null,
-    answer  text           null,
-    score   int default 10 null,
+    title   text           not null,
+    options text           not null comment '选项之间用英文分号";"隔开',
+    answer  int            not null comment '正确答案在options中的索引位置，从0开始',
+    score   int default 10 not null,
+    active  int default 1  not null,
     constraint exam_id_uindex
         unique (id)
 );
@@ -40,7 +40,8 @@ create table user
     registration_time datetime      not null comment '注册时间',
     email             varchar(20)   null,
     user_password     varchar(20)   not null,
-    `condition`       int default 1 null,
+    user_condition    int default 1 null,
+    img_filename      varchar(100)  null,
     constraint user_email_uindex
         unique (email),
     constraint user_id_uindex
@@ -88,3 +89,7 @@ create table discuss_info
 )
     comment '评论信息';
 
+# 插入基本数据
+insert into user_group values (0,'游客',0,1,0,0);
+insert into user_group values (1,'博主',1,1,0,0);
+insert into user_group values (999,'管理员',1,1,1,1);
