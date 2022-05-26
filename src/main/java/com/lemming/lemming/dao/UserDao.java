@@ -34,7 +34,8 @@ public class UserDao {
             preparedStatement.close();
             return res > 0;
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            return false;
         }
     }
 

@@ -224,7 +224,16 @@ public class PostDao {
             return false;
         }
 
-        String sql = "delete from post_info where id=?;";
+        String sql = "delete from discuss_info where post_id=?;";
+        try {
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1,id);
+            int res = preparedStatement.executeUpdate();
+            preparedStatement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        sql = "delete from post_info where id=?;";
         try {
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1,id);
@@ -233,7 +242,8 @@ public class PostDao {
             preparedStatement.close();
             return res > 0;
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
+        return false;
     }
 }
