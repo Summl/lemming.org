@@ -161,10 +161,31 @@ window.onload=function (){
     let getMailCodeBtn2 = document.getElementById("emailcodebtn")
     getMailCodeBtn2.addEventListener("click",getEmailVerifyCode2)
 
+
+
 }
-// function updateImg() {
-//     $("#secletImg").submit();
-// }
+
+//修改头像
+function updateImg(){
+    if($("#inputimage").val().trim() === ""){
+        $("#textUpdateImg").text("请插入您的头像！");
+        $("#mymodalUpdateImg").modal();
+        return;
+    }
+    // //let filename = document.getElementById("#inputimage").value;
+    // let filename = document.getElementById("#inputimage").getContentType();
+    // // let filename = $("#inputimage").val();
+    // let suffixIndex=fileName.lastIndexOf(".");
+    // let suffix=fileName.substring(suffixIndex+1).toUpperCase();
+    // if(suffix!="BMP"&&suffix!="JPG"&&suffix!="JPEG"&&suffix!="PNG"&&suffix!="GIF"){
+    //     $("#textUpdateImg").text("您输入的图片格式不正确！");
+    //     $("#mymodalUpdateImg").modal();
+    //     return;
+    // }
+
+    $("#secletImg").submit();
+}
+
 function updateBaseInfo(){
     if($("#updatename").val().trim() === ""){
         $("#textBaseInfo").text("请输入用户名！");
@@ -220,24 +241,7 @@ function updatePassword(){
 
     $("#selectUpdatePassword").submit();
 }
-//修改头像
-function updateImg(){
-    if($("#inputimage").val().trim() === ""){
-        $("#textUpdateImg").text("请插入您的头像！");
-        $("#mymodalUpdateImg").modal();
-        return;
-    }
-    // let filename = document.getElementById("#inputimage").value;
-    // // let filename = $("#inputimage").val();
-    // let suffixIndex=fileName.lastIndexOf(".");
-    // let suffix=fileName.substring(suffixIndex+1).toUpperCase();
-    // if(suffix!="BMP"&&suffix!="JPG"&&suffix!="JPEG"&&suffix!="PNG"&&suffix!="GIF"){
-    //     $("#textUpdateImg").text("您输入的图片格式不正确！");
-    //     $("#mymodalUpdateImg").modal();
-    //     return;
-    // }
-    $("#secletImg").submit();
-}
+
 
 //修改邮箱
 function saveEmail(){
